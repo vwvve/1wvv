@@ -230,7 +230,7 @@ def main():
     readme_content = "# 1Wvv's AllInOne Widgets\n\n" \
                      "本仓库自动合并多个 ForwardWidgets 源，方便统一使用。(50% off code: 1w5.5)\n\n" \
                      "自动检测链接是否有效, 最终生成集合不包含无效模块\n\n" \
-                     f"👉 [点此下载最新 allinone.fwd](https://github.com/vwvve/1wvv/allInOne.fwd)\n\n" \
+                     f"👉 [allinone.fwd](https://github.com/vwvve/1wvv/blob/main/allInOne.fwd)\n\n" \
                      "## 感谢以下原始仓库作者\n" \
                      + "\n".join(thanks) + "\n"
 
