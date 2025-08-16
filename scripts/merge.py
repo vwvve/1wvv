@@ -142,7 +142,7 @@ def get_name_after_last_slash(url):
 
 
 def change_repo_to_myself(file_path, owner="vwvve", repo="1wvv", branch="main"):
-    return f"https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{quote(file_path)}"
+    return f"https://raw.githubusercontent.com/{owner}/{repo}/refs/heads/{branch}/{quote(file_path)}"
 
 
 def download_widgets_script(widgets: list, widgets_path: str):

@@ -10,7 +10,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.1.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
     },
     {
       "id": "Xtream API Live",
@@ -19,7 +19,7 @@
       "requiredVersion": "0.0.1",
       "version": "2.1.2",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
     },
     {
       "id": "影视榜单修复豆瓣片单版",
@@ -28,7 +28,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.2.7",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
     },
     {
       "id": "🎞️ 追剧日历今/明日播出剧集/番剧/国漫/综艺、各项榜单、今日推荐等",
@@ -37,7 +37,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.3",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/zhuijurili.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/zhuijurili.js"
     },
     {
       "id": "Trakt",
@@ -46,7 +46,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.11",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/trakt.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/trakt.js"
     },
     {
       "id": "豆瓣-我看&个性化推荐",
@@ -55,7 +55,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.13",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/douban.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/douban.js"
     },
     {
       "id": "解析雅图每日放送更新以及各类排行榜",
@@ -64,7 +64,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.6",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/yatu.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/yatu.js"
     },
     {
       "id": "Hot Select Movies",
@@ -73,7 +73,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.1.7",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/HotPicks.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/HotPicks.js"
     },
     {
       "id": "Bangumi",
@@ -82,7 +82,7 @@
       "requiredVersion": "0.0.1",
       "version": "2.0.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/Bangumi_v2.0.0.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/Bangumi_v2.0.0.js"
     },
     {
       "id": "IMDb v2",
@@ -91,7 +91,7 @@
       "requiredVersion": "0.0.1",
       "version": "2.0.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/IMDb.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/IMDb.js"
     },
     {
       "id": "TMDB Character Film and Television Works",
@@ -100,7 +100,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.4",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/person_movie.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/person_movie.js"
     },
     {
       "id": "IMDB",
@@ -109,7 +109,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/imdb.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/imdb.js"
     },
     {
       "id": "Normal VOD",
@@ -118,7 +118,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.1.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/vod.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/vod.js"
     },
     {
       "id": "Paradise Movies",
@@ -127,7 +127,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/MovieParadise.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/MovieParadise.js"
     },
     {
       "id": "IPTV + Online Live Room",
@@ -136,7 +136,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.8",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/live.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/live.js"
     },
     {
       "id": "IPTV for China",
@@ -145,7 +145,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.1.4",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/TvLive.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/TvLive.js"
     },
     {
       "id": "RSS Podcast",
@@ -154,7 +154,7 @@
       "requiredVersion": "0.0.1",
       "version": "2.1.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/podcast.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/podcast.js"
     },
     {
       "id": "Letterboxd电影爱好者平台",
@@ -163,7 +163,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/letterboxd.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/letterboxd.js"
     },
     {
       "id": "èªå¨é¾æ¥å¼¹å¹",
@@ -172,7 +172,7 @@
       "requiredVersion": "0.0.2",
       "version": "1.0.9",
       "author": "huangxd",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/huangxd/danmu_auto.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/huangxd/danmu_auto.js"
     },
     {
       "id": "æå¨é¾æ¥å¼¹å¹",
@@ -181,7 +181,7 @@
       "requiredVersion": "0.0.2",
       "version": "1.0.3",
       "author": "huangxd",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/huangxd/danmu_playurl.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/huangxd/danmu_playurl.js"
     },
     {
       "id": "电影天堂",
@@ -190,7 +190,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
       "author": "两块",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E4%B8%A4%E5%9D%97/dytt.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/dytt.js"
     },
     {
       "id": "ä½ç«¯å½±è§",
@@ -199,7 +199,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.1",
       "author": "两块",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E4%B8%A4%E5%9D%97/ddys.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/ddys.js"
     },
     {
       "id": "Jable",
@@ -208,7 +208,7 @@
       "requiredVersion": "0.0.2",
       "version": "1.0.9",
       "author": "nibiru",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/nibiru/Jable.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/nibiru/Jable.js"
     },
     {
       "id": "91Porn",
@@ -217,7 +217,7 @@
       "requiredVersion": "0.0.1",
       "version": "0.9.4",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/91porn.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/91porn.js"
     },
     {
       "id": "Pornhub",
@@ -226,7 +226,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.5",
       "author": "海带",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E6%B5%B7%E5%B8%A6/ph.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E6%B5%B7%E5%B8%A6/ph.js"
     },
     {
       "id": "JAVDay",
@@ -235,7 +235,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.1.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/javday.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/javday.js"
     },
     {
       "id": "JAVRate",
@@ -244,7 +244,7 @@
       "requiredVersion": "0.0.1",
       "version": "2.1.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/javrate.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/javrate.js"
     },
     {
       "id": "XVideos",
@@ -253,7 +253,7 @@
       "requiredVersion": "0.0.1",
       "version": "0.9.4",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/xvideos.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/xvideos.js"
     },
     {
       "id": "Keword VOD",
@@ -262,7 +262,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/wuming.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/wuming.js"
     },
     {
       "id": "Bitch Lives",
@@ -271,7 +271,7 @@
       "requiredVersion": "0.0.1",
       "version": "0.0.1",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
     },
     {
       "id": "Jable",
@@ -280,7 +280,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.6",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/jable.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/jable.js"
     },
     {
       "id": "云端影院",
@@ -289,7 +289,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/CloudCinema.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/CloudCinema.js"
     }
   ]
 }
