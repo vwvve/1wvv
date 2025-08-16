@@ -3,9 +3,9 @@ var WidgetMetadata = {
   title: "JAVRate",
   description: "获取 JAVRate 推荐",
   author: "Ti",
-  site: "https://www.javrate.com/",
+  site: "https://github.com/quantumultxx/ForwardWidgets",
   version: "2.1.0",
-  requiredVersion: "0.0.1",
+  requiredVersion: "0.0.2",
   detailCacheDuration: 60,
   modules: [
     // 艺人模块
@@ -773,9 +773,9 @@ var WidgetMetadata = {
         }
       ]
     },
-    // 首页分类
+    // 首页版块
     {
-      title: "首页分类",
+      title: "首页版块",
       description: "选择需要浏览的分类",
       requiresWebView: false,
       functionName: "loadPage",
@@ -787,30 +787,12 @@ var WidgetMetadata = {
           type: "enumeration",
           enumOptions: [
             { title: "最新发布", value: "/movie/new/" },
-            { title: "热门排行", value: "/best/thisweek" },
+            { title: "热门排行", value: "/best" },
             { title: "无码A片", value: "/menu/uncensored/5-2-" },
             { title: "日本A片", value: "/menu/censored/5-2-" },
             { title: "国产AV", value: "/menu/chinese/5-2-" }
           ],
           value: "/movie/new/"
-        },
-        {
-          name: "sort_by",
-          title: "时间范围",
-          type: "enumeration",
-          belongTo: {
-            paramName: "categoryType",
-            value: ["/best/thisweek"],
-          },
-          enumOptions: [
-            { title: "最近一周", value: "/best/thisweek" },
-            { title: "最近一月", value: "/best/thismonth" },
-            { title: "最近半年", value: "/best/thishalfyear" },
-            { title: "最近一年", value: "/best/thisyear" },
-            { title: "全部时间", value: "/best" }
-          ],
-          value: "/best/thisweek",
-          description: "选择要查看的时间范围（仅热门排行有效）"
         },
         {
           name: "page",
@@ -919,7 +901,7 @@ var WidgetMetadata = {
 };
 
 
-const ARTIST_MAP_REMOTE_URL = "https://raw.githubusercontent.com/pack1r/ForwardWidgets/refs/heads/main/widgets/javrate_actors.json";
+const ARTIST_MAP_REMOTE_URL = "https://widgets-xd.vercel.app/data/javrate_actors.json";
 let artistMapCache = null;
 let artistMapCacheTime = 0;
 const CACHE_DURATION = 24 * 60 * 60 * 1000;
@@ -938,18 +920,31 @@ async function fetchArtistMap() {
   }
   
   try {
+    const dataHeaders = {
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15",
+      "Referer": BASE_URL
+    };
+    
     const response = await Widget.http.get(ARTIST_MAP_REMOTE_URL, {
-      headers: getCommonHeaders()
+      headers: dataHeaders
     });
     
-    if (!response.data) throw new Error("艺人列表返回空数据");
+    if (!response.data) {
+      throw new Error("艺人列表返回空数据");
+    }
     
-    artistMapCache = typeof response.data === "object" 
+    let rawData = typeof response.data === "object" 
       ? response.data 
       : JSON.parse(response.data);
     
-    if (typeof artistMapCache !== "object" || artistMapCache === null) {
+    if (typeof rawData !== "object" || rawData === null) {
       throw new Error("艺人列表格式无效");
+    }
+    
+    if (rawData.actors && typeof rawData.actors === "object") {
+      artistMapCache = rawData.actors;
+    } else {
+      artistMapCache = rawData;
     }
     
     artistMapCacheTime = Date.now();
@@ -968,7 +963,6 @@ async function normalizeArtistName(name) {
     .toLowerCase()
     .normalize("NFKC");
 }
-
 
 function parseDetailPage(detailPageHtml, detailPageUrl) {
   const $ = Widget.html.load(detailPageHtml);
@@ -1084,7 +1078,6 @@ function parseDetailPage(detailPageHtml, detailPageUrl) {
   };
 }
 
-
 async function parseItems(currentBaseUrl, $, listPageUrl) {
   const videoItems = [];
   const items = $('div[class^="movie-grid-new-"] .mgn-item');
@@ -1133,7 +1126,6 @@ async function parseItems(currentBaseUrl, $, listPageUrl) {
   return videoItems;
 }
 
-
 async function fetchDataForPath(path, params = {}) {
   const page = parseInt(params.page, 10) || 1;
   let requestUrl = "";
@@ -1169,10 +1161,9 @@ async function fetchDataForPath(path, params = {}) {
       : `${BASE_URL}${path}`;
   }
   else if (path.startsWith("/best/")) { 
-    const sortByPath = params.sort_by || path; 
-    requestUrl = page > 1 
-      ? `${BASE_URL}${sortByPath}?page=${page}` 
-      : `${BASE_URL}${sortByPath}`;
+  requestUrl = page > 1 
+    ? `${BASE_URL}${path}?page=${page}` 
+    : `${BASE_URL}${path}`;
   }
   else if ([
     "/menu/uncensored/5-2-", 
@@ -1245,7 +1236,6 @@ async function fetchDataForPath(path, params = {}) {
   }
 }
 
-
 async function loadDetail(linkValue) {
   let currentBaseUrl = "https://www.javrate.com";
   
@@ -1293,12 +1283,12 @@ async function loadDetail(linkValue) {
   }
 }
 
-
 async function loadPage(params) {
   let path = "";
   
     if (params?.artistId) {
     try {
+
       const artistMap = await fetchArtistMap();
     
       const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(params.artistId);
@@ -1349,7 +1339,7 @@ async function loadPage(params) {
       return [{
         id: "artist-map-error",
         type: "url",
-        title: "艺人列表加载失败",
+        title: "艺人搜索失败",
         description: "请检查网络连接或稍后再试\n错误信息: " + error.message,
         backdropPath: "",
         link: ""
@@ -1357,7 +1347,6 @@ async function loadPage(params) {
     }
   }
 
-  
   else if (params && params.tagType && params.tagValue) {
     const encodedTag = encodeURIComponent(params.tagValue);
     path = `/keywords/movie/${encodedTag}`;
