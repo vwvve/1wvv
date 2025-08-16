@@ -4,169 +4,169 @@
   "icon": "https://avatars.githubusercontent.com/u/225779571",
   "widgets": [
     {
-      "id": "yuanqi.wallpaper",
+      "id": "🖼️ ✨wallpaper",
       "title": "🖼️ ✨wallpaper",
       "description": "✨ Dynamic wallpaper For Topshelf",
       "requiredVersion": "0.0.1",
-      "version": "2.3.0",
-      "author": "🎁 Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%F0%9F%8E%81%20Discount%20Code%EF%BC%9AVEUS/raw"
+      "version": "1.1.0",
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
     },
     {
-      "id": "xtream_api_en",
+      "id": "Xtream API Live",
       "title": "Xtream API Live",
       "description": "Fetch live channels via official Xtream-Codes REST API with keyword search",
       "requiredVersion": "0.0.1",
       "version": "2.1.2",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/xtream_api.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
     },
     {
-      "id": "forward.combined.media.lists",
-      "title": "影视榜单",
-      "description": "聚合豆瓣、TMDB、IMDB和Bangumi的影视动画榜单",
+      "id": "影视榜单修复豆瓣片单版",
+      "title": "影视榜单修复豆瓣片单版",
+      "description": "📋 Combine media Lists V2",
       "requiredVersion": "0.0.1",
-      "version": "1.3.1",
-      "author": "阿米诺斯",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E9%98%BF%E7%B1%B3%E8%AF%BA%E6%96%AF/combined.js"
+      "version": "1.2.7",
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
     },
     {
-      "id": "zhuijurili",
-      "title": "追剧日历(今/明日播出、各项榜单、今日推荐)",
-      "description": "解析追剧日历今/明日播出剧集/番剧/国漫/综艺、各项榜单、今日推荐等",
+      "id": "🎞️ 追剧日历今/明日播出剧集/番剧/国漫/综艺、各项榜单、今日推荐等",
+      "title": "🎞️ 追剧日历今/明日播出剧集/番剧/国漫/综艺、各项榜单、今日推荐等",
+      "description": "Today's/Upcoming TV Series Schedule, Variety Shows, Chinese Animation, Rankings, Today's Picks",
       "requiredVersion": "0.0.1",
-      "version": "1.0.4",
-      "author": "huangxd",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/huangxd/zhuijurili.js"
+      "version": "1.0.3",
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/zhuijurili.js"
     },
     {
-      "id": "trakt",
-      "title": "Trakt我看&Trakt个性化推荐",
-      "description": "解析Trakt想看、在看、已看、片单、追剧日历以及根据个人数据生成的个性化推荐",
+      "id": "Trakt",
+      "title": "Trakt",
+      "description": "📊 Trakt's Watchlist, Viewing, Completed, Lists, Viewing Calendar, and Personalized Recommendations",
       "requiredVersion": "0.0.1",
       "version": "1.0.11",
-      "author": "huangxd",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/huangxd/trakt.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/trakt.js"
     },
     {
-      "id": "douban",
-      "title": "豆瓣我看&豆瓣个性化推荐",
-      "description": "解析豆瓣想看、在看、已看以及根据个人数据生成的个性化推荐【30% off code：CHEAP】",
+      "id": "豆瓣-我看&个性化推荐",
+      "title": "豆瓣-我看&个性化推荐",
+      "description": "🌿 Douban - My View & Personalized Recommendations",
       "requiredVersion": "0.0.1",
-      "version": "1.0.17",
-      "author": "huangxd",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/huangxd/douban.js"
+      "version": "1.0.13",
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/douban.js"
     },
     {
-      "id": "yatu",
-      "title": "雅图(每日放送+点播排行榜+评分排行榜)",
-      "description": "解析雅图每日放送更新以及各类排行榜",
+      "id": "解析雅图每日放送更新以及各类排行榜",
+      "title": "解析雅图每日放送更新以及各类排行榜",
+      "description": "🎞️ Analyze the daily updates of Yatu's broadcasts and various rankings.",
       "requiredVersion": "0.0.1",
       "version": "1.0.6",
-      "author": "huangxd",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/huangxd/yatu.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/yatu.js"
     },
     {
-      "id": "hot_picks",
-      "title": "热门精选",
-      "description": "获取最新热播剧和热门影片推荐",
+      "id": "Hot Select Movies",
+      "title": "Hot Select Movies",
+      "description": "🔥 Hot Select Movies",
       "requiredVersion": "0.0.1",
       "version": "1.1.7",
-      "author": "两块",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E4%B8%A4%E5%9D%97/HotPicks.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/HotPicks.js"
     },
     {
-      "id": "bangumi_charts_tmdb_v3",
-      "title": "Bangumi 热门榜单",
-      "description": "获取Bangumi近期热门、每日放送数据，支持榜单筛选。",
+      "id": "Bangumi",
+      "title": "Bangumi",
+      "description": "📺 Bangumi Hotlist",
       "requiredVersion": "0.0.1",
       "version": "2.0.0",
-      "author": "Autism",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Autism/Bangumi_v2.0.0.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/Bangumi_v2.0.0.js"
     },
     {
-      "id": "imdb_discovery_final_v2",
-      "title": "IMDb 分类资源 v2",
-      "description": "聚合 IMDb 热门影视资源",
+      "id": "IMDb v2",
+      "title": "IMDb v2",
+      "description": "🌟 IMDb v2 json",
       "requiredVersion": "0.0.1",
       "version": "2.0.0",
-      "author": "Autism",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Autism/IMDb.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/IMDb.js"
     },
     {
-      "id": "person.movie.tmdb",
-      "title": "TMDB人物影视作品",
-      "description": "获取 TMDB 的榜单数据",
+      "id": "TMDB Character Film and Television Works",
+      "title": "TMDB Character Film and Television Works",
+      "description": "🎭 TMDB Character Film and Television Works",
       "requiredVersion": "0.0.1",
       "version": "1.0.4",
-      "author": "Evan",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Evan/person_movie.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/person_movie.js"
     },
     {
-      "id": "imdb",
+      "id": "IMDB",
       "title": "IMDB",
-      "description": "IMDB",
+      "description": "🌟 IMDB",
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
-      "author": "pack1r",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/pack1r/imdb.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/imdb.js"
     },
     {
-      "id": "ti.bemarkt.vod.maccms",
-      "title": "VOD",
-      "description": "获取 VOD 影视数据",
+      "id": "Normal VOD",
+      "title": "Normal VOD",
+      "description": "🎞️ Normal VOD",
       "requiredVersion": "0.0.1",
       "version": "1.1.0",
-      "author": "Ti",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Ti/vod.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/vod.js"
     },
     {
-      "id": "movie_paradise",
-      "title": "在线影院",
-      "description": "获取在线电影、电视剧、动漫、综艺和短剧",
+      "id": "Paradise Movies",
+      "title": "Paradise Movies",
+      "description": "🏝️ Paradise Movies",
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
-      "author": "两块",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E4%B8%A4%E5%9D%97/MovieParadise.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/MovieParadise.js"
     },
     {
-      "id": "live",
-      "title": "直播(电视+网络)",
-      "description": "解析直播订阅链接【30% off code：CHEAP】",
+      "id": "IPTV + Online Live Room",
+      "title": "IPTV + Online Live Room",
+      "description": "🌐 IPTV （Global）+ Online Live Room（china）",
       "requiredVersion": "0.0.1",
-      "version": "1.0.9",
-      "author": "huangxd",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/huangxd/live.js"
+      "version": "1.0.8",
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/live.js"
     },
     {
-      "id": "tv_live",
-      "title": "电视台",
-      "description": "获取热门电视直播频道",
+      "id": "IPTV for China",
+      "title": "IPTV for China",
+      "description": "📺 User subscription link IPTV",
       "requiredVersion": "0.0.1",
-      "version": "1.1.5",
-      "author": "两块",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E4%B8%A4%E5%9D%97/TvLive.js"
+      "version": "1.1.4",
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/TvLive.js"
     },
     {
-      "id": "ti.bemarkt.podcast",
-      "title": "Podcast",
-      "description": "获取 RSS 播客数据",
+      "id": "RSS Podcast",
+      "title": "RSS Podcast",
+      "description": "🎧 RSS Podcast",
       "requiredVersion": "0.0.1",
       "version": "2.1.0",
-      "author": "Ti",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Ti/podcast.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/podcast.js"
     },
     {
-      "id": "letterboxd",
+      "id": "Letterboxd电影爱好者平台",
       "title": "Letterboxd电影爱好者平台",
-      "description": "解析Letterboxd片单内的影片【30% off code：CHEAP】",
+      "description": "🎬 Letterboxd Movies lists",
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
-      "author": "huangxd",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/huangxd/letterboxd.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/letterboxd.js"
     },
     {
-      "id": "forward.auto.danmu",
+      "id": "èªå¨é¾æ¥å¼¹å¹",
       "title": "自动链接弹幕",
       "description": "自动获取播放链接并从服务器获取弹幕【30% off code：CHEAP】",
       "requiredVersion": "0.0.2",
@@ -175,7 +175,7 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/huangxd/danmu_auto.js"
     },
     {
-      "id": "forward.playurl.danmu",
+      "id": "æå¨é¾æ¥å¼¹å¹",
       "title": "手动链接弹幕",
       "description": "从指定播放链接和服务器获取弹幕【30% off code：CHEAP】",
       "requiredVersion": "0.0.2",
@@ -184,7 +184,7 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/huangxd/danmu_playurl.js"
     },
     {
-      "id": "dytt_vod",
+      "id": "电影天堂",
       "title": "电影天堂",
       "description": "获取在线电影、电视剧、动漫、综艺和短剧",
       "requiredVersion": "0.0.1",
@@ -193,7 +193,7 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E4%B8%A4%E5%9D%97/dytt.js"
     },
     {
-      "id": "ddys_vod",
+      "id": "ä½ç«¯å½±è§",
       "title": "低端影视",
       "description": "获取在线电影、电视剧、动画",
       "requiredVersion": "0.0.1",
@@ -202,7 +202,7 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E4%B8%A4%E5%9D%97/ddys.js"
     },
     {
-      "id": "jable",
+      "id": "Jable",
       "title": "Jable",
       "description": "获取 Jable 视频",
       "requiredVersion": "0.0.2",
@@ -211,13 +211,13 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/nibiru/Jable.js"
     },
     {
-      "id": "91porn",
+      "id": "91Porn",
       "title": "91Porn",
-      "description": "获取 91Porn 视频",
+      "description": "🔞 Get videos from 91Porn",
       "requiredVersion": "0.0.1",
       "version": "0.9.4",
-      "author": "Baran",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Baran/91porn.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/91porn.js"
     },
     {
       "id": "Pornhub",
@@ -229,43 +229,43 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E6%B5%B7%E5%B8%A6/ph.js"
     },
     {
-      "id": "ti.bemarkt.javday",
+      "id": "JAVDay",
       "title": "JAVDay",
-      "description": "获取 JAVDay 推荐",
+      "description": "🔞 JAVDay Porn",
       "requiredVersion": "0.0.1",
       "version": "1.1.0",
-      "author": "Ti",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Ti/javday.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/javday.js"
     },
     {
-      "id": "ti.bemarkt.javrate",
-      "title": "JAVRate",
-      "description": "获取 JAVRate 推荐",
+      "id": "JAVRate",
+      "title": "🔞 JAVRate",
+      "description": "JAVRate Porn",
       "requiredVersion": "0.0.1",
       "version": "2.1.0",
-      "author": "Ti",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Ti/javrate.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/javrate.js"
     },
     {
-      "id": "unknow.baranwang.xvideos",
+      "id": "XVideos",
       "title": "XVideos",
-      "description": "Xvideos",
+      "description": "🔞 XVideos Porn",
       "requiredVersion": "0.0.1",
       "version": "0.9.4",
-      "author": "匿名",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E5%8C%BF%E5%90%8D/xvideos.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/xvideos.js"
     },
     {
-      "id": "wuming.VOD",
-      "title": "VOD",
-      "description": "根据Keyword,用于VOD",
+      "id": "Keword VOD",
+      "title": "Keword VOD",
+      "description": "🔍 Qurey Keword for VOD",
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
-      "author": "无名",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/%E6%97%A0%E5%90%8D/wuming.js"
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/wuming.js"
     },
     {
-      "id": "Bitch",
+      "id": "Bitch Lives",
       "title": "Bitch Lives",
       "description": "🎥 Bitch Lives",
       "requiredVersion": "0.0.1",
@@ -274,7 +274,7 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/raw"
     },
     {
-      "id": "🔞 jable",
+      "id": "Jable",
       "title": "Jable",
       "description": "Jable porn",
       "requiredVersion": "0.0.1",
@@ -283,7 +283,7 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/jable.js"
     },
     {
-      "id": "cloud_cinema",
+      "id": "云端影院",
       "title": "云端影院",
       "description": "☁️ YUNDUAN MOvies",
       "requiredVersion": "0.0.1",

@@ -154,6 +154,7 @@ def download_widgets_script(widgets: list, widgets_path: str):
             url = widget.get("url")
 
             w_author = widget.get("author")
+            w_title = widget.get("title")
 
             if not wid or not url or not w_author:
                 continue
@@ -174,6 +175,7 @@ def download_widgets_script(widgets: list, widgets_path: str):
                 continue
 
             # 全部重新编码下
+            widget["id"] = widget.get("title").replace("🔞", "").strip()
             widget["title"] = try_decode(widget.get("title"))
             widget["description"] = try_decode(widget.get("description"))
             widget["author"] = w_author
@@ -194,7 +196,7 @@ def download_widgets_script(widgets: list, widgets_path: str):
 
             cur_ver = normalize_version(widget.get("version", "0.0.0"))
 
-            if wid not in merged:
+            if w_title not in merged:
                 # 之前没有这个 id，直接放进去
                 merged[wid] = widget
 
@@ -203,7 +205,6 @@ def download_widgets_script(widgets: list, widgets_path: str):
                 old_ver = normalize_version(merged[wid].get("version", "0.0.0"))
                 if cur_ver > old_ver:
                     merged[wid] = widget
-
     return merged
 
 
