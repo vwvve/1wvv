@@ -167,15 +167,16 @@ def download_widgets_script(widgets: list, widgets_path: str):
 
             ok, final_url, code = check_url_final(url)
 
-            js_name = get_name_after_last_slash(url)
+            js_name = get_name_after_last_slash(url).lower()
             js_path = os.path.join(w_path, js_name)
+            # pprint(f"js_name {js_name},js_path{js_path}")
 
             if not ok:
                 print(f"  ⚠️ widget 被移除: {widget.get('id', '')} (最终 URL: {final_url}, 状态码: {code})")
                 continue
 
             # 全部重新编码下
-            widget["id"] = widget.get("title").replace("🔞", "").strip()
+            widget["id"] = widget.get("title").replace("🔞", "").strip().lower()
             widget["title"] = try_decode(widget.get("title"))
             widget["description"] = try_decode(widget.get("description"))
             widget["author"] = w_author
@@ -196,10 +197,9 @@ def download_widgets_script(widgets: list, widgets_path: str):
 
             cur_ver = normalize_version(widget.get("version", "0.0.0"))
 
-            if w_title not in merged:
+            if wid not in merged:
                 # 之前没有这个 id，直接放进去
                 merged[wid] = widget
-
             else:
                 # 已有相同 id，比较版本号
                 old_ver = normalize_version(merged[wid].get("version", "0.0.0"))
