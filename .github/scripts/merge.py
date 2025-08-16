@@ -18,7 +18,7 @@ import re
 import os
 from pprint import pprint
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
 headers = {
     "user-agent": "Forward/316 CFNetwork/3826.600.41 Darwin/24.6.0"
 }
