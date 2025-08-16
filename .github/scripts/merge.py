@@ -128,17 +128,25 @@ def normalize_version(v: str):
 
 def get_name_after_last_slash(url):
     """
-    获取 URL 中最后一个  "/"  后的名字.
-    Args:
-      url: URL 字符串.
-    Returns:
-      最后一个  "/"  后的名字.  如果 URL 中没有  "/" , 则返回整个 URL.
-    """
+      获取 URL 中倒数第二个 "/" 后的名字。 如果返回的名字是 "raw", 则返回倒数第二个斜杠后的名字.
+      Args:
+        url: URL 字符串.
+      Returns:
+        倒数第二个 "/" 后的名字（如果最后一个斜杠后是 "raw"），否则返回最后一个 "/" 后的名字。
+        如果 URL 中没有 "/" , 则返回整个 URL.
+      """
     last_slash_index = url.rfind("/")
     if last_slash_index == -1:
         return url
+    name_after_last_slash = url[last_slash_index + 1:]
+    if name_after_last_slash == "raw":
+        second_last_slash_index = url[:last_slash_index].rfind("/")
+        if second_last_slash_index == -1:
+            return url[:last_slash_index]
+        else:
+            return url[second_last_slash_index + 1:last_slash_index]
     else:
-        return url[last_slash_index + 1:]
+        return name_after_last_slash
 
 
 def change_repo_to_myself(file_path, owner="vwvve", repo="1wvv", branch="main"):
@@ -172,8 +180,9 @@ def download_widgets_script(widgets: list, widgets_path: str):
             ok, final_url, code = check_url_final(url)
 
             js_name = get_name_after_last_slash(url)
+
             js_path = os.path.join(w_path, js_name)
-            pprint(f"js_name {js_name},js_path{js_path}")
+            # pprint(f"js_name {js_name},js_path{js_path}")
 
             if not ok:
                 print(f"  ⚠️ widget 被移除: {widget.get('id', '')} (最终 URL: {final_url}, 状态码: {code})")
