@@ -153,12 +153,16 @@ def download_widgets_script(widgets: list, widgets_path: str):
             wid = widget.get("id")
             url = widget.get("url")
 
-            w_author = widget.get("author")
-            w_title = widget.get("title")
-
-            if not wid or not url or not w_author:
+            if not wid or not url:
                 continue
 
+            # 全部重新编码下
+            widget["id"] = try_decode(widget.get("id")).replace("🔞", "").strip().lower()
+            widget["title"] = try_decode(widget.get("title"))
+            widget["description"] = try_decode(widget.get("description"))
+            widget["author"] = try_decode(widget.get("author"))
+
+            wid = widget.get("id")
             w_author = try_decode(widget.get("author"))
 
             w_path = os.path.join(widgets_path, w_author)
@@ -174,12 +178,6 @@ def download_widgets_script(widgets: list, widgets_path: str):
             if not ok:
                 print(f"  ⚠️ widget 被移除: {widget.get('id', '')} (最终 URL: {final_url}, 状态码: {code})")
                 continue
-
-            # 全部重新编码下
-            widget["id"] = widget.get("title").replace("🔞", "").strip().lower()
-            widget["title"] = try_decode(widget.get("title"))
-            widget["description"] = try_decode(widget.get("description"))
-            widget["author"] = w_author
 
             try:
                 # download
