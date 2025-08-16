@@ -171,9 +171,9 @@ def download_widgets_script(widgets: list, widgets_path: str):
 
             ok, final_url, code = check_url_final(url)
 
-            js_name = get_name_after_last_slash(url).lower()
+            js_name = get_name_after_last_slash(url)
             js_path = os.path.join(w_path, js_name)
-            # pprint(f"js_name {js_name},js_path{js_path}")
+            pprint(f"js_name {js_name},js_path{js_path}")
 
             if not ok:
                 print(f"  ⚠️ widget 被移除: {widget.get('id', '')} (最终 URL: {final_url}, 状态码: {code})")

@@ -9,7 +9,7 @@
       "description": "✨ Dynamic wallpaper For Topshelf",
       "requiredVersion": "0.0.1",
       "version": "2.3.0",
-      "author": "ð Discount Codeï¼VEUS",
+      "author": "🎁 Discount Code：VEUS",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%F0%9F%8E%81%20Discount%20Code%EF%BC%9AVEUS/raw"
     },
     {
@@ -73,7 +73,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.1.7",
       "author": "两块",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/hotpicks.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/HotPicks.js"
     },
     {
       "id": "bangumi_charts_tmdb_v3",
@@ -82,7 +82,7 @@
       "requiredVersion": "0.0.1",
       "version": "2.0.0",
       "author": "Autism",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Autism/bangumi_v2.0.0.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Autism/Bangumi_v2.0.0.js"
     },
     {
       "id": "imdb_discovery_final_v2",
@@ -91,7 +91,7 @@
       "requiredVersion": "0.0.1",
       "version": "2.0.0",
       "author": "Autism",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Autism/imdb.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Autism/IMDb.js"
     },
     {
       "id": "person.movie.tmdb",
@@ -127,7 +127,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
       "author": "两块",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/movieparadise.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/MovieParadise.js"
     },
     {
       "id": "live",
@@ -145,7 +145,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.1.5",
       "author": "两块",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/tvlive.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/TvLive.js"
     },
     {
       "id": "ti.bemarkt.podcast",
@@ -198,7 +198,7 @@
       "description": "获取在线电影、电视剧、动画",
       "requiredVersion": "0.0.1",
       "version": "1.0.1",
-      "author": "ä¸¤å",
+      "author": "两块",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/ddys.js"
     },
     {
@@ -208,7 +208,7 @@
       "requiredVersion": "0.0.2",
       "version": "1.0.9",
       "author": "nibiru",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/nibiru/jable.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/nibiru/Jable.js"
     },
     {
       "id": "91porn",
@@ -261,7 +261,7 @@
       "description": "根据Keyword,用于VOD",
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
-      "author": "æ å",
+      "author": "无名",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E6%97%A0%E5%90%8D/wuming.js"
     },
     {
@@ -280,7 +280,7 @@
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
       "author": "Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/cloudcinema.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/CloudCinema.js"
     }
   ]
 }
