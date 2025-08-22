@@ -211,15 +211,6 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/nibiru/Jable.js"
     },
     {
-      "id": "91porn",
-      "title": "91Porn",
-      "description": "获取 91Porn 视频",
-      "requiredVersion": "0.0.1",
-      "version": "0.9.4",
-      "author": "Baran",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Baran/91porn.js"
-    },
-    {
       "id": "pornhub",
       "title": "Pornhub",
       "description": "在线观看Pornhub",
@@ -247,15 +238,6 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Ti/javrate.js"
     },
     {
-      "id": "unknow.baranwang.xvideos",
-      "title": "XVideos",
-      "description": "Xvideos",
-      "requiredVersion": "0.0.1",
-      "version": "0.9.4",
-      "author": "匿名",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E5%8C%BF%E5%90%8D/xvideos.js"
-    },
-    {
       "id": "wuming.vod",
       "title": "VOD",
       "description": "根据Keyword,用于VOD",
@@ -263,6 +245,24 @@
       "version": "1.0.0",
       "author": "无名",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E6%97%A0%E5%90%8D/wuming.js"
+    },
+    {
+      "id": "91porn",
+      "title": "91Porn",
+      "description": "获取 91Porn 视频",
+      "requiredVersion": "0.0.1",
+      "version": "0.9.4",
+      "author": "匿名",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E5%8C%BF%E5%90%8D/91porn.js"
+    },
+    {
+      "id": "unknow.baranwang.xvideos",
+      "title": "XVideos",
+      "description": "Xvideos",
+      "requiredVersion": "0.0.1",
+      "version": "0.9.4",
+      "author": "匿名",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E5%8C%BF%E5%90%8D/xvideos.js"
     },
     {
       "id": "bitch",
