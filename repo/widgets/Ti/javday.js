@@ -3,9 +3,9 @@ var WidgetMetadata = {
   title: "JAVDay",
   description: "获取 JAVDay 推荐",
   author: "Ti",
-  site: "https://javday.app",
+  site: "https://widgets-xd.vercel.app",
   version: "1.1.0",
-  requiredVersion: "0.0.1",
+  requiredVersion: "0.0.2",
   detailCacheDuration: 60,
   modules: [
     // 搜索模块
