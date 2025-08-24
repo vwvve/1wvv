@@ -161,7 +161,7 @@
       "title": "Letterboxd电影爱好者平台",
       "description": "解析Letterboxd片单内的影片【30% off code：CHEAP】",
       "requiredVersion": "0.0.1",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "huangxd",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/huangxd/letterboxd.js"
     },
@@ -170,7 +170,7 @@
       "title": "自动链接弹幕",
       "description": "自动获取播放链接并从服务器获取弹幕【30% off code：CHEAP】",
       "requiredVersion": "0.0.2",
-      "version": "1.0.13",
+      "version": "1.0.14",
       "author": "huangxd",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/huangxd/danmu_auto.js"
     },
@@ -263,6 +263,15 @@
       "version": "1.0.0",
       "author": "无名",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E6%97%A0%E5%90%8D/wuming.js"
+    },
+    {
+      "id": "missav",
+      "title": "MissAV",
+      "description": "获取 MissAV 推荐",
+      "requiredVersion": "0.0.2",
+      "version": "1.0.0",
+      "author": "𝓑𝓾𝓽𝓽𝓮𝓻𝓯𝓵𝔂",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%F0%9D%93%91%F0%9D%93%BE%F0%9D%93%BD%F0%9D%93%BD%F0%9D%93%AE%F0%9D%93%BB%F0%9D%93%AF%F0%9D%93%B5%F0%9D%94%82/MissAV.js"
     },
     {
       "id": "bitch",
