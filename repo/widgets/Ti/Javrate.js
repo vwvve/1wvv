@@ -3,7 +3,7 @@ var WidgetMetadata = {
   title: "JAVRate",
   description: "获取 JAVRate 推荐",
   author: "Ti",
-  site: "https://github.com/quantumultxx/ForwardWidgets",
+  site: "https://widgets-xd.vercel.app",
   version: "2.1.0",
   requiredVersion: "0.0.2",
   detailCacheDuration: 60,
