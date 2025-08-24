@@ -10,7 +10,7 @@ on:
       - '.github/scripts/**'
       - '.github/workflows/**'
   schedule:
-    - cron: "0 3,18 * * *"
+    - cron: "0 */3 * * *"
 
 jobs:
   merge:
