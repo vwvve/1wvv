@@ -1,3 +1,75 @@
+
+// === 自动注入的会话标识 ===
+let WIDGET_SESSION_ID = "y8aowes1qohmerh75s7";
+const WIDGET_BASE_URL = "https://widgets-xd.vercel.app";
+const WIDGET_SESSION_EXPIRES_AT = 1756149837127;
+
+// 会话刷新函数
+async function refreshWidgetSession() {
+    try {
+        const response = await Widget.http.get(WIDGET_BASE_URL + '/api/proxy?refresh_session=true');
+        if (response.data && response.data.success) {
+            WIDGET_SESSION_ID = response.data.session_id;
+            return true;
+        }
+    } catch (error) {
+        console.error('会话刷新失败:', error);
+    }
+    return false;
+}
+
+// 重写数据获取函数，自动添加会话ID和处理过期
+function setupWidgetSession() {
+    if (typeof Widget !== 'undefined' && Widget.http && Widget.http.get) {
+        const originalGet = Widget.http.get;
+        Widget.http.get = async function(url, options) {
+            if (url.includes(WIDGET_BASE_URL + '/data/')) {
+                // 检查会话是否即将过期（提前5分钟刷新）
+                const timeUntilExpiry = WIDGET_SESSION_EXPIRES_AT - Date.now();
+                if (timeUntilExpiry <= 5 * 60 * 1000) {
+                    await refreshWidgetSession();
+                }
+                
+                const separator = url.includes('?') ? '&' : '?';
+                url = url + separator + 'session_id=' + encodeURIComponent(WIDGET_SESSION_ID);
+                
+                try {
+                    return await originalGet.call(this, url, options);
+                } catch (error) {
+                    // 如果是会话过期错误，尝试刷新会话后重试
+                    if (error.message && error.message.includes('SESSION_EXPIRED')) {
+                        if (await refreshWidgetSession()) {
+                            const newSeparator = url.split('?')[0].includes('?') ? '&' : '?';
+                            const baseUrl = url.split('session_id=')[0];
+                            const retryUrl = baseUrl + newSeparator + 'session_id=' + encodeURIComponent(WIDGET_SESSION_ID);
+                            return await originalGet.call(this, retryUrl, options);
+                        }
+                    }
+                    throw error;
+                }
+            }
+            return originalGet.call(this, url, options);
+        };
+        return true;
+    }
+    return false;
+}
+
+// 立即尝试设置，如果失败则延迟重试
+if (!setupWidgetSession()) {
+    const checkInterval = setInterval(() => {
+        if (setupWidgetSession()) {
+            clearInterval(checkInterval);
+        }
+    }, 100);
+    
+    // 5秒后停止尝试
+    setTimeout(() => {
+        clearInterval(checkInterval);
+    }, 5000);
+}
+// === 会话注入结束 ===
+
 // =============UserScript=============
 // @name         影视聚合查询组件
 // @version      1.3.3
