@@ -1,6 +1,6 @@
 // =============UserScript=============
 // @name         影视聚合查询组件
-// @version      1.3.2
+// @version      1.3.3
 // @description  聚合查询豆瓣/TMDB/IMDB/BGM影视数据
 // @author       阿米诺斯
 // =============UserScript=============
@@ -10,50 +10,30 @@ WidgetMetadata = {
   description: "聚合豆瓣、TMDB、IMDB和Bangumi的影视动画榜单",
   author: "阿米诺斯",
   site: "https://widgets-xd.vercel.app",
-  version: "1.3.2",
+  version: "1.3.3",
   requiredVersion: "0.0.2",
   detailCacheDuration: 60,
   modules: [
     // =============TMDB模块=============
-    // --- 当前与趋势模块 ---
+    // --- 热门模块 ---
     {
-      title: "TMDB 今日热门",
-      description: "今日热门电影与剧集",
+      title: " 今日热门剧集",
+      description: "今日热门电视剧",
       requiresWebView: false,
-      functionName: "loadTodayGlobalMedia",
+      functionName: "loadTodayHotTV",
       cacheDuration: 60,
       params: [
-        { name: "language", title: "语言", type: "language", value: "zh-CN" }
-      ]
-    },
-    {
-      title: "TMDB 本周热门",
-      description: "本周热门电影与剧集",
-      requiresWebView: false,
-      functionName: "loadWeekGlobalMovies",
-      cacheDuration: 60,
-      params: [
-        { name: "language", title: "语言", type: "language", value: "zh-CN" }
-      ]
-    },
-    {
-    title: "TMDB 热门电影",
-    description: "当前热门电影",
-    requiresWebView: false,
-    functionName: "tmdbPopularMovies",
-    cacheDuration: 60,
-    params: [
         { name: "language", title: "语言", type: "language", value: "zh-CN" },
         { name: "page", title: "页码", type: "page" }
       ]
     },
     {
-    title: "TMDB 热门剧集",
-    description: "当前热门剧集",
-    requiresWebView: false,
-    functionName: "tmdbPopularTV",
-    cacheDuration: 60,
-    params: [
+      title: " 今日热门电影",
+      description: "今日热门电影",
+      requiresWebView: false,
+      functionName: "loadTodayHotMovies",
+      cacheDuration: 60,
+      params: [
         { name: "language", title: "语言", type: "language", value: "zh-CN" },
         { name: "page", title: "页码", type: "page" }
       ]
@@ -968,7 +948,7 @@ WidgetMetadata = {
 // ===============屏蔽配置===============
 // 被屏蔽的电影/剧集ID列表
 const BLOCKED_MOVIE_IDS = new Set([
-  '846817', 846817, '1040159', 1040159, '939099', 939099, '1094936', 1094936, '292035', 292035, '456', 456, '240411', 240411, '65334', 65334, '502', 502, '2224', 2224, '4177', 4177, '59941', 59941, '1220', 1220, '3034', 3034, '2261', 2261, '2179', 2179, '61818', 61818, '278165', 278165, '4419', 4419, '715287', 715287, '611251', 611251, '259872', 259872, '1236471', 1236471, '226674', 226674, '1234720', 1234720, '80295', 80295, '1211373', 1211373, '994682', 994682, '707610', 707610, '173705', 173705, '318256', 318256, '687637', 687637, '442495', 442495, '416148', 416148, '710261', 710261, '296989', 296989
+  '846817', 846817, '1040159', 1040159, '939099', 939099, '1094936', 1094936, '292035', 292035, '456', 456, '65334', 65334, '502', 502, '2224', 2224, '4177', 4177, '59941', 59941, '1220', 1220, '3034', 3034, '2261', 2261, '2179', 2179, '61818', 61818, '278165', 278165, '4419', 4419, '715287', 715287, '611251', 611251, '259872', 259872, '1236471', 1236471, '226674', 226674, '1234720', 1234720, '80295', 80295, '1211373', 1211373, '994682', 994682, '707610', 707610, '173705', 173705, '318256', 318256, '687637', 687637, '442495', 442495, '416148', 416148, '710261', 710261, '296989', 296989
 ]);
 
 function isItemBlocked(item) {
@@ -1166,7 +1146,7 @@ function parseDoubanAppDispatchUrl(url) {
     return null;
 }
 
-//===============TMDB功能函数===============
+// ================TMDB功能函数===============
 async function fetchTmdbData(api, params) {
     const [data, genres] = await Promise.all([
         Widget.tmdb.get(api, { params: params }),
@@ -1202,22 +1182,6 @@ async function fetchTmdbData(api, params) {
     return filterBlockedItems(filteredResults);
 }
 
-async function loadTodayGlobalMedia() {
-    const data = await loadTmdbTrendingData();
-    return data.today_global.map(item => ({
-        id: item.id.toString(),
-        type: "tmdb",
-        title: item.title,
-        genreTitle: item.genreTitle,
-        rating: item.rating,
-        description: item.overview,
-        releaseDate: item.release_date,
-        posterPath: item.poster_url,
-        backdropPath: item.title_backdrop,
-        mediaType: item.type,
-    }));
-}
-
 async function loadTmdbTrendingData() {
     try {
         const response = await Widget.http.get("https://widgets-xd.vercel.app/data/TMDB_Trending.json", {
@@ -1229,7 +1193,7 @@ async function loadTmdbTrendingData() {
     } catch (error) {
         console.log("远程数据获取失败，回退到基础请求:", error.message);
         try {
-            const fallbackResponse = await Widget.http.get("https://fw-yyds.vercel.app/data/TMDB_Trending.json");
+            const fallbackResponse = await Widget.http.get("https://widgets-xd.vercel.app/data/TMDB_Trending.json");
             return fallbackResponse.data;
         } catch (fallbackError) {
             console.error("所有请求方式均失败:", fallbackError.message);
@@ -1238,150 +1202,116 @@ async function loadTmdbTrendingData() {
     }
 }
 
-async function loadTodayGlobalMedia() {
-    const data = await loadTmdbTrendingData();
-    const items = data.today_global.map(item => ({
-        id: item.id.toString(),
-        type: "tmdb",
-        title: item.title,
-        genreTitle: item.genreTitle,
-        rating: item.rating,
-        description: item.overview,
-        releaseDate: item.release_date,
-        posterPath: item.poster_url,
-        backdropPath: item.title_backdrop,
-        mediaType: item.type,
-    }));
-    
-    return filterBlockedItems(items);
-}
-
-async function loadWeekGlobalMovies(params) {
-    const data = await loadTmdbTrendingData();
-    const items = data.week_global_all.map(item => ({
-        id: item.id.toString(),
-        type: "tmdb",
-        title: item.title,
-        genreTitle: item.genreTitle,
-        rating: item.rating,
-        description: item.overview,
-        releaseDate: item.release_date,
-        posterPath: item.poster_url,
-        backdropPath: item.title_backdrop,
-        mediaType: item.type,
-    }));
-    
-    return filterBlockedItems(items);
-}
-
-async function tmdbPopularMovies(params) {
-    if ((parseInt(params.page) || 1) === 1) {
-        const data = await loadTmdbTrendingData();
-        const items = data.popular_movies
-      .slice(0, 15)
-      .map(item => ({
-        id: item.id.toString(),
-        type: "tmdb",
-        title: item.title,
-        genreTitle: item.genreTitle,
-        rating: item.rating,
-        description: item.overview,
-        releaseDate: item.release_date,
-        posterPath: item.poster_url,
-        backdropPath: item.title_backdrop,
-        mediaType: item.type
-            }));
-        
-        return filterBlockedItems(items);
-    }
-    
-    const [data, genres] = await Promise.all([
-        Widget.tmdb.get(`/movie/popular`, { 
-            params: { 
-                language: params.language || 'zh-CN',
-                page: parseInt(params.page) || 1,
-                region: 'CN'
-            } 
-        }),
-        fetchTmdbGenres()
-    ]);
-    
-    const items = data.results
-        .filter((item) => {
-            return item.poster_path &&
-                   item.id &&
-                   item.title &&
-                   item.title.trim().length > 0;
-        })
+async function loadTodayHotTV(params) {
+  const page = parseInt(params.page) || 1;
+  
+  if (page === 1) {
+    try {
+      const data = await loadTmdbTrendingData();
+      const tvItems = data.today_tv
+        .filter(item => item.type === 'tv')
+        .slice(0, 20)
         .map(item => ({
-            id: String(item.id),
-            type: "tmdb",
-            title: item.title,
-            description: item.overview,
-            releaseDate: item.release_date,
-            backdropPath: item.backdrop_path,
-            posterPath: item.poster_path,
-            rating: item.vote_average,
-            mediaType: "movie",
-            genreTitle: getTmdbGenreTitles(item.genre_ids, "movie")
+          id: item.id.toString(),
+          type: "tmdb",
+          title: item.title,
+          genreTitle: item.genreTitle,
+          rating: item.rating,
+          description: item.overview,
+          releaseDate: item.release_date,
+          posterPath: item.poster_url,
+          backdropPath: item.title_backdrop,
+          mediaType: 'tv'
         }));
-    
-    return filterBlockedItems(items);
+      
+      return filterBlockedItems(tvItems);
+    } catch (error) {
+      console.error("远程数据获取失败，使用API数据:", error);
+    }
+  }
+  
+  const [data, genres] = await Promise.all([
+    Widget.tmdb.get(`/trending/tv/day`, { 
+      params: { 
+        language: params.language || 'zh-CN',
+        page: page
+      } 
+    }),
+    fetchTmdbGenres()
+  ]);
+  
+  const items = data.results
+    .filter(item => !item.media_type || item.media_type === 'tv')
+    .map(item => ({
+      id: String(item.id),
+      type: "tmdb",
+      title: item.name,
+      description: item.overview,
+      releaseDate: item.first_air_date,
+      backdropPath: item.backdrop_path,
+      posterPath: item.poster_path,
+      rating: item.vote_average,
+      mediaType: "tv",
+      genreTitle: getTmdbGenreTitles(item.genre_ids || [], "tv")
+    }));
+  
+  return filterBlockedItems(items);
 }
 
-async function tmdbPopularTV(params) {
-    if ((parseInt(params.page) || 1) === 1) {
-        const data = await loadTmdbTrendingData();
-        const items = data.popular_tv
-      .slice(0, 15)
-      .map(item => ({
-        id: item.id.toString(),
-        type: "tmdb",
-        title: item.title,
-        genreTitle: item.genreTitle,
-        rating: item.rating,
-        description: item.overview,
-        releaseDate: item.release_date,
-        posterPath: item.poster_url,
-        backdropPath: item.title_backdrop,
-        mediaType: item.type
-            }));
-        
-        return filterBlockedItems(items);
-    }
-    
-    const [data, genres] = await Promise.all([
-        Widget.tmdb.get(`/tv/popular`, { 
-            params: { 
-                language: params.language || 'zh-CN',
-                page: parseInt(params.page) || 1,
-                region: 'CN'
-            } 
-        }),
-        fetchTmdbGenres()
-    ]);
-    
-    const items = data.results
-        .filter((item) => {
-            return item.poster_path &&
-                   item.id &&
-                   item.name &&
-                   item.name.trim().length > 0;
-        })
+async function loadTodayHotMovies(params) {
+  const page = parseInt(params.page) || 1;
+  
+  if (page === 1) {
+    try {
+      const data = await loadTmdbTrendingData();
+      const movieItems = data.today_movies
+        .filter(item => item.type === 'movie')
+        .slice(0, 20)
         .map(item => ({
-            id: String(item.id),
-            type: "tmdb",
-            title: item.name,
-            description: item.overview,
-            releaseDate: item.first_air_date,
-            backdropPath: item.backdrop_path,
-            posterPath: item.poster_path,
-            rating: item.vote_average,
-            mediaType: "tv",
-            genreTitle: getTmdbGenreTitles(item.genre_ids, "tv")
+          id: item.id.toString(),
+          type: "tmdb",
+          title: item.title,
+          genreTitle: item.genreTitle,
+          rating: item.rating,
+          description: item.overview,
+          releaseDate: item.release_date,
+          posterPath: item.poster_url,
+          backdropPath: item.title_backdrop,
+          mediaType: 'movie'
         }));
-    
-    return filterBlockedItems(items);
+      
+      return filterBlockedItems(movieItems);
+    } catch (error) {
+      console.error("远程数据获取失败，使用API数据:", error);
+    }
+  }
+  
+  const [data, genres] = await Promise.all([
+    Widget.tmdb.get(`/trending/movie/day`, { 
+      params: { 
+        language: params.language || 'zh-CN',
+        page: page
+      } 
+    }),
+    fetchTmdbGenres()
+  ]);
+  
+  const items = data.results
+    .filter(item => !item.media_type || item.media_type === 'movie')
+    .map(item => ({
+      id: String(item.id),
+      type: "tmdb",
+      title: item.title,
+      description: item.overview,
+      releaseDate: item.release_date,
+      backdropPath: item.backdrop_path,
+      posterPath: item.poster_path,
+      rating: item.vote_average,
+      mediaType: "movie",
+      genreTitle: getTmdbGenreTitles(item.genre_ids || [], "movie")
+    }));
+  
+  return filterBlockedItems(items);
 }
 
 async function tmdbTopRated(params) {
