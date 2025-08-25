@@ -1,50 +1,70 @@
 
-// === 自动注入的会话标识 ===
-let WIDGET_SESSION_ID = "y8aowes1qohmerh75s7";
+// === Widget Session Manager ===
+let WIDGET_SESSION_ID = "tu3rbw2k9gsmermuwbe";
 const WIDGET_BASE_URL = "https://widgets-xd.vercel.app";
-const WIDGET_SESSION_EXPIRES_AT = 1756149837127;
+const STORAGE_KEY = "WIDGET_SESSION_ID_V1";
 
-// 会话刷新函数
-async function refreshWidgetSession() {
+// 会话状态管理
+let sessionInitialized = false;
+let pendingRequests = [];
+
+// 初始化会话ID
+function initSession() {
     try {
-        const response = await Widget.http.get(WIDGET_BASE_URL + '/api/proxy?refresh_session=true');
-        if (response.data && response.data.success) {
-            WIDGET_SESSION_ID = response.data.session_id;
-            return true;
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            WIDGET_SESSION_ID = stored;
+            console.log('使用存储的会话ID:', WIDGET_SESSION_ID.substring(0, 8) + '...');
+        } else {
+            localStorage.setItem(STORAGE_KEY, WIDGET_SESSION_ID);
+            console.log('保存新会话ID:', WIDGET_SESSION_ID.substring(0, 8) + '...');
         }
-    } catch (error) {
-        console.error('会话刷新失败:', error);
+    } catch (e) {
+        console.log('本地存储不可用，使用生成的会话ID');
     }
-    return false;
+    sessionInitialized = true;
+    
+    // 处理等待的请求
+    if (pendingRequests.length > 0) {
+        console.log('处理', pendingRequests.length, '个等待的请求');
+        pendingRequests.forEach(req => req.resolve());
+        pendingRequests = [];
+    }
 }
 
-// 重写数据获取函数，自动添加会话ID和处理过期
-function setupWidgetSession() {
+// 等待会话初始化
+function waitForSession() {
+    return new Promise((resolve) => {
+        if (sessionInitialized) {
+            resolve();
+        } else {
+            pendingRequests.push({resolve});
+        }
+    });
+}
+
+// 设置HTTP拦截器
+function setupSession() {
     if (typeof Widget !== 'undefined' && Widget.http && Widget.http.get) {
         const originalGet = Widget.http.get;
         Widget.http.get = async function(url, options) {
             if (url.includes(WIDGET_BASE_URL + '/data/')) {
-                // 检查会话是否即将过期（提前5分钟刷新）
-                const timeUntilExpiry = WIDGET_SESSION_EXPIRES_AT - Date.now();
-                if (timeUntilExpiry <= 5 * 60 * 1000) {
-                    await refreshWidgetSession();
-                }
+                // 等待会话初始化完成
+                await waitForSession();
+                const sep = url.includes('?') ? '&' : '?';
+                // 添加时间戳和请求ID避免缓存问题
+                const timestamp = Date.now();
+                const requestId = Math.random().toString(36).substring(2, 8);
+                url = url + sep + 'session_id=' + encodeURIComponent(WIDGET_SESSION_ID) + '&t=' + timestamp + '&req=' + requestId;
                 
-                const separator = url.includes('?') ? '&' : '?';
-                url = url + separator + 'session_id=' + encodeURIComponent(WIDGET_SESSION_ID);
+                console.log('模块请求[' + requestId + ']:', WIDGET_SESSION_ID.substring(0, 8) + '...');
                 
                 try {
-                    return await originalGet.call(this, url, options);
+                    const result = await originalGet.call(this, url, options);
+                    console.log('模块请求[' + requestId + '] 成功');
+                    return result;
                 } catch (error) {
-                    // 如果是会话过期错误，尝试刷新会话后重试
-                    if (error.message && error.message.includes('SESSION_EXPIRED')) {
-                        if (await refreshWidgetSession()) {
-                            const newSeparator = url.split('?')[0].includes('?') ? '&' : '?';
-                            const baseUrl = url.split('session_id=')[0];
-                            const retryUrl = baseUrl + newSeparator + 'session_id=' + encodeURIComponent(WIDGET_SESSION_ID);
-                            return await originalGet.call(this, retryUrl, options);
-                        }
-                    }
+                    console.error('模块请求[' + requestId + '] 失败:', error.message);
                     throw error;
                 }
             }
@@ -55,20 +75,21 @@ function setupWidgetSession() {
     return false;
 }
 
-// 立即尝试设置，如果失败则延迟重试
-if (!setupWidgetSession()) {
-    const checkInterval = setInterval(() => {
-        if (setupWidgetSession()) {
-            clearInterval(checkInterval);
+// 立即初始化会话
+initSession();
+
+// 设置拦截器
+if (!setupSession()) {
+    const timer = setInterval(() => {
+        if (setupSession()) {
+            clearInterval(timer);
+            console.log('会话拦截器已设置');
         }
     }, 100);
-    
-    // 5秒后停止尝试
-    setTimeout(() => {
-        clearInterval(checkInterval);
-    }, 5000);
+    setTimeout(() => clearInterval(timer), 5000);
+} else {
+    console.log('会话拦截器已设置');
 }
-// === 会话注入结束 ===
 
 // =============UserScript=============
 // @name         影视聚合查询组件
