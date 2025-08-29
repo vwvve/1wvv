@@ -1,6 +1,6 @@
 // =============UserScript=============
 // @name         影视聚合查询组件
-// @version      1.3.1
+// @version      1.3.3
 // @description  聚合查询豆瓣/TMDB/IMDB/BGM影视数据
 // @author       阿米诺斯
 // =============UserScript=============
@@ -9,248 +9,31 @@ WidgetMetadata = {
   title: "影视榜单",
   description: "聚合豆瓣、TMDB、IMDB和Bangumi的影视动画榜单",
   author: "阿米诺斯",
-  site: "https://github.com/quantumultxx/ForwardWidgets",
-  version: "1.3.1",
-  requiredVersion: "0.0.1",
-  detailCacheDuration: 60,
+  site: "https://widgets-xd.vercel.app",
+  version: "1.3.3",
+  requiredVersion: "0.0.2",
+  detailCacheDuration: 3600,
   modules: [
-    // =============豆瓣模块=============
-    // --- 片单解析 ---
+    // =============TMDB模块=============
+    // --- 热门模块 ---
     {
-      title: "豆瓣自定义片单",
-      description: "支持格式:桌面/移动端豆列、官方榜单、App dispatch",
+      title: " 今日热门剧集",
+      description: "今日热门电视剧",
       requiresWebView: false,
-      functionName: "loadEnhancedDoubanList",
+      functionName: "loadTodayHotTV",
       cacheDuration: 3600,
       params: [
-        {
-          name: "url", 
-          title: "🔗 片单地址", 
-          type: "input", 
-          description: "支持格式:桌面/移动端豆列、官方榜单、App dispatch",
-          placeholders: [
-              { title: "一周电影口碑榜", 
-              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/movie_weekly_best/&dt_dapp=1" },
-              { title: "华语口碑剧集榜", 
-              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/tv_chinese_best_weekly/&dt_dapp=1" },
-              { title: "全球口碑剧集榜", 
-              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/tv_global_best_weekly/&dt_dapp=1" },
-              { title: "国内热播综艺", 
-              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/show_domestic/&dt_dapp=1" },
-              { title: "国外热播综艺", 
-              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/show_foreign/&dt_dapp=1" },
-              { title: "当地影院热映", 
-              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/movie_showing/&dt_dapp=1" },
-              { title: "热门动画", 
-              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/tv_animation/&dt_dapp=1" }
-          ]
-        },
+        { name: "language", title: "语言", type: "language", value: "zh-CN" },
         { name: "page", title: "页码", type: "page" }
       ]
     },
-    // --- 实时热点 ---
     {
-      title: "豆瓣电影实时热榜",
-      description: "来自豆瓣的当前热门电影榜单",
+      title: " 今日热门电影",
+      description: "今日热门电影",
       requiresWebView: false,
-      functionName: "loadDoubanHotListWithTmdb",
+      functionName: "loadTodayHotMovies",
       cacheDuration: 3600,
       params: [
-        { name: "url", 
-          title: "🔗 列表地址", 
-          type: "constant", 
-          value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/movie_real_time_hotest/&dt_dapp=1" },
-        { name: "type", 
-          title: "🎭 类型", 
-          type: "constant", 
-          value: "movie" }
-      ]
-    },
-    {
-      title: "豆瓣剧集实时热榜",
-      description: "来自豆瓣的当前热门剧集榜单",
-      requiresWebView: false,
-      functionName: "loadDoubanHotListWithTmdb",
-      cacheDuration: 3600,
-      params: [
-        { name: "url", 
-          title: "🔗 列表地址", 
-          type: "constant", 
-          value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/tv_real_time_hotest/&dt_dapp=1" },
-        { name: "type", 
-          title: "🎭 类型", 
-          type: "constant", 
-          value: "tv" }
-      ]
-    },
-    {
-      title: "豆瓣书影音实时热榜",
-      description: "来自豆瓣的书影音实时热榜",
-      requiresWebView: false,
-      functionName: "loadDoubanHotListWithTmdb",
-      cacheDuration: 3600,
-      params: [
-        { name: "url", 
-          title: "🔗 列表地址", 
-          type: "constant", 
-          value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/subject_real_time_hotest/&dt_dapp=1" },
-        { name: "type", 
-          title: "🎭 类型", 
-          type: "constant", 
-          value: "subject" }
-      ]
-    },
-    // --- 精选榜单 ---
-    {
-      title: "豆瓣 Top 250 电影",
-      description: "豆瓣评分最高的 250 部电影",
-      requiresWebView: false,
-      functionName: "loadDoubanItemsFromApi",
-      cacheDuration: 3600,
-      params: [
-        { name: "url", 
-          title: "🔗 列表地址", 
-          type: "constant", 
-          value: "https://m.douban.com/rexxar/api/v2/subject_collection/movie_top250/items" },
-        { name: "page", title: "页码", type: "page" },
-        { name: "limit", title: "🔢 每页数量", type: "constant", value: "20" }
-      ]
-    },
-    // --- 探索发现 ---
-    {
-      title: "豆瓣电影推荐",
-      description: "按分类、地区、类型标签浏览豆瓣推荐电影",
-      requiresWebView: false,
-      functionName: "loadDoubanRecommendMovies",
-      cacheDuration: 3600,
-      params: [
-        {
-          name: "category", 
-          title: "🏷️ 分类", 
-          type: "enumeration",
-          enumOptions: [ 
-            { title: "全部", value: "全部" }, 
-            { title: "热门电影", value: "热门" }, 
-            { title: "最新电影", value: "最新" }, 
-            { title: "豆瓣高分", value: "豆瓣高分" }, 
-            { title: "冷门佳片", value: "冷门佳片" } 
-          ],
-        },
-        {
-          name: "type", 
-          title: "🌍 地区", 
-          type: "enumeration",
-          value: "全部",
-          belongTo: {
-            paramName: "category",
-            value: ["热门","最新","豆瓣高分","冷门佳片"],
-          },
-          enumOptions: [ 
-            { title: "全部", value: "全部" }, 
-            { title: "华语", value: "华语" }, 
-            { title: "欧美", value: "欧美" }, 
-            { title: "韩国", value: "韩国" }, 
-            { title: "日本", value: "日本" } 
-          ],
-        },
-        {
-          name: "tags", 
-          title: "🎭 类型", 
-          type: "enumeration",
-          value: "",
-          belongTo: {
-            paramName: "category",
-            value: ["全部"],
-          },
-          enumOptions: [
-            { title: "全部", value: "" },
-            { title: "动作", value: "动作" },
-            { title: "科幻", value: "科幻" },
-            { title: "灾难", value: "灾难" },
-            { title: "爱情", value: "爱情" },
-            { title: "喜剧", value: "喜剧" },
-            { title: "悬疑", value: "悬疑" },
-            { title: "犯罪", value: "犯罪" },
-            { title: "冒险", value: "冒险" },
-            { title: "奇幻", value: "奇幻" },
-            { title: "战争", value: "战争" },
-            { title: "历史", value: "历史" },
-            { title: "武侠", value: "武侠" },
-            { title: "惊悚", value: "惊悚" },
-            { title: "恐怖", value: "恐怖" },
-            { title: "情色", value: "情色" },
-            { title: "动画", value: "动画" },
-            { title: "剧情", value: "剧情" },
-            { title: "西部", value: "西部" },
-            { title: "家庭", value: "家庭" },
-            { title: "音乐", value: "音乐" },
-            { title: "运动", value: "运动" },
-            { title: "古装", value: "古装" },
-            { title: "歌舞", value: "歌舞" },
-            { title: "传记", value: "传记" },
-            { title: "短片", value: "短片" },
-            { title: "纪录片", value: "纪录片" }
-          ]
-        },
-        { name: "page", title: "页码", type: "page" },
-        { name: "limit", title: "🔢 每页数量", type: "constant", value: "20" }
-      ]
-    },
-    {
-      title: "豆瓣剧集推荐",
-      description: "按分类、类型浏览豆瓣推荐剧集",
-      requiresWebView: false,
-      functionName: "loadDoubanRecommendShows",
-      cacheDuration: 3600,
-      params: [
-        {
-          name: "type", 
-          title: "🎭 类型", 
-          type: "enumeration",
-          enumOptions: [
-            { title: "综合", value: "tv" }, 
-            { title: "国产剧", value: "tv_domestic" }, 
-            { title: "欧美剧", value: "tv_american" }, 
-            { title: "日剧", value: "tv_japanese" }, 
-            { title: "韩剧", value: "tv_korean" }, 
-            { title: "动画", value: "tv_animation" }, 
-            { title: "纪录片", value: "tv_documentary" } 
-          ],
-          value: "tv"
-        },
-        { name: "page", title: "页码", type: "page" },
-        { name: "limit", title: "🔢 每页数量", type: "constant", value: "20" }
-      ]
-    },
-    // =============TMDB模块=============
-    // --- 当前与趋势模块 ---
-    {
-      title: "TMDB 今日热门",
-      description: "今日热门电影与剧集",
-      requiresWebView: false,
-      functionName: "loadTodayGlobalMedia",
-      cacheDuration: 60,
-      params: [
-        { name: "language", title: "语言", type: "language", value: "zh-CN" }
-      ]
-    },
-    {
-      title: "TMDB 本周热门",
-      description: "本周热门电影与剧集",
-      requiresWebView: false,
-      functionName: "loadWeekGlobalMovies",
-      cacheDuration: 60,
-      params: [
-        { name: "language", title: "语言", type: "language", value: "zh-CN" }
-      ]
-    },
-    {
-    title: "TMDB 热门电影",
-    description: "当前热门电影",
-    requiresWebView: false,
-    functionName: "tmdbPopularMovies",
-    cacheDuration: 60,
-    params: [
         { name: "language", title: "语言", type: "language", value: "zh-CN" },
         { name: "page", title: "页码", type: "page" }
       ]
@@ -568,6 +351,214 @@ WidgetMetadata = {
             },
             { name: "page", title: "页码", type: "page" }
         ]
+    },
+    // =============豆瓣模块=============
+    // --- 片单解析 ---
+    {
+      title: "豆瓣自定义片单",
+      description: "支持格式:桌面/移动端豆列、官方榜单、App dispatch",
+      requiresWebView: false,
+      functionName: "loadEnhancedDoubanList",
+      cacheDuration: 3600,
+      params: [
+        {
+          name: "url", 
+          title: "🔗 片单地址", 
+          type: "input", 
+          description: "支持格式:桌面/移动端豆列、官方榜单、App dispatch",
+          placeholders: [
+              { title: "一周电影口碑榜", 
+              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/movie_weekly_best/&dt_dapp=1" },
+              { title: "华语口碑剧集榜", 
+              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/tv_chinese_best_weekly/&dt_dapp=1" },
+              { title: "全球口碑剧集榜", 
+              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/tv_global_best_weekly/&dt_dapp=1" },
+              { title: "国内热播综艺", 
+              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/show_domestic/&dt_dapp=1" },
+              { title: "国外热播综艺", 
+              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/show_foreign/&dt_dapp=1" },
+              { title: "当地影院热映", 
+              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/movie_showing/&dt_dapp=1" },
+              { title: "热门动画", 
+              value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/tv_animation/&dt_dapp=1" }
+          ]
+        },
+        { name: "page", title: "页码", type: "page" }
+      ]
+    },
+    // --- 实时热点 ---
+    {
+      title: "豆瓣电影实时热榜",
+      description: "来自豆瓣的当前热门电影榜单",
+      requiresWebView: false,
+      functionName: "loadDoubanHotListWithTmdb",
+      cacheDuration: 3600,
+      params: [
+        { name: "url", 
+          title: "🔗 列表地址", 
+          type: "constant", 
+          value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/movie_real_time_hotest/&dt_dapp=1" },
+        { name: "type", 
+          title: "🎭 类型", 
+          type: "constant", 
+          value: "movie" }
+      ]
+    },
+    {
+      title: "豆瓣剧集实时热榜",
+      description: "来自豆瓣的当前热门剧集榜单",
+      requiresWebView: false,
+      functionName: "loadDoubanHotListWithTmdb",
+      cacheDuration: 3600,
+      params: [
+        { name: "url", 
+          title: "🔗 列表地址", 
+          type: "constant", 
+          value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/tv_real_time_hotest/&dt_dapp=1" },
+        { name: "type", 
+          title: "🎭 类型", 
+          type: "constant", 
+          value: "tv" }
+      ]
+    },
+    {
+      title: "豆瓣书影音实时热榜",
+      description: "来自豆瓣的书影音实时热榜",
+      requiresWebView: false,
+      functionName: "loadDoubanHotListWithTmdb",
+      cacheDuration: 3600,
+      params: [
+        { name: "url", 
+          title: "🔗 列表地址", 
+          type: "constant", 
+          value: "https://www.douban.com/doubanapp/dispatch?uri=/subject_collection/subject_real_time_hotest/&dt_dapp=1" },
+        { name: "type", 
+          title: "🎭 类型", 
+          type: "constant", 
+          value: "subject" }
+      ]
+    },
+    // --- 精选榜单 ---
+    {
+      title: "豆瓣 Top 250 电影",
+      description: "豆瓣评分最高的 250 部电影",
+      requiresWebView: false,
+      functionName: "loadDoubanItemsFromApi",
+      cacheDuration: 3600,
+      params: [
+        { name: "url", 
+          title: "🔗 列表地址", 
+          type: "constant", 
+          value: "https://m.douban.com/rexxar/api/v2/subject_collection/movie_top250/items" },
+        { name: "page", title: "页码", type: "page" },
+        { name: "limit", title: "🔢 每页数量", type: "constant", value: "20" }
+      ]
+    },
+    // --- 探索发现 ---
+    {
+      title: "豆瓣电影推荐",
+      description: "按分类、地区、类型标签浏览豆瓣推荐电影",
+      requiresWebView: false,
+      functionName: "loadDoubanRecommendMovies",
+      cacheDuration: 3600,
+      params: [
+        {
+          name: "category", 
+          title: "🏷️ 分类", 
+          type: "enumeration",
+          enumOptions: [ 
+            { title: "全部", value: "全部" }, 
+            { title: "热门电影", value: "热门" }, 
+            { title: "最新电影", value: "最新" }, 
+            { title: "豆瓣高分", value: "豆瓣高分" }, 
+            { title: "冷门佳片", value: "冷门佳片" } 
+          ],
+        },
+        {
+          name: "type", 
+          title: "🌍 地区", 
+          type: "enumeration",
+          value: "全部",
+          belongTo: {
+            paramName: "category",
+            value: ["热门","最新","豆瓣高分","冷门佳片"],
+          },
+          enumOptions: [ 
+            { title: "全部", value: "全部" }, 
+            { title: "华语", value: "华语" }, 
+            { title: "欧美", value: "欧美" }, 
+            { title: "韩国", value: "韩国" }, 
+            { title: "日本", value: "日本" } 
+          ],
+        },
+        {
+          name: "tags", 
+          title: "🎭 类型", 
+          type: "enumeration",
+          value: "",
+          belongTo: {
+            paramName: "category",
+            value: ["全部"],
+          },
+          enumOptions: [
+            { title: "全部", value: "" },
+            { title: "动作", value: "动作" },
+            { title: "科幻", value: "科幻" },
+            { title: "灾难", value: "灾难" },
+            { title: "爱情", value: "爱情" },
+            { title: "喜剧", value: "喜剧" },
+            { title: "悬疑", value: "悬疑" },
+            { title: "犯罪", value: "犯罪" },
+            { title: "冒险", value: "冒险" },
+            { title: "奇幻", value: "奇幻" },
+            { title: "战争", value: "战争" },
+            { title: "历史", value: "历史" },
+            { title: "武侠", value: "武侠" },
+            { title: "惊悚", value: "惊悚" },
+            { title: "恐怖", value: "恐怖" },
+            { title: "情色", value: "情色" },
+            { title: "动画", value: "动画" },
+            { title: "剧情", value: "剧情" },
+            { title: "西部", value: "西部" },
+            { title: "家庭", value: "家庭" },
+            { title: "音乐", value: "音乐" },
+            { title: "运动", value: "运动" },
+            { title: "古装", value: "古装" },
+            { title: "歌舞", value: "歌舞" },
+            { title: "传记", value: "传记" },
+            { title: "短片", value: "短片" },
+            { title: "纪录片", value: "纪录片" }
+          ]
+        },
+        { name: "page", title: "页码", type: "page" },
+        { name: "limit", title: "🔢 每页数量", type: "constant", value: "20" }
+      ]
+    },
+    {
+      title: "豆瓣剧集推荐",
+      description: "按分类、类型浏览豆瓣推荐剧集",
+      requiresWebView: false,
+      functionName: "loadDoubanRecommendShows",
+      cacheDuration: 3600,
+      params: [
+        {
+          name: "type", 
+          title: "🎭 类型", 
+          type: "enumeration",
+          enumOptions: [
+            { title: "综合", value: "tv" }, 
+            { title: "国产剧", value: "tv_domestic" }, 
+            { title: "欧美剧", value: "tv_american" }, 
+            { title: "日剧", value: "tv_japanese" }, 
+            { title: "韩剧", value: "tv_korean" }, 
+            { title: "动画", value: "tv_animation" }, 
+            { title: "纪录片", value: "tv_documentary" } 
+          ],
+          value: "tv"
+        },
+        { name: "page", title: "页码", type: "page" },
+        { name: "limit", title: "🔢 每页数量", type: "constant", value: "20" }
+      ]
     },
     // =============IMDB模块=============
     {
@@ -954,6 +945,34 @@ WidgetMetadata = {
   ]
 };
 
+// ===============屏蔽配置===============
+// 被屏蔽的电影/剧集ID列表
+const BLOCKED_MOVIE_IDS = new Set([
+  '846817', '1040159', '939099', '1094936', '292035', '456', '65334', '502', '2224', '4177', '59941', '1220', '3034', '2261', '2179', '61818', '278165', '4419', '715287', '611251', '259872', '1236471', '226674', '1234720', '80295', '1211373', '994682', '707610', '173705', '318256', '687637', '442495', '416148', '710261', '296989', '285479', '274806', '293875', '292407', '292307', '292313', '292485', '292774', '292488', '292492', '292317', '1443748', '1443479', '293871', '293960'
+]);
+
+function isItemBlocked(item) {
+  if (!item || !item.id) return false;
+  
+  const itemId = String(item.id);
+  if (BLOCKED_MOVIE_IDS.has(itemId)) {
+    console.log(`屏蔽项目: ${item.title || 'Unknown'} (ID: ${itemId})`);
+    return true;
+  }
+  
+  if (item.originalDoubanId && BLOCKED_MOVIE_IDS.has(String(item.originalDoubanId))) {
+    console.log(`屏蔽豆瓣映射项目: ${item.title || 'Unknown'} (豆瓣ID: ${item.originalDoubanId})`);
+    return true;
+  }
+  
+  return false;
+}
+
+function filterBlockedItems(items) {
+  if (!Array.isArray(items)) return items;
+  return items.filter(item => !isItemBlocked(item));
+}
+
 // ===============辅助函数===============
 let tmdbGenresCache = null;
 
@@ -1127,6 +1146,259 @@ function parseDoubanAppDispatchUrl(url) {
     return null;
 }
 
+// ================TMDB功能函数===============
+async function fetchTmdbData(api, params) {
+    const [data, genres] = await Promise.all([
+        Widget.tmdb.get(api, { params: params }),
+        fetchTmdbGenres()
+    ]);
+
+    const filteredResults = data.results
+        .filter((item) => {
+            return item.poster_path &&
+                   item.id &&
+                   (item.title || item.name) &&
+                   (item.title || item.name).trim().length > 0;
+        })
+        .map((item) => {
+            const mediaType = item.media_type || (item.title ? 'movie' : 'tv');
+            const genreIds = item.genre_ids || [];
+            const genreTitle = getTmdbGenreTitles(genreIds, mediaType);
+
+            return {
+                id: item.id,
+                type: "tmdb",
+                title: item.title || item.name,
+                description: item.overview,
+                releaseDate: item.release_date || item.first_air_date,
+                backdropPath: item.backdrop_path,
+                posterPath: item.poster_path,
+                rating: item.vote_average,
+                mediaType: mediaType,
+                genreTitle: genreTitle
+            };
+        });
+
+    return filterBlockedItems(filteredResults);
+}
+
+async function loadTmdbTrendingData() {
+    try {
+        const response = await Widget.http.get("https://widgets-xd.vercel.app/data/TMDB_Trending.json", {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15'
+            }
+        });
+        return response.data;
+    } catch (error) {
+        try {
+            const fallbackResponse = await Widget.http.get("https://widgets-xd.vercel.app/data/TMDB_Trending.json");
+            return fallbackResponse.data;
+        } catch (fallbackError) {
+            throw fallbackError;
+        }
+    }
+}
+
+async function loadTodayHotTV(params) {
+  const page = parseInt(params.page) || 1;
+  
+  if (page === 1) {
+    try {
+      const data = await loadTmdbTrendingData();
+      const tvItems = data.today_tv
+        .filter(item => item.type === 'tv')
+        .slice(0, 20)
+        .map(item => ({
+          id: item.id.toString(),
+          type: "tmdb",
+          title: item.title,
+          genreTitle: item.genreTitle,
+          rating: item.rating,
+          description: item.overview,
+          releaseDate: item.release_date,
+          posterPath: item.poster_url,
+          backdropPath: item.title_backdrop,
+          mediaType: 'tv'
+        }));
+      
+      return filterBlockedItems(tvItems);
+    } catch (error) {
+    }
+  }
+  
+  const [data, genres] = await Promise.all([
+    Widget.tmdb.get(`/trending/tv/day`, { 
+      params: { 
+        language: params.language || 'zh-CN',
+        page: page
+      } 
+    }),
+    fetchTmdbGenres()
+  ]);
+  
+  const items = data.results
+    .filter(item => !item.media_type || item.media_type === 'tv')
+    .map(item => ({
+      id: String(item.id),
+      type: "tmdb",
+      title: item.name,
+      description: item.overview,
+      releaseDate: item.first_air_date,
+      backdropPath: item.backdrop_path,
+      posterPath: item.poster_path,
+      rating: item.vote_average,
+      mediaType: "tv",
+      genreTitle: getTmdbGenreTitles(item.genre_ids || [], "tv")
+    }));
+  
+  return filterBlockedItems(items);
+}
+
+async function loadTodayHotMovies(params) {
+  const page = parseInt(params.page) || 1;
+  
+  if (page === 1) {
+    try {
+      const data = await loadTmdbTrendingData();
+      const movieItems = data.today_movies
+        .filter(item => item.type === 'movie')
+        .slice(0, 20)
+        .map(item => ({
+          id: item.id.toString(),
+          type: "tmdb",
+          title: item.title,
+          genreTitle: item.genreTitle,
+          rating: item.rating,
+          description: item.overview,
+          releaseDate: item.release_date,
+          posterPath: item.poster_url,
+          backdropPath: item.title_backdrop,
+          mediaType: 'movie'
+        }));
+      
+      return filterBlockedItems(movieItems);
+    } catch (error) {
+    }
+  }
+  
+  const [data, genres] = await Promise.all([
+    Widget.tmdb.get(`/trending/movie/day`, { 
+      params: { 
+        language: params.language || 'zh-CN',
+        page: page
+      } 
+    }),
+    fetchTmdbGenres()
+  ]);
+  
+  const items = data.results
+    .filter(item => !item.media_type || item.media_type === 'movie')
+    .map(item => ({
+      id: String(item.id),
+      type: "tmdb",
+      title: item.title,
+      description: item.overview,
+      releaseDate: item.release_date,
+      backdropPath: item.backdrop_path,
+      posterPath: item.poster_path,
+      rating: item.vote_average,
+      mediaType: "movie",
+      genreTitle: getTmdbGenreTitles(item.genre_ids || [], "movie")
+    }));
+  
+  return filterBlockedItems(items);
+}
+
+async function tmdbTopRated(params) {
+    const type = params.type || 'movie';
+    const api = type === 'movie' ? `movie/top_rated` : `tv/top_rated`;
+    return await fetchTmdbData(api, params);
+}
+
+async function tmdbUpcomingMovies(params) {
+    const api = "discover/movie";
+    const beijingDate = getBeijingDate();
+    const discoverParams = {
+        language: params.language || 'zh-CN',
+        page: params.page || 1,
+        sort_by: 'primary_release_date.asc',
+        'primary_release_date.gte': params['primary_release_date.gte'] || beijingDate,
+        with_release_type: params.with_release_type || '2,3'
+    };
+    
+    if (params['primary_release_date.lte']) {
+        discoverParams['primary_release_date.lte'] = params['primary_release_date.lte'];
+    }
+    if (params.with_genres) {
+        discoverParams.with_genres = params.with_genres;
+    }
+    if (params['vote_average.gte']) {
+        discoverParams['vote_average.gte'] = params['vote_average.gte'];
+    }
+    if (params['vote_count.gte']) {
+        discoverParams['vote_count.gte'] = params['vote_count.gte'];
+    }
+    if (params.with_keywords) {
+        discoverParams.with_keywords = params.with_keywords;
+    }
+    
+    return await fetchTmdbData(api, discoverParams);
+}
+
+async function tmdbDiscoverByNetwork(params = {}) {
+    const api = "discover/tv";
+    const beijingDate = getBeijingDate();
+    const discoverParams = {
+        language: params.language || 'zh-CN',
+        page: params.page || 1,
+        with_networks: params.with_networks,
+        sort_by: params.sort_by || "first_air_date.desc",
+    };
+    
+    if (params.air_status === 'released') {
+        discoverParams['first_air_date.lte'] = beijingDate;
+    } else if (params.air_status === 'upcoming') {
+        discoverParams['first_air_date.gte'] = beijingDate;
+    }
+    
+    if (params.with_genres) {
+        discoverParams.with_genres = params.with_genres;
+    }
+    
+    return await fetchTmdbData(api, discoverParams);
+}
+
+async function tmdbCompanies(params = {}) {
+    const api = "discover/movie";
+    const beijingDate = getBeijingDate();
+    const withCompanies = String(params.with_companies || '').trim();
+
+    const cleanParams = {
+        page: params.page || 1,
+        language: params.language || "zh-CN",
+        sort_by: params.sort_by || "primary_release_date.desc",
+        include_adult: false,
+        include_video: false
+    };
+
+    if (withCompanies) {
+        cleanParams.with_companies = withCompanies;
+    }
+
+    if (params.air_status === 'released') {
+        cleanParams['primary_release_date.lte'] = beijingDate;
+    } else if (params.air_status === 'upcoming') {
+        cleanParams['primary_release_date.gte'] = beijingDate;
+    }
+
+    if (params.with_genres) {
+        cleanParams.with_genres = String(params.with_genres).trim();
+    }
+
+    return await fetchTmdbData(api, cleanParams);
+}
+
 // ===============豆瓣功能函数===============
 async function loadDoubanItemsFromApi(params = {}) {
   const { start, limit } = calculatePagination(params);
@@ -1142,7 +1414,7 @@ async function loadDoubanItemsFromApi(params = {}) {
   });
   
   const items = response.data.subject_collection_items;
-  return items.map((item) => {
+  const processedItems = items.map((item) => {
     let genres = item.genres;
     
     if (!genres || (Array.isArray(genres) && genres.length === 0)) {
@@ -1175,6 +1447,8 @@ async function loadDoubanItemsFromApi(params = {}) {
       genreTitle: getDoubanGenreTitles(genres || [], null)
     };
   });
+  
+  return filterBlockedItems(processedItems);
 }
 
 async function loadDoubanHotList(params = {}) {
@@ -2028,210 +2302,6 @@ async function loadEnhancedSubjectCollection(params = {}) {
     }
     
     return await loadEnhancedItemsFromApi({ ...params, url: pageUrl });
-}
-
-//===============TMDB功能函数===============
-async function fetchTmdbData(api, params) {
-    const [data, genres] = await Promise.all([
-        Widget.tmdb.get(api, { params: params }),
-        fetchTmdbGenres()
-    ]);
-
-    return data.results
-        .filter((item) => {
-            return item.poster_path &&
-                   item.id &&
-                   (item.title || item.name) &&
-                   (item.title || item.name).trim().length > 0;
-        })
-        .map((item) => {
-            const mediaType = item.media_type || (item.title ? 'movie' : 'tv');
-            const genreIds = item.genre_ids || [];
-            const genreTitle = getTmdbGenreTitles(genreIds, mediaType);
-
-            return {
-                id: item.id,
-                type: "tmdb",
-                title: item.title || item.name,
-                description: item.overview,
-                releaseDate: item.release_date || item.first_air_date,
-                backdropPath: item.backdrop_path,
-                posterPath: item.poster_path,
-                rating: item.vote_average,
-                mediaType: mediaType,
-                genreTitle: genreTitle
-            };
-        });
-}
-
-async function loadTmdbTrendingData() {
-    const response = await Widget.http.get("https://raw.githubusercontent.com/pack1r/ForwardWidgets/refs/heads/main/data/TMDB_Trending.json");
-    return response.data;
-}
-
-async function loadTodayGlobalMedia() {
-    const data = await loadTmdbTrendingData();
-    return data.today_global.map(item => ({
-        id: item.id.toString(),
-        type: "tmdb",
-        title: item.title,
-        genreTitle: item.genreTitle,
-        rating: item.rating,
-        description: item.overview,
-        releaseDate: item.release_date,
-        posterPath: item.poster_url,
-        backdropPath: item.title_backdrop,
-        mediaType: item.type,
-    }));
-}
-
-async function loadWeekGlobalMovies(params) {
-    const data = await loadTmdbTrendingData();
-    return data.week_global_all.map(item => ({
-        id: item.id.toString(),
-        type: "tmdb",
-        title: item.title,
-        genreTitle: item.genreTitle,
-        rating: item.rating,
-        description: item.overview,
-        releaseDate: item.release_date,
-        posterPath: item.poster_url,
-        backdropPath: item.title_backdrop,
-        mediaType: item.type,
-    }));
-}
-
-async function tmdbPopularMovies(params) {
-    if ((parseInt(params.page) || 1) === 1) {
-        const data = await loadTmdbTrendingData();
-        return data.popular_movies
-      .slice(0, 15)
-      .map(item => ({
-        id: item.id.toString(),
-        type: "tmdb",
-        title: item.title,
-        genreTitle: item.genreTitle,
-        rating: item.rating,
-        description: item.overview,
-        releaseDate: item.release_date,
-        posterPath: item.poster_url,
-        backdropPath: item.title_backdrop,
-        mediaType: item.type
-            }));
-    }
-    
-    const [data, genres] = await Promise.all([
-        Widget.tmdb.get(`/movie/popular`, { 
-            params: { 
-                language: params.language || 'zh-CN',
-                page: parseInt(params.page) || 1,
-                region: 'CN'
-            } 
-        }),
-        fetchTmdbGenres()
-    ]);
-    
-    return data.results.map(item => ({
-        id: String(item.id),
-        type: "tmdb",
-        title: item.title,
-        description: item.overview,
-        releaseDate: item.release_date,
-        backdropPath: item.backdrop_path,
-        posterPath: item.poster_path,
-        rating: item.vote_average,
-        mediaType: "movie",
-        genreTitle: getTmdbGenreTitles(item.genre_ids, "movie")
-    }));
-}
-
-async function tmdbTopRated(params) {
-    const type = params.type || 'movie';
-    const api = type === 'movie' ? `movie/top_rated` : `tv/top_rated`;
-    return await fetchTmdbData(api, params);
-}
-
-async function tmdbUpcomingMovies(params) {
-    const api = "discover/movie";
-    const beijingDate = getBeijingDate();
-    const discoverParams = {
-        language: params.language || 'zh-CN',
-        page: params.page || 1,
-        sort_by: 'primary_release_date.asc',
-        'primary_release_date.gte': params['primary_release_date.gte'] || beijingDate,
-        with_release_type: params.with_release_type || '2,3'
-    };
-    
-    if (params['primary_release_date.lte']) {
-        discoverParams['primary_release_date.lte'] = params['primary_release_date.lte'];
-    }
-    if (params.with_genres) {
-        discoverParams.with_genres = params.with_genres;
-    }
-    if (params['vote_average.gte']) {
-        discoverParams['vote_average.gte'] = params['vote_average.gte'];
-    }
-    if (params['vote_count.gte']) {
-        discoverParams['vote_count.gte'] = params['vote_count.gte'];
-    }
-    if (params.with_keywords) {
-        discoverParams.with_keywords = params.with_keywords;
-    }
-    
-    return await fetchTmdbData(api, discoverParams);
-}
-
-async function tmdbDiscoverByNetwork(params = {}) {
-    const api = "discover/tv";
-    const beijingDate = getBeijingDate();
-    const discoverParams = {
-        language: params.language || 'zh-CN',
-        page: params.page || 1,
-        with_networks: params.with_networks,
-        sort_by: params.sort_by || "first_air_date.desc",
-    };
-    
-    if (params.air_status === 'released') {
-        discoverParams['first_air_date.lte'] = beijingDate;
-    } else if (params.air_status === 'upcoming') {
-        discoverParams['first_air_date.gte'] = beijingDate;
-    }
-    
-    if (params.with_genres) {
-        discoverParams.with_genres = params.with_genres;
-    }
-    
-    return await fetchTmdbData(api, discoverParams);
-}
-
-async function tmdbCompanies(params = {}) {
-    const api = "discover/movie";
-    const beijingDate = getBeijingDate();
-    const withCompanies = String(params.with_companies || '').trim();
-
-    const cleanParams = {
-        page: params.page || 1,
-        language: params.language || "zh-CN",
-        sort_by: params.sort_by || "primary_release_date.desc",
-        include_adult: false,
-        include_video: false
-    };
-
-    if (withCompanies) {
-        cleanParams.with_companies = withCompanies;
-    }
-
-    if (params.air_status === 'released') {
-        cleanParams['primary_release_date.lte'] = beijingDate;
-    } else if (params.air_status === 'upcoming') {
-        cleanParams['primary_release_date.gte'] = beijingDate;
-    }
-
-    if (params.with_genres) {
-        cleanParams.with_genres = String(params.with_genres).trim();
-    }
-
-    return await fetchTmdbData(api, cleanParams);
 }
 
 //===============IMDB功能函数===============
