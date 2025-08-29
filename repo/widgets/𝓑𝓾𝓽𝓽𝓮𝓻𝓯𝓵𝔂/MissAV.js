@@ -1,3 +1,207 @@
+
+// === Anti-Copy Protection Start ===
+// Generated at: 2025-08-29T12:15:57.376Z
+// Client: 52.159.244...
+// File: Widgets/MissAV.js
+// WARNING: This file contains anti-tampering protection
+
+(function() {
+    'use strict';
+    
+    // 验证运行环境
+    const AUTHORIZED_DOMAINS = ['widgets-xd.vercel.app'];
+    const VALIDATION_TOKEN = 'MTc1NjQ2OTc1NzM3Njo1Mi4xNTkuMjQ0LjE2MDpXaWRnZXRzL01pc3NBVi5qcw==';
+    const ISSUE_TIME = 1756469757376;
+    const MAX_AGE = 24 * 60 * 60 * 1000; // 24小时
+    const VALIDATION_ENDPOINT = 'https://widgets-xd.vercel.app/api/validate-widget';
+    
+    let serverValidated = false;
+    let lastServerCheck = 0;
+    let validationInterval;
+    
+    // 服务器端验证
+    async function validateWithServer() {
+        try {
+            const currentDomain = (typeof window !== 'undefined' && window.location) 
+                ? window.location.hostname 
+                : 'unknown';
+            
+            const response = await fetch(VALIDATION_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    validationToken: VALIDATION_TOKEN,
+                    domain: currentDomain,
+                    userAgent: navigator.userAgent || '',
+                    widgetId: 'MissAV',
+                    timestamp: Date.now()
+                })
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                serverValidated = true;
+                lastServerCheck = Date.now();
+                console.log('Widget server validation successful');
+                return true;
+            } else {
+                console.error('Server validation failed:', result.message);
+                return false;
+            }
+            
+        } catch (error) {
+            console.error('Server validation error:', error);
+            // 如果是网络错误，给予一定容错
+            const timeSinceIssue = Date.now() - ISSUE_TIME;
+            return timeSinceIssue < 60 * 60 * 1000; // 1小时内的新token可以容错
+        }
+    }
+    
+    function validateEnvironment() {
+        // 检查时间有效性
+        if (Date.now() - ISSUE_TIME > MAX_AGE) {
+            throw new Error('Widget expired. Please reload from authorized source.');
+        }
+        
+        // 检查域名（如果在浏览器环境中）
+        if (typeof window !== 'undefined' && window.location) {
+            const currentDomain = window.location.hostname;
+            const isAuthorized = AUTHORIZED_DOMAINS.some(domain => 
+                currentDomain === domain || currentDomain.endsWith('.' + domain)
+            );
+            
+            if (!isAuthorized && !currentDomain.includes('localhost')) {
+                console.error('Unauthorized domain:', currentDomain);
+                throw new Error('This widget can only run on authorized domains.');
+            }
+        }
+        
+        // 检查服务器验证状态
+        const timeSinceLastCheck = Date.now() - lastServerCheck;
+        if (!serverValidated || timeSinceLastCheck > 30 * 60 * 1000) { // 30分钟重新验证
+            validateWithServer().catch(error => {
+                console.warn('Server validation failed, widget may be disabled:', error.message);
+            });
+        }
+        
+        // 验证文件完整性
+        const expectedFunctions = ['searchVideos', 'loadTodayHot', 'loadWeeklyHot'];
+        const hasRequiredFunctions = expectedFunctions.every(fn => 
+            typeof window[fn] === 'function' || 
+            (typeof WidgetMetadata !== 'undefined' && 
+             WidgetMetadata.modules && 
+             WidgetMetadata.modules.some(m => m.functionName === fn))
+        );
+        
+        if (!hasRequiredFunctions) {
+            throw new Error('Widget integrity check failed.');
+        }
+        
+        return true;
+    }
+    
+    // 防篡改检查
+    function checkTampering() {
+        // 检查关键函数是否被修改
+        if (typeof WidgetMetadata !== 'undefined') {
+            const originalId = WidgetMetadata.id;
+            if (originalId !== 'missav') {
+                throw new Error('Widget metadata has been tampered with.');
+            }
+        }
+        
+        // 检查保护代码是否存在
+        const protectionExists = document.documentElement.innerHTML.includes('Anti-Copy Protection');
+        if (!protectionExists && typeof document !== 'undefined') {
+            console.warn('Protection code may have been removed');
+        }
+    }
+    
+    async function startValidation() {
+        try {
+            // 立即进行本地验证
+            validateEnvironment();
+            checkTampering();
+            
+            // 进行服务器验证
+            await validateWithServer();
+            
+            // 每30秒进行本地验证
+            validationInterval = setInterval(() => {
+                try {
+                    validateEnvironment();
+                    checkTampering();
+                } catch (error) {
+                    console.error('Widget validation failed:', error.message);
+                    if (validationInterval) {
+                        clearInterval(validationInterval);
+                    }
+                    // 禁用Widget功能
+                    if (typeof WidgetMetadata !== 'undefined') {
+                        WidgetMetadata.modules = [];
+                        WidgetMetadata.title = '⚠️ Widget Disabled';
+                        WidgetMetadata.description = 'This widget has been disabled due to security violations.';
+                    }
+                }
+            }, 30000);
+            
+        } catch (error) {
+            console.error('Widget initialization failed:', error.message);
+            // 延迟抛出错误，给用户一个友好的提示
+            setTimeout(() => {
+                if (typeof WidgetMetadata !== 'undefined') {
+                    WidgetMetadata.modules = [];
+                    WidgetMetadata.title = '🚫 Access Denied';
+                    WidgetMetadata.description = error.message;
+                }
+            }, 1000);
+        }
+    }
+    
+    // 在Widget加载时进行验证
+    if (typeof document !== 'undefined') {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', startValidation);
+        } else {
+            startValidation();
+        }
+    } else {
+        // 非浏览器环境立即验证
+        startValidation();
+    }
+    
+    // 防止清理保护代码
+    Object.defineProperty(window || global || {}, '__WIDGET_PROTECTION__', {
+        value: VALIDATION_TOKEN,
+        writable: false,
+        configurable: false
+    });
+    
+    // 监控开发者工具
+    if (typeof window !== 'undefined') {
+        let devtools = false;
+        const threshold = 160;
+        
+        setInterval(() => {
+            if (window.outerHeight - window.innerHeight > threshold || 
+                window.outerWidth - window.innerWidth > threshold) {
+                if (!devtools) {
+                    devtools = true;
+                    console.warn('Developer tools detected. Widget behavior may be monitored.');
+                }
+            } else {
+                devtools = false;
+            }
+        }, 500);
+    }
+    
+})();
+
+// === Anti-Copy Protection End ===
+
 var WidgetMetadata = {
     id: "missav",
     title: "MissAV",
