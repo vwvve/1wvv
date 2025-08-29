@@ -20,7 +20,7 @@ from pprint import pprint
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
 headers = {
-    "user-agent": "Forward/316 CFNetwork/3826.600.41 Darwin/24.6.0"
+    "user-agent": "Forward/2025082803 CFNetwork/3826.600.41 Darwin/24.6.0"
 }
 
 
