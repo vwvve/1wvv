@@ -8,9 +8,9 @@
       "title": "🖼️ ✨wallpaper",
       "description": "✨ Dynamic wallpaper For Topshelf",
       "requiredVersion": "0.0.1",
-      "version": "2.3.0",
-      "author": "🎁 Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%F0%9F%8E%81%20Discount%20Code%EF%BC%9AVEUS/5fc0fe4bb1266ca2bac04a8efb97bb57"
+      "version": "1.1.0",
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/wallpaper.js"
     },
     {
       "id": "xtream_api_en",
@@ -25,8 +25,8 @@
       "id": "forward.combined.media.lists",
       "title": "影视榜单",
       "description": "聚合豆瓣、TMDB、IMDB和Bangumi的影视动画榜单",
-      "requiredVersion": "0.0.2",
-      "version": "1.3.5",
+      "requiredVersion": "0.0.1",
+      "version": "1.3.1",
       "author": "阿米诺斯",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E9%98%BF%E7%B1%B3%E8%AF%BA%E6%96%AF/combined.js"
     },
@@ -170,18 +170,9 @@
       "title": "自动链接弹幕",
       "description": "自动获取播放链接并从服务器获取弹幕【30% off code：CHEAP】",
       "requiredVersion": "0.0.2",
-      "version": "1.0.18",
+      "version": "1.0.19",
       "author": "huangxd",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/huangxd/danmu_auto.js"
-    },
-    {
-      "id": "forward.playurl.danmu",
-      "title": "手动链接弹幕",
-      "description": "从指定播放链接和服务器获取弹幕【30% off code：CHEAP】",
-      "requiredVersion": "0.0.2",
-      "version": "1.0.8",
-      "author": "huangxd",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/huangxd/danmu_playurl.js"
     },
     {
       "id": "dytt_vod",
@@ -197,18 +188,18 @@
       "title": "低端影视",
       "description": "获取在线电影、电视剧、动画",
       "requiredVersion": "0.0.1",
-      "version": "1.0.1",
+      "version": "1.0.0",
       "author": "两块",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/ddys.js"
     },
     {
       "id": "jable",
       "title": "Jable",
-      "description": "获取 Jable 视频",
-      "requiredVersion": "0.0.2",
-      "version": "1.0.9",
+      "description": "获取Jable全站视频",
+      "requiredVersion": "0.0.1",
+      "version": "1.0.6",
       "author": "nibiru",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/nibiru/Jable.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/nibiru/jable.js"
     },
     {
       "id": "91porn",
@@ -256,24 +247,6 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E5%8C%BF%E5%90%8D/xvideos.js"
     },
     {
-      "id": "wuming.vod",
-      "title": "VOD",
-      "description": "根据Keyword,用于VOD",
-      "requiredVersion": "0.0.1",
-      "version": "1.0.0",
-      "author": "无名",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E6%97%A0%E5%90%8D/wuming.js"
-    },
-    {
-      "id": "missav",
-      "title": "MissAV",
-      "description": "获取 MissAV 推荐",
-      "requiredVersion": "0.0.2",
-      "version": "1.0.0",
-      "author": "𝓑𝓾𝓽𝓽𝓮𝓻𝓯𝓵𝔂",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%F0%9D%93%91%F0%9D%93%BE%F0%9D%93%BD%F0%9D%93%BD%F0%9D%93%AE%F0%9D%93%BB%F0%9D%93%AF%F0%9D%93%B5%F0%9D%94%82/MissAV.js"
-    },
-    {
       "id": "bitch",
       "title": "Bitch Lives",
       "description": "🎥 Bitch Lives",
@@ -281,6 +254,15 @@
       "version": "0.0.1",
       "author": "Discount Code：VEUS",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/61a5cbf0637b95a0d800994a51860fb2"
+    },
+    {
+      "id": "wuming.vod",
+      "title": "Keword VOD",
+      "description": "🔍 Qurey Keword for VOD",
+      "requiredVersion": "0.0.1",
+      "version": "1.0.0",
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/wuming.js"
     },
     {
       "id": "cloud_cinema",
