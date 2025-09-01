@@ -8,9 +8,9 @@
       "title": "🖼️ ✨wallpaper",
       "description": "✨ Dynamic wallpaper For Topshelf",
       "requiredVersion": "0.0.1",
-      "version": "2.3.0",
-      "author": "🎁 Discount Code：VEUS",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%F0%9F%8E%81%20Discount%20Code%EF%BC%9AVEUS/5fc0fe4bb1266ca2bac04a8efb97bb57"
+      "version": "1.1.0",
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/wallpaper.js"
     },
     {
       "id": "xtream_api_en",
@@ -247,15 +247,6 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E5%8C%BF%E5%90%8D/xvideos.js"
     },
     {
-      "id": "wuming.vod",
-      "title": "VOD",
-      "description": "根据Keyword,用于VOD",
-      "requiredVersion": "0.0.1",
-      "version": "1.0.0",
-      "author": "无名",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E6%97%A0%E5%90%8D/wuming.js"
-    },
-    {
       "id": "bitch",
       "title": "Bitch Lives",
       "description": "🎥 Bitch Lives",
@@ -263,6 +254,15 @@
       "version": "0.0.1",
       "author": "Discount Code：VEUS",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/61a5cbf0637b95a0d800994a51860fb2"
+    },
+    {
+      "id": "wuming.vod",
+      "title": "Keword VOD",
+      "description": "🔍 Qurey Keword for VOD",
+      "requiredVersion": "0.0.1",
+      "version": "1.0.0",
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/wuming.js"
     },
     {
       "id": "cloud_cinema",
