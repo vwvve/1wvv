@@ -1,5 +1,5 @@
 WidgetMetadata = {
-  id: "forward.combined.media.lists",
+  id: "forward.combined.media.lists.en",
   title: "Movie & TV Lists",
   description: "Movie & TV Lists",
   author: "𝓑𝓾𝓽𝓽𝓮𝓻𝓯𝓵𝔂",
