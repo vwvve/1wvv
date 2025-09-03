@@ -695,8 +695,8 @@ var __webpack_modules__ = {
                             var r = t + n, i = e[r];
                             e[r] = (i << 8 | i >>> 24) & 0x00ff00ff | (i << 24 | i >>> 8) & 0xff00ff00;
                         }
-                        var o = this._hash.words, s = e[t + 0], u = e[t + 1], f = e[t + 2], h = e[t + 3], m = e[t + 4], g = e[t + 5], v = e[t + 6], y = e[t + 7], b = e[t + 8], _ = e[t + 9], w = e[t + 10], x = e[t + 11], k = e[t + 12], j = e[t + 13], S = e[t + 14], E = e[t + 15], z = o[0], O = o[1], I = o[2], $ = o[3];
-                        z = l(z, O, I, $, s, 7, a[0]), $ = l($, z, O, I, u, 12, a[1]), I = l(I, $, z, O, f, 17, a[2]), O = l(O, I, $, z, h, 22, a[3]), z = l(z, O, I, $, m, 7, a[4]), $ = l($, z, O, I, g, 12, a[5]), I = l(I, $, z, O, v, 17, a[6]), O = l(O, I, $, z, y, 22, a[7]), z = l(z, O, I, $, b, 7, a[8]), $ = l($, z, O, I, _, 12, a[9]), I = l(I, $, z, O, w, 17, a[10]), O = l(O, I, $, z, x, 22, a[11]), z = l(z, O, I, $, k, 7, a[12]), $ = l($, z, O, I, j, 12, a[13]), I = l(I, $, z, O, S, 17, a[14]), O = l(O, I, $, z, E, 22, a[15]), z = c(z, O, I, $, u, 5, a[16]), $ = c($, z, O, I, v, 9, a[17]), I = c(I, $, z, O, x, 14, a[18]), O = c(O, I, $, z, s, 20, a[19]), z = c(z, O, I, $, g, 5, a[20]), $ = c($, z, O, I, w, 9, a[21]), I = c(I, $, z, O, E, 14, a[22]), O = c(O, I, $, z, m, 20, a[23]), z = c(z, O, I, $, _, 5, a[24]), $ = c($, z, O, I, S, 9, a[25]), I = c(I, $, z, O, h, 14, a[26]), O = c(O, I, $, z, b, 20, a[27]), z = c(z, O, I, $, j, 5, a[28]), $ = c($, z, O, I, f, 9, a[29]), I = c(I, $, z, O, y, 14, a[30]), O = c(O, I, $, z, k, 20, a[31]), z = d(z, O, I, $, g, 4, a[32]), $ = d($, z, O, I, b, 11, a[33]), I = d(I, $, z, O, x, 16, a[34]), O = d(O, I, $, z, S, 23, a[35]), z = d(z, O, I, $, u, 4, a[36]), $ = d($, z, O, I, m, 11, a[37]), I = d(I, $, z, O, y, 16, a[38]), O = d(O, I, $, z, w, 23, a[39]), z = d(z, O, I, $, j, 4, a[40]), $ = d($, z, O, I, s, 11, a[41]), I = d(I, $, z, O, h, 16, a[42]), O = d(O, I, $, z, v, 23, a[43]), z = d(z, O, I, $, _, 4, a[44]), $ = d($, z, O, I, k, 11, a[45]), I = d(I, $, z, O, E, 16, a[46]), O = d(O, I, $, z, f, 23, a[47]), z = p(z, O, I, $, s, 6, a[48]), $ = p($, z, O, I, y, 10, a[49]), I = p(I, $, z, O, S, 15, a[50]), O = p(O, I, $, z, g, 21, a[51]), z = p(z, O, I, $, k, 6, a[52]), $ = p($, z, O, I, h, 10, a[53]), I = p(I, $, z, O, w, 15, a[54]), O = p(O, I, $, z, u, 21, a[55]), z = p(z, O, I, $, b, 6, a[56]), $ = p($, z, O, I, E, 10, a[57]), I = p(I, $, z, O, v, 15, a[58]), O = p(O, I, $, z, j, 21, a[59]), z = p(z, O, I, $, m, 6, a[60]), $ = p($, z, O, I, x, 10, a[61]), I = p(I, $, z, O, f, 15, a[62]), O = p(O, I, $, z, _, 21, a[63]), o[0] = o[0] + z | 0, o[1] = o[1] + O | 0, o[2] = o[2] + I | 0, o[3] = o[3] + $ | 0;
+                        var o = this._hash.words, s = e[t + 0], u = e[t + 1], f = e[t + 2], h = e[t + 3], m = e[t + 4], g = e[t + 5], v = e[t + 6], y = e[t + 7], b = e[t + 8], _ = e[t + 9], w = e[t + 10], x = e[t + 11], k = e[t + 12], j = e[t + 13], E = e[t + 14], S = e[t + 15], z = o[0], O = o[1], I = o[2], $ = o[3];
+                        z = l(z, O, I, $, s, 7, a[0]), $ = l($, z, O, I, u, 12, a[1]), I = l(I, $, z, O, f, 17, a[2]), O = l(O, I, $, z, h, 22, a[3]), z = l(z, O, I, $, m, 7, a[4]), $ = l($, z, O, I, g, 12, a[5]), I = l(I, $, z, O, v, 17, a[6]), O = l(O, I, $, z, y, 22, a[7]), z = l(z, O, I, $, b, 7, a[8]), $ = l($, z, O, I, _, 12, a[9]), I = l(I, $, z, O, w, 17, a[10]), O = l(O, I, $, z, x, 22, a[11]), z = l(z, O, I, $, k, 7, a[12]), $ = l($, z, O, I, j, 12, a[13]), I = l(I, $, z, O, E, 17, a[14]), O = l(O, I, $, z, S, 22, a[15]), z = c(z, O, I, $, u, 5, a[16]), $ = c($, z, O, I, v, 9, a[17]), I = c(I, $, z, O, x, 14, a[18]), O = c(O, I, $, z, s, 20, a[19]), z = c(z, O, I, $, g, 5, a[20]), $ = c($, z, O, I, w, 9, a[21]), I = c(I, $, z, O, S, 14, a[22]), O = c(O, I, $, z, m, 20, a[23]), z = c(z, O, I, $, _, 5, a[24]), $ = c($, z, O, I, E, 9, a[25]), I = c(I, $, z, O, h, 14, a[26]), O = c(O, I, $, z, b, 20, a[27]), z = c(z, O, I, $, j, 5, a[28]), $ = c($, z, O, I, f, 9, a[29]), I = c(I, $, z, O, y, 14, a[30]), O = c(O, I, $, z, k, 20, a[31]), z = d(z, O, I, $, g, 4, a[32]), $ = d($, z, O, I, b, 11, a[33]), I = d(I, $, z, O, x, 16, a[34]), O = d(O, I, $, z, E, 23, a[35]), z = d(z, O, I, $, u, 4, a[36]), $ = d($, z, O, I, m, 11, a[37]), I = d(I, $, z, O, y, 16, a[38]), O = d(O, I, $, z, w, 23, a[39]), z = d(z, O, I, $, j, 4, a[40]), $ = d($, z, O, I, s, 11, a[41]), I = d(I, $, z, O, h, 16, a[42]), O = d(O, I, $, z, v, 23, a[43]), z = d(z, O, I, $, _, 4, a[44]), $ = d($, z, O, I, k, 11, a[45]), I = d(I, $, z, O, S, 16, a[46]), O = d(O, I, $, z, f, 23, a[47]), z = p(z, O, I, $, s, 6, a[48]), $ = p($, z, O, I, y, 10, a[49]), I = p(I, $, z, O, E, 15, a[50]), O = p(O, I, $, z, g, 21, a[51]), z = p(z, O, I, $, k, 6, a[52]), $ = p($, z, O, I, h, 10, a[53]), I = p(I, $, z, O, w, 15, a[54]), O = p(O, I, $, z, u, 21, a[55]), z = p(z, O, I, $, b, 6, a[56]), $ = p($, z, O, I, S, 10, a[57]), I = p(I, $, z, O, v, 15, a[58]), O = p(O, I, $, z, j, 21, a[59]), z = p(z, O, I, $, m, 6, a[60]), $ = p($, z, O, I, x, 10, a[61]), I = p(I, $, z, O, f, 15, a[62]), O = p(O, I, $, z, _, 21, a[63]), o[0] = o[0] + z | 0, o[1] = o[1] + O | 0, o[2] = o[2] + I | 0, o[3] = o[3] + $ | 0;
                     },
                     _doFinalize: function() {
                         var e = this._data, n = e.words, r = 8 * this._nDataBytes, i = 8 * e.sigBytes;
@@ -4047,13 +4047,16 @@ class Fetch {
             }, s), r = storage.getJson(n);
             if (r) return console.debug("fetch cache hit", n), Promise.resolve(r);
         }
-        let a = o ? void 0 : n, { timeout: u, schema: l, ...c } = s;
-        console.debug("fetch", t, a, c);
-        let d = o ? Widget.http.get(t, c) : Widget.http.post(t, a, c);
+        let a = o ? void 0 : n, { timeout: u, schema: l, params: c, ...d } = s, p = t;
+        c && (p = `${t}?${url_parse.qs.stringify(c)}`), console.debug("\u2B06\uFE0F fetch", t, null != a ? a : "", {
+            ...d,
+            params: c
+        });
+        let f = o ? Widget.http.get(p, d) : Widget.http.post(p, a, d);
         return u && u > 0 ? Promise.race([
-            d,
+            f,
             this.createTimeoutPromise(u)
-        ]) : d;
+        ]) : f;
     }
     getCacheKey(e, t) {
         var n;
@@ -4255,29 +4258,6 @@ class BaseScraper {
     sleep(e) {
         return new Promise((t)=>setTimeout(t, e));
     }
-    formatComments(e, t) {
-        let n = new Set(), r = new Map();
-        for (let i of e){
-            if (!i) continue;
-            let e = t(i);
-            if (!e || n.has(e.id)) continue;
-            n.add(e.id);
-            let o = e.content, s = r.get(o);
-            s ? (e.timestamp < s.item.timestamp && (s.item = e), s.count += 1) : r.set(o, {
-                item: e,
-                count: 1
-            });
-        }
-        let i = [];
-        return r.forEach((e)=>{
-            let { item: t, count: n } = e, r = n > 1 ? `${t.content} \xd7 ${n}` : t.content;
-            i.push({
-                cid: t.id,
-                p: `${t.timestamp.toFixed(2)},${t.mode},${t.color},[${this.providerName}]`,
-                m: r
-            });
-        }), i;
-    }
     getEpisodeIndexFromTitle(e) {
         if (!e) return null;
         let t = /(?:第)?(\d+)(?:集|话)?$/.exec(e.trim());
@@ -4361,22 +4341,22 @@ class BilibiliScraper extends BaseScraper {
     async getComments(e, t) {
         var n;
         let { aid: r, cid: i, seasonId: o } = null != (n = this.parseIdString(e)) ? n : {};
-        if (!r || !i || !o) return [];
+        if (!r || !i || !o) return null;
         let s = await this.getPgcEpisodes(o);
-        if (!(null == s ? void 0 : s.find((e)=>e.aid === parseInt(r) && e.cid === parseInt(i)))) return [];
+        if (!(null == s ? void 0 : s.find((e)=>e.aid === parseInt(r) && e.cid === parseInt(i)))) return null;
         let a = await this.fetchCommentsForCid(r, i, t);
-        return this.formatComments(a, (e)=>{
+        return a ? a.map((e)=>{
             var t, n, r;
             if (!e.progress) return null;
             let i = (null == (t = e.content) ? void 0 : t.toString().replace(/\0/g, "")) || "";
             return i ? {
-                id: e.id,
+                id: e.id.toString(),
                 timestamp: e.progress / 1000.0,
                 mode: null != (n = e.mode) ? n : 1,
                 color: null != (r = e.color) ? r : 16777215,
                 content: i
             } : null;
-        });
+        }) : null;
     }
     async getPgcEpisodes(e) {
         var t;
@@ -4391,18 +4371,17 @@ class BilibiliScraper extends BaseScraper {
         })).data) ? void 0 : t.result.episodes;
     }
     async fetchCommentsForCid(e, t, n) {
-        let r = [];
         try {
-            let i = await this.fetch.get(`https://api.bilibili.com/x/v2/dm/web/seg.so?type=1&oid=${t}&pid=${e}&segment_index=${n}`, {
+            let r = await this.fetch.get(`https://api.bilibili.com/x/v2/dm/web/seg.so?type=1&oid=${t}&pid=${e}&segment_index=${n}`, {
                 base64Data: !0
             });
-            if (404 === i.statusCode || 304 === i.statusCode) return r;
-            let o = this.DmSegMobileReply.decode(base64ToUint8Array(i.data));
-            r.push(...o.elems);
+            if (404 === r.statusCode || 304 === r.statusCode) return null;
+            let i = this.DmSegMobileReply.decode(base64ToUint8Array(r.data));
+            return console.log(i), i.elems;
         } catch (r) {
             console.error(`\u{83B7}\u{53D6}\u{5206}\u{6BB5} ${n} \u{5931}\u{8D25} (aid=${e}, cid=${t}): ${r}`);
         }
-        return r;
+        return null;
     }
     constructor(){
         super(), bilibili_define_property(this, "providerName", "bilibili"), bilibili_define_property(this, "idSchema", bilibiliIdSchema), bilibili_define_property(this, "DmSegMobileReply", dm_proto.biliproto.community.service.dm.v1.DmSegMobileReply), this.fetch.setHeaders({
@@ -5319,13 +5298,13 @@ class IqiyiScraper extends BaseScraper {
         let a = await this.fetch.get(s, {
             zlibMode: !0
         }), u = this.xmlParser.parse(a.data), { success: l, data: c, error: d } = iqiyiCommentsResponseSchema.safeParse(u);
-        return l ? this.formatComments(c, (e)=>{
+        return l ? c.map((e)=>{
             let t = 16777215;
             try {
                 t = parseInt(e.color, 16);
             } catch (e) {}
             return {
-                id: e.contentId,
+                id: e.contentId.toString(),
                 timestamp: e.showTime,
                 mode: 1,
                 color: t,
@@ -5378,8 +5357,7 @@ class IqiyiScraper extends BaseScraper {
                             entityId: t
                         }),
                         episodeTitle: e.title,
-                        episodeNumber: null != (p = this.getEpisodeIndexFromTitle(e.short_display_name)) ? p : h,
-                        url: e.page_url
+                        episodeNumber: null != (p = this.getEpisodeIndexFromTitle(e.short_display_name)) ? p : h
                     }), h += 1));
                 }
             }
@@ -5507,8 +5485,7 @@ class TencentScraper extends BaseScraper {
                     vid: e.vid
                 }),
                 episodeTitle: e.union_title && e.union_title !== e.title ? e.union_title : e.title,
-                episodeNumber: r,
-                url: `https://v.qq.com/x/cover/${n.cid}/${e.vid}.html`
+                episodeNumber: r
             };
         });
         if (void 0 !== t) {
@@ -5552,13 +5529,13 @@ class TencentScraper extends BaseScraper {
         let n = this.parseIdString(e);
         if (!(null == n ? void 0 : n.vid)) return [];
         let r = await this.internalGetComments(n.vid, t);
-        return r && 0 !== r.length ? this.formatComments(r, (e)=>{
+        return r && 0 !== r.length ? r.map((e)=>{
             let t = 1, n = 16777215;
             if (e.content_style && (2 === e.content_style.position ? t = 5 : 3 === e.content_style.position && (t = 4), e.content_style.color)) try {
                 n = parseInt(e.content_style.color, 10);
             } catch (e) {}
             return {
-                id: e.id,
+                id: e.id.toString(),
                 timestamp: parseInt(e.time_offset, 10) / 1000.0,
                 mode: t,
                 color: n,
@@ -5645,6 +5622,7 @@ const youkuIdSchema = schemas_object({
 }), youkuEpisodeInfoSchema = schemas_object({
     id: schemas_string(),
     title: schemas_string(),
+    seq: schemas_string().transform((e)=>parseInt(e)).optional(),
     duration: schemas_string(),
     category: schemas_string(),
     link: schemas_string()
@@ -5688,35 +5666,49 @@ class YoukuScraper extends BaseScraper {
     async getEpisodes(e, t) {
         let n = this.parseIdString(e);
         if (!n) return [];
-        let r = [], i = 1, o = 20, s = 0;
-        for(;;)try {
-            let e = await this.getEpisodesPage(n.showId, i, o);
-            if (!e || !e.videos || 0 === e.videos.length) break;
-            1 === i && e.total && (s = e.total);
-            let a = e.videos.filter((e)=>!this.EPISODE_BLACKLIST_KEYWORDS.some((t)=>e.title.includes(t)));
-            if (r.push(...a), r.length >= s || e.videos.length < o || t && r.length >= t) break;
-            i++, await this.sleep(300);
+        let r = 20, i = null != t ? t : 1, o = Math.max(1, Math.ceil(i / 20));
+        try {
+            var s, a;
+            let e = (e)=>e.filter((e)=>!this.EPISODE_BLACKLIST_KEYWORDS.some((t)=>e.title.includes(t))), u = (e, t)=>({
+                    provider: this.providerName,
+                    episodeId: this.generateIdString({
+                        showId: n.showId,
+                        vid: e.id
+                    }),
+                    episodeTitle: e.title,
+                    episodeNumber: t
+                }), l = await this.getEpisodesPage(n.showId, o, r), c = e(null != (s = null == l ? void 0 : l.videos) ? s : []), d = c.find((e)=>e.seq === i);
+            if (d) return [
+                u(d, i)
+            ];
+            let p = Number(null != (a = null == l ? void 0 : l.total) ? a : 0), f = Math.max(1, Math.ceil(p / r)), h = Array.from({
+                length: f
+            }, (e, t)=>t + 1).filter((e)=>e !== o), m = [];
+            for (let e of h){
+                await this.sleep(500);
+                let t = await this.getEpisodesPage(n.showId, e, r);
+                m.push(t);
+            }
+            let g = e(m.flatMap((e)=>{
+                var t;
+                return null != (t = null == e ? void 0 : e.videos) ? t : [];
+            })), v = [
+                ...c,
+                ...g
+            ];
+            if (void 0 !== t) {
+                let e = v.find((e)=>e.seq === i);
+                return e ? [
+                    u(e, i)
+                ] : [];
+            }
+            return v.sort((e, t)=>{
+                var n, r;
+                return (null != (n = e.seq) ? n : Number.MAX_SAFE_INTEGER) - (null != (r = t.seq) ? r : Number.MAX_SAFE_INTEGER);
+            }).map((e, t)=>u(e, t + 1));
         } catch (e) {
-            console.error(`Youku: Failed to get episodes page ${i} for media_id ${n.showId}:`, e);
-            break;
+            return console.error(`Youku: \u{83B7}\u{53D6}\u{5206}\u{96C6}\u{5931}\u{8D25} showId=${n.showId}:`, e), [];
         }
-        let a = r.map((e, t)=>({
-                provider: this.providerName,
-                episodeId: this.generateIdString({
-                    showId: n.showId,
-                    vid: e.id
-                }),
-                episodeTitle: e.title,
-                episodeNumber: t + 1,
-                url: e.link
-            }));
-        if (void 0 !== t) {
-            let e = a.find((e)=>e.episodeNumber === t);
-            return e ? [
-                e
-            ] : [];
-        }
-        return a;
     }
     async getSegments(e) {
         var t;
@@ -5822,7 +5814,7 @@ class YoukuScraper extends BaseScraper {
                 })
             })).data) || null == (u = l.data.result) ? void 0 : u.data.result) ? c : [];
             if (console.log(`Youku: \u{83B7}\u{53D6}\u{5230}\u{5206}\u{6BB5} ${t} \u{7684}\u{5F39}\u{5E55} ${e.length} \u{6761}`), !e || 0 === e.length) return [];
-            return this.formatComments(e, (e)=>{
+            return e.map((e)=>{
                 let t = 1, n = 16777215;
                 try {
                     let r = e.propertis;
@@ -5853,26 +5845,34 @@ class YoukuScraper extends BaseScraper {
         ].join("&")).toString().toLowerCase();
     }
     async ensureTokenCookie() {
-        if (!this.cna) try {
-            console.debug("Youku: 'cna' cookie \u672A\u627E\u5230, \u6B63\u5728\u8BBF\u95EE youku.com \u4EE5\u83B7\u53D6..."), await this.fetch.get("https://log.mmstat.com/eg.js");
+        this.fetch.cookie = {};
+        try {
+            await this.fetch.get("https://log.mmstat.com/eg.js", {
+                headers: {
+                    Cookie: "",
+                    "If-None-Match": ""
+                }
+            });
         } catch (e) {
             console.warn(`Youku: \u{65E0}\u{6CD5}\u{8FDE}\u{63A5}\u{5230} youku.com \u{83B7}\u{53D6} 'cna' cookie\u{3002}\u{9519}\u{8BEF}: ${e}`);
         }
-        if (!this.token) try {
-            console.debug("Youku: '_m_h5_tk' cookie \u672A\u627E\u5230, \u6B63\u5728\u4ECE acs.youku.com \u8BF7\u6C42..."), await this.fetch.get("https://acs.youku.com/h5/mtop.com.youku.aplatform.weakget/1.0/?jsv=2.5.1&appKey=24679788");
+        try {
+            await this.fetch.get("https://acs.youku.com/h5/mtop.com.youku.aplatform.weakget/1.0/?jsv=2.5.1&appKey=24679788");
         } catch (e) {
             console.error(`Youku: \u{65E0}\u{6CD5}\u{8FDE}\u{63A5}\u{5230} acs.youku.com \u{83B7}\u{53D6}\u{4EE4}\u{724C} cookie\u{3002}\u{5F39}\u{5E55}\u{83B7}\u{53D6}\u{5F88}\u{53EF}\u{80FD}\u{4F1A}\u{5931}\u{8D25}\u{3002}\u{9519}\u{8BEF}: ${e}`);
         }
         this.cna && this.token || console.warn(`Youku: \u{672A}\u{80FD}\u{83B7}\u{53D6}\u{5230}\u{5F39}\u{5E55}\u{7B7E}\u{540D}\u{6240}\u{9700}\u{7684}\u{5168}\u{90E8} cookie\u{3002} cna: '${this.cna}', token: '${this.token}'`);
     }
-    constructor(...e){
-        super(...e), youku_define_property(this, "providerName", "youku"), youku_define_property(this, "idSchema", youkuIdSchema), youku_define_property(this, "EPISODE_BLACKLIST_KEYWORDS", [
+    constructor(){
+        super(), youku_define_property(this, "providerName", "youku"), youku_define_property(this, "idSchema", youkuIdSchema), youku_define_property(this, "EPISODE_BLACKLIST_KEYWORDS", [
             "\u5F69\u86CB",
             "\u52A0\u66F4",
             "\u8D70\u5FC3",
             "\u89E3\u5FE7",
             "\u7EAF\u4EAB"
-        ]);
+        ]), this.fetch.setHeaders({
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        });
     }
 }
 function scrapers_define_property(e, t, n) {
@@ -5914,16 +5914,43 @@ class scrapers_Scraper {
     }
     async getSegmentWithTime() {
         let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0;
-        for(var t = arguments.length, n = Array(t > 1 ? t - 1 : 0), r = 1; r < t; r++)n[r - 1] = arguments[r];
-        let i = [];
-        for (let { provider: t, idString: r } of n)i.push((async ()=>{
-            var n;
-            let i = await this.getSegmentsByProvider(t, r);
-            if (!i.length) return [];
-            let o = this.findSegmentAtTime(i, e);
-            return o ? null == (n = this.scraperMap[t]) ? void 0 : n.getComments(r, o.segmentId) : [];
+        for(var t, n = arguments.length, r = Array(n > 1 ? n - 1 : 0), i = 1; i < n; i++)r[i - 1] = arguments[i];
+        let o = [];
+        for (let { provider: t, idString: n } of r)o.push((async ()=>{
+            let r = await this.getSegmentsByProvider(t, n);
+            if (!r.length) return null;
+            let i = this.findSegmentAtTime(r, e);
+            if (!i) return null;
+            let o = this.scraperMap[t];
+            if (!o) return null;
+            let s = await o.getComments(n, i.segmentId);
+            return s ? {
+                comments: s,
+                provider: t
+            } : null;
         })());
-        return (await Promise.all(i)).flat();
+        let s = await Promise.all(o), a = new Map();
+        for (let e of s)if (null == e || null == (t = e.comments) ? void 0 : t.length) for (let t of e.comments){
+            if (!t) continue;
+            let n = [
+                t.mode,
+                t.color,
+                t.content
+            ].join("___"), r = a.get(n);
+            r ? (t.timestamp < r.item.timestamp && (r.item = t), r.count += 1) : a.set(n, {
+                item: t,
+                count: 1,
+                provider: e.provider
+            });
+        }
+        let u = [];
+        return a.forEach((e)=>{
+            let { item: t, count: n, provider: r } = e, i = n > 1 ? `${t.content} \xd7 ${n}` : t.content;
+            u.push({
+                p: `${t.timestamp.toFixed(2)},${t.mode},${t.color},[${r}]`,
+                m: i
+            });
+        }), u;
     }
     getDanmuWithSegmentTimeByVideoId(e, t) {
         let n = e.split(",").map((e)=>{
@@ -5938,38 +5965,37 @@ class scrapers_Scraper {
     async getEpisodes() {
         for(var e = arguments.length, t = Array(e), n = 0; n < e; n++)t[n] = arguments[n];
         let r = [];
-        for (let { provider: e, idString: n } of t){
+        for (let { provider: e, idString: n, episodeNumber: i } of t){
             let t = this.scraperMap[e];
-            t && r.push(t.getEpisodes(n).catch((e)=>(console.error(e), [])));
+            t && r.push(t.getEpisodes(n, i).catch((e)=>(console.error(e), [])));
         }
         return (await Promise.all(r).catch((e)=>(console.error(e), []))).flat().map((e)=>({
                 ...e,
                 episodeId: `${e.provider}:${e.episodeId}`
             }));
     }
-    formatEpisodeResult(e, t, n) {
-        let r = n ? parseInt(null != n ? n : "") : void 0;
-        return "tv" === t && r ? e.filter((e)=>e.episodeNumber === r) : e;
+    getEpisodeNumber(e, t) {
+        if ("tv" === e && t) return parseInt(t);
     }
     async getDetailWithAnimeId(e, t, n) {
-        let [r, i] = e.split(":"), o = await this.getEpisodes({
+        let [r, i] = e.split(":");
+        return await this.getEpisodes({
             provider: r,
-            idString: i
+            idString: i,
+            episodeNumber: this.getEpisodeNumber(t, n)
         });
-        return this.formatEpisodeResult(o, t, n);
     }
     async getDetailWithDoubanId(e, t, n) {
-        let r = await getVideoPlatformInfoByDoubanId(e.toString()), i = [];
-        Object.entries(r.providers).forEach((e)=>{
+        let r = await getVideoPlatformInfoByDoubanId(e.toString()), i = this.getEpisodeNumber(t, n), o = [];
+        return Object.entries(r.providers).forEach((e)=>{
             var t, n;
-            let [r, o] = e;
-            i.push({
+            let [r, s] = e;
+            o.push({
                 provider: r,
-                idString: null != (n = null == (t = this.scraperMap[r]) ? void 0 : t.generateIdString(o)) ? n : ""
+                idString: null != (n = null == (t = this.scraperMap[r]) ? void 0 : t.generateIdString(s)) ? n : "",
+                episodeNumber: i
             });
-        });
-        let o = await this.getEpisodes(...i);
-        return this.formatEpisodeResult(o, t, n);
+        }), this.getEpisodes(...o);
     }
     constructor(){
         scrapers_define_property(this, "scrapers", []), scrapers.forEach((e)=>{
@@ -5982,7 +6008,7 @@ WidgetMetadata = {
     title: "\u901A\u7528\u5F39\u5E55",
     description: "\u901A\u7528\u5F39\u5E55\u63D2\u4EF6\uFF0C\u652F\u6301\u817E\u8BAF\u3001\u4F18\u9177\u3001\u7231\u5947\u827A\u3001\u54D4\u54E9\u54D4\u54E9\u7B49\u5E73\u53F0",
     author: "Baran",
-    version: "0.0.4",
+    version: "0.0.6",
     site: "https://github.com/baranwang/forward-widgets/tree/main/packages/danmu-universe",
     requiredVersion: "0.0.2",
     modules: [
