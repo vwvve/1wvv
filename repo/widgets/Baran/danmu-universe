@@ -4187,9 +4187,10 @@ const getExternalIdsByTmdbId = async (e, t)=>{
                 }
             case "youku":
                 {
-                    let { showid: e } = t.query;
-                    e && (o.providers.youku = {
-                        showId: e
+                    let { showid: e, vid: n } = t.query;
+                    (e || n) && (o.providers.youku = {
+                        showId: e,
+                        vid: n
                     });
                     break;
                 }
@@ -5617,10 +5618,11 @@ function youku_define_property(e, t, n) {
     }) : e[t] = n, e;
 }
 const youkuIdSchema = schemas_object({
-    showId: schemas_string(),
+    showId: schemas_string().optional(),
     vid: schemas_string().optional()
 }), youkuEpisodeInfoSchema = schemas_object({
     id: schemas_string(),
+    show_id: schemas_string().optional(),
     title: schemas_string(),
     seq: schemas_string().transform((e)=>parseInt(e)).optional(),
     duration: schemas_string(),
@@ -5664,29 +5666,35 @@ class YoukuScraper extends BaseScraper {
         return null != (e = this.fetch.getCookie("cna")) ? e : "";
     }
     async getEpisodes(e, t) {
-        let n = this.parseIdString(e);
-        if (!n) return [];
-        let r = 20, i = null != t ? t : 1, o = Math.max(1, Math.ceil(i / 20));
+        var n, r, i;
+        let o = this.parseIdString(e);
+        if (!o) return [];
+        let s = o.showId;
+        if (!s && o.vid) {
+            let e = await this.getVideoInfo(o.vid);
+            s = null != (n = null == e ? void 0 : e.show_id) ? n : "";
+        }
+        if (!s) return [];
+        let a = 20, u = null != t ? t : 1, l = Math.max(1, Math.ceil(u / 20));
         try {
-            var s, a;
-            let e = (e)=>e.filter((e)=>!this.EPISODE_BLACKLIST_KEYWORDS.some((t)=>e.title.includes(t))), u = (e, t)=>({
+            let e = (e)=>e.filter((e)=>!this.EPISODE_BLACKLIST_KEYWORDS.some((t)=>e.title.includes(t))), n = (e, t)=>({
                     provider: this.providerName,
                     episodeId: this.generateIdString({
-                        showId: n.showId,
+                        showId: s,
                         vid: e.id
                     }),
                     episodeTitle: e.title,
                     episodeNumber: t
-                }), l = await this.getEpisodesPage(n.showId, o, r), c = e(null != (s = null == l ? void 0 : l.videos) ? s : []), d = c.find((e)=>e.seq === i);
+                }), o = await this.getEpisodesPage(s, l, a), c = e(null != (r = null == o ? void 0 : o.videos) ? r : []), d = c.find((e)=>e.seq === u);
             if (d) return [
-                u(d, i)
+                n(d, u)
             ];
-            let p = Number(null != (a = null == l ? void 0 : l.total) ? a : 0), f = Math.max(1, Math.ceil(p / r)), h = Array.from({
+            let p = Number(null != (i = null == o ? void 0 : o.total) ? i : 0), f = Math.max(1, Math.ceil(p / a)), h = Array.from({
                 length: f
-            }, (e, t)=>t + 1).filter((e)=>e !== o), m = [];
+            }, (e, t)=>t + 1).filter((e)=>e !== l), m = [];
             for (let e of h){
                 await this.sleep(500);
-                let t = await this.getEpisodesPage(n.showId, e, r);
+                let t = await this.getEpisodesPage(s, e, a);
                 m.push(t);
             }
             let g = e(m.flatMap((e)=>{
@@ -5697,17 +5705,17 @@ class YoukuScraper extends BaseScraper {
                 ...g
             ];
             if (void 0 !== t) {
-                let e = v.find((e)=>e.seq === i);
+                let e = v.find((e)=>e.seq === u);
                 return e ? [
-                    u(e, i)
+                    n(e, u)
                 ] : [];
             }
             return v.sort((e, t)=>{
                 var n, r;
                 return (null != (n = e.seq) ? n : Number.MAX_SAFE_INTEGER) - (null != (r = t.seq) ? r : Number.MAX_SAFE_INTEGER);
-            }).map((e, t)=>u(e, t + 1));
+            }).map((e, t)=>n(e, t + 1));
         } catch (e) {
-            return console.error(`Youku: \u{83B7}\u{53D6}\u{5206}\u{96C6}\u{5931}\u{8D25} showId=${n.showId}:`, e), [];
+            return console.error(`Youku: \u{83B7}\u{53D6}\u{5206}\u{96C6}\u{5931}\u{8D25} showId=${s}:`, e), [];
         }
     }
     async getSegments(e) {
@@ -5716,17 +5724,7 @@ class YoukuScraper extends BaseScraper {
         if (!n) return [];
         try {
             await this.ensureTokenCookie();
-            let e = (await this.fetch.get("https://openapi.youku.com/v2/videos/show_basic.json", {
-                params: {
-                    client_id: "53e6cc67237fc59a",
-                    package: "com.huawei.hwvplayer.youku",
-                    video_id: n
-                },
-                schema: youkuEpisodeInfoSchema,
-                cache: {
-                    cacheKey: `youku:segments:${n}`
-                }
-            })).data;
+            let e = await this.getVideoInfo(n);
             if (!e) return console.warn(`Youku: Failed to get episode info for vid ${n}`), [];
             let t = e.totalMat;
             if (0 === t) return console.warn(`Youku: Video ${n} has duration 0, no danmaku to fetch.`), [];
@@ -5750,6 +5748,19 @@ class YoukuScraper extends BaseScraper {
         } catch (e) {
             return console.error(`Youku: Failed to get danmaku for vid ${r}:`, e), [];
         }
+    }
+    async getVideoInfo(e) {
+        return (await this.fetch.get("https://openapi.youku.com/v2/videos/show_basic.json", {
+            params: {
+                client_id: "53e6cc67237fc59a",
+                package: "com.huawei.hwvplayer.youku",
+                video_id: e
+            },
+            schema: youkuEpisodeInfoSchema,
+            cache: {
+                cacheKey: `youku:segments:${e}`
+            }
+        })).data;
     }
     async getEpisodesPage(e, t, n) {
         return (await this.fetch.get("https://openapi.youku.com/v2/shows/videos.json", {
@@ -5947,6 +5958,7 @@ class scrapers_Scraper {
         return a.forEach((e)=>{
             let { item: t, count: n, provider: r } = e, i = n > 1 ? `${t.content} \xd7 ${n}` : t.content;
             u.push({
+                cid: t.id,
                 p: `${t.timestamp.toFixed(2)},${t.mode},${t.color},[${r}]`,
                 m: i
             });
@@ -6008,7 +6020,7 @@ WidgetMetadata = {
     title: "\u901A\u7528\u5F39\u5E55",
     description: "\u901A\u7528\u5F39\u5E55\u63D2\u4EF6\uFF0C\u652F\u6301\u817E\u8BAF\u3001\u4F18\u9177\u3001\u7231\u5947\u827A\u3001\u54D4\u54E9\u54D4\u54E9\u7B49\u5E73\u53F0",
     author: "Baran",
-    version: "0.0.6",
+    version: "0.0.12",
     site: "https://github.com/baranwang/forward-widgets/tree/main/packages/danmu-universe",
     requiredVersion: "0.0.2",
     modules: [
