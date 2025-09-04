@@ -292,6 +292,15 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%F0%9D%93%91%F0%9D%93%BE%F0%9D%93%BD%F0%9D%93%BD%F0%9D%93%AE%F0%9D%93%BB%F0%9D%93%AF%F0%9D%93%B5%F0%9D%94%82/Move_list_EN.js"
     },
     {
+      "id": "baranwang.danmu.universe",
+      "title": "通用弹幕",
+      "description": "通用弹幕插件，支持腾讯、优酷、爱奇艺、哔哩哔哩等平台",
+      "requiredVersion": "0.0.2",
+      "author": "Baran",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Baran/danmu-universe",
+      "version": "unknown"
+    },
+    {
       "id": "missav",
       "title": "MissAV",
       "description": "获取 MissAV 推荐",
