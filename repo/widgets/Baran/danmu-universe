@@ -4086,6 +4086,14 @@ class HttpStatusError extends Error {
         });
     }
 }
+class HttpSchemaError extends Error {
+    constructor(e, t, n){
+        super(`Failed to parse response with schema: ${prettifyError(n)}`), fetch_define_property(this, "context", void 0), fetch_define_property(this, "response", void 0), fetch_define_property(this, "error", void 0), this.context = e, this.response = t, this.error = n, this.name = "HttpSchemaError", console.error(`\u{1F6AB} HTTP Request Failed Failed to parse response with schema: ${prettifyError(n)}: ${e.method} ${e.url}`), console.error("Response:", {
+            headers: t.headers,
+            data: t.data
+        });
+    }
+}
 class Fetch {
     setCookie(e) {
         this.cookie = merge_merge(this.cookie, e);
@@ -4148,10 +4156,7 @@ class Fetch {
             if (r) return console.debug("fetch cache hit", n), Promise.resolve(r);
         }
         let a = o ? void 0 : n, { timeout: u, schema: l, params: c, ...d } = s, f = t;
-        c && (f = `${t}?${url_parse.qs.stringify(c)}`), console.debug("\u2B06\uFE0F fetch", t, null != a ? a : "", {
-            ...d,
-            params: c
-        });
+        c && (f = `${t}?${url_parse.qs.stringify(c)}`), console.debug("\u2B06\uFE0F fetch", f, null != a ? a : "", d);
         let p = o ? Widget.http.get(f, d) : Widget.http.post(f, a, d);
         return u && u > 0 ? Promise.race([
             p,
@@ -4167,6 +4172,11 @@ class Fetch {
         fetch_define_property(this, "cookie", void 0), fetch_define_property(this, "headers", void 0), fetch_define_property(this, "handleResponse", void 0), this.cookie = e, this.headers = t, this.handleResponse = (e, t, n)=>{
             var r;
             if ((null == n || null == (r = n.successStatus) ? void 0 : r.length) && !n.successStatus.includes(e.statusCode)) throw new HttpStatusError(e.statusCode, n.successStatus, t, e);
+            if (null == n ? void 0 : n.schema) {
+                let r = n.schema.safeParse(e.data);
+                if (!r.success) throw new HttpSchemaError(t, e, r.error);
+                e.data = r.data;
+            }
             let i = e.headers["set-cookie"] || e.headers["Set-Cookie"];
             if (i) {
                 let e = i.split(",").reduce((e, t)=>{
@@ -4182,13 +4192,6 @@ class Fetch {
                     ttl: n.cache.ttl
                 });
             }
-            if (null == n ? void 0 : n.schema) {
-                let r = n.schema.safeParse(e.data);
-                return r.success || (console.error(t.url, "Failed to parse response with schema:", prettifyError(r.error)), console.error("Response:", e.data)), {
-                    ...e,
-                    data: r.data
-                };
-            }
             return e;
         };
     }
@@ -4200,7 +4203,7 @@ const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequest
     season: coerce_number().optional().default(1),
     pageSize: coerce_number().optional().default(20),
     pageToken: schemas_string().optional()
-}), getEpisodesByImdbId = async (e, t)=>{
+}), getImdbEpisodes = async (e, t)=>{
     let { season: n, pageSize: r, pageToken: i } = episodesRequestSchema.parse(null != t ? t : {});
     return (await fetch.get(`${BASE_URL}/titles/${e}/episodes`, {
         params: {
@@ -4209,7 +4212,14 @@ const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequest
             pageToken: i
         },
         cache: {
-            cacheKey: `imdb:episodes:${e}:${n}:${r}:${i}`
+            cacheKey: [
+                "imdb",
+                "episodes",
+                e,
+                n,
+                r,
+                i
+            ].filter(Boolean).join(":")
         },
         successStatus: [
             200
@@ -4224,7 +4234,20 @@ const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequest
             nextPageToken: schemas_string().optional()
         })
     })).data;
-}, getExternalIdsByTmdbId = async (e, t)=>{
+}, getImdbSeasons = async (e)=>(await fetch.get(`${BASE_URL}/titles/${e}/seasons`, {
+        cache: {
+            cacheKey: [
+                "imdb:seasons",
+                e
+            ].join(":")
+        },
+        schema: schemas_object({
+            seasons: schemas_array(schemas_object({
+                season: schemas_string(),
+                episodeCount: schemas_number().optional()
+            }))
+        })
+    })).data, getExternalIdsByTmdbId = async (e, t)=>{
     let n = null, r = `tmdb:${e}:${t}:external_ids`, i = storage.getJson(r);
     return i ? n = i : (n = await Widget.tmdb.get(`/${e}/${t}/external_ids`), storage.setJson(r, n, {
         ttl: TTL_7_DAYS
@@ -4246,9 +4269,19 @@ const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequest
         count: schemas_number().optional(),
         name: schemas_string().optional()
     })).optional()
-}), getDoubanInfoByImdbId = async (e)=>{
-    var t, n, r, i;
-    let o = await douban_fetch.post(`https://api.douban.com/v2/movie/imdb/${e}`, {
+}), getDoubanInfoByImdbId = async (e, t)=>{
+    var n, r, i, o, s, a;
+    let u = e;
+    if (t && "1" !== t.toString()) {
+        let n = await getImdbSeasons(e);
+        if (!n || parseInt(t.toString()) > n.seasons.length) return null;
+        let r = await getImdbEpisodes(e, {
+            season: t
+        });
+        u = null != (s = null == r || null == (o = r.episodes.find((e)=>1 === e.episodeNumber)) ? void 0 : o.id) ? s : "";
+    }
+    u || (u = e), console.log("Get douban info by imdb id", u);
+    let l = await douban_fetch.post(`https://api.douban.com/v2/movie/imdb/${u}`, {
         apikey: DOUBAN_API_KEY
     }, {
         headers: {
@@ -4256,30 +4289,20 @@ const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequest
         },
         schema: doubanImdbResponseSchema,
         cache: {
-            cacheKey: `douban:imdb:${e}`,
+            cacheKey: `douban:imdb:${u}`,
             ttl: TTL_7_DAYS
         }
     });
-    if (200 !== o.statusCode) throw Error(`Failed to get Douban info: ${o.statusCode}, ${JSON.stringify(o.data)}`);
-    let s = null == (r = o.data) || null == (n = r.id) || null == (t = n.split("/")) ? void 0 : t.pop();
-    if (!s) throw Error(`Failed to extract Douban ID from response: ${null == (i = o.data) ? void 0 : i.id}`);
-    return /\d+/.test(s) ? {
-        doubanId: s,
-        originResponse: o.data
+    if (200 !== l.statusCode) throw Error(`Failed to get Douban info: ${l.statusCode}, ${JSON.stringify(l.data)}`);
+    let c = null == (i = l.data) || null == (r = i.id) || null == (n = r.split("/")) ? void 0 : n.pop();
+    if (!c) throw Error(`Failed to extract Douban ID from response: ${null == (a = l.data) ? void 0 : a.id}`);
+    return /\d+/.test(c) ? {
+        doubanId: c,
+        originResponse: l.data
     } : null;
 }, getDoubanInfoByTmdbId = async (e, t, n)=>{
     let r = await getExternalIdsByTmdbId(e, t);
-    console.log("Get external ids by tmdb id", r);
-    let i = r.imdb_id;
-    if (!i) return null;
-    if (n && 1 !== n) {
-        var o, s;
-        let e = await getEpisodesByImdbId(i, {
-            season: n
-        });
-        i = null != (s = null == e || null == (o = e.episodes.find((e)=>1 === e.episodeNumber)) ? void 0 : o.id) ? s : "";
-    }
-    return i ? getDoubanInfoByImdbId(i) : null;
+    return (console.log("Get external ids by tmdb id", r), r.imdb_id) ? getDoubanInfoByImdbId(r.imdb_id, n) : null;
 }, doubanInfoResponseSchema = schemas_object({
     is_tv: schemas_boolean().optional(),
     vendors: schemas_array(schemas_object({
@@ -6163,7 +6186,7 @@ class scrapers_Scraper {
         });
     }
 }
-const widgetVersion = "0.0.14";
+const widgetVersion = "0.0.15";
 WidgetMetadata = {
     id: "baranwang.danmu.universe",
     title: "\u901A\u7528\u5F39\u5E55",

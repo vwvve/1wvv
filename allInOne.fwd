@@ -296,9 +296,9 @@
       "title": "通用弹幕",
       "description": "通用弹幕插件，支持腾讯、优酷、爱奇艺、哔哩哔哩等平台",
       "requiredVersion": "0.0.2",
+      "version": "0.0.15",
       "author": "Baran",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Baran/danmu-universe",
-      "version": "unknown"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Baran/danmu-universe"
     },
     {
       "id": "missav",
