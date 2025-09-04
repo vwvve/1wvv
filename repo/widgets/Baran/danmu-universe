@@ -549,7 +549,7 @@ var __webpack_modules__ = {
                         for(var t = e.length, n = [], r = 0; r < t; r += 2)n[r >>> 3] |= parseInt(e.substr(r, 2), 16) << 24 - r % 8 * 4;
                         return new l.init(n, t / 2);
                     }
-                }, f = c.Latin1 = {
+                }, p = c.Latin1 = {
                     stringify: function(e) {
                         for(var t = e.words, n = e.sigBytes, r = [], i = 0; i < n; i++){
                             var o = t[i >>> 2] >>> 24 - i % 4 * 8 & 0xff;
@@ -561,23 +561,23 @@ var __webpack_modules__ = {
                         for(var t = e.length, n = [], r = 0; r < t; r++)n[r >>> 2] |= (0xff & e.charCodeAt(r)) << 24 - r % 4 * 8;
                         return new l.init(n, t);
                     }
-                }, p = c.Utf8 = {
+                }, f = c.Utf8 = {
                     stringify: function(e) {
                         try {
-                            return decodeURIComponent(escape(f.stringify(e)));
+                            return decodeURIComponent(escape(p.stringify(e)));
                         } catch (e) {
                             throw Error('Malformed UTF-8 data');
                         }
                     },
                     parse: function(e) {
-                        return f.parse(unescape(encodeURIComponent(e)));
+                        return p.parse(unescape(encodeURIComponent(e)));
                     }
                 }, h = a.BufferedBlockAlgorithm = u.extend({
                     reset: function() {
                         this._data = new l.init(), this._nDataBytes = 0;
                     },
                     _append: function(e) {
-                        'string' == typeof e && (e = p.parse(e)), this._data.concat(e), this._nDataBytes += e.sigBytes;
+                        'string' == typeof e && (e = f.parse(e)), this._data.concat(e), this._nDataBytes += e.sigBytes;
                     },
                     _process: function(t) {
                         var n, r = this._data, i = r.words, o = r.sigBytes, s = this.blockSize, a = o / (4 * s), u = (a = t ? e.ceil(a) : e.max((0 | a) - this._minBufferSize, 0)) * s, c = e.min(4 * u, o);
@@ -695,8 +695,8 @@ var __webpack_modules__ = {
                             var r = t + n, i = e[r];
                             e[r] = (i << 8 | i >>> 24) & 0x00ff00ff | (i << 24 | i >>> 8) & 0xff00ff00;
                         }
-                        var o = this._hash.words, s = e[t + 0], u = e[t + 1], p = e[t + 2], h = e[t + 3], m = e[t + 4], g = e[t + 5], v = e[t + 6], y = e[t + 7], b = e[t + 8], _ = e[t + 9], w = e[t + 10], k = e[t + 11], x = e[t + 12], E = e[t + 13], S = e[t + 14], z = e[t + 15], O = o[0], I = o[1], $ = o[2], P = o[3];
-                        O = l(O, I, $, P, s, 7, a[0]), P = l(P, O, I, $, u, 12, a[1]), $ = l($, P, O, I, p, 17, a[2]), I = l(I, $, P, O, h, 22, a[3]), O = l(O, I, $, P, m, 7, a[4]), P = l(P, O, I, $, g, 12, a[5]), $ = l($, P, O, I, v, 17, a[6]), I = l(I, $, P, O, y, 22, a[7]), O = l(O, I, $, P, b, 7, a[8]), P = l(P, O, I, $, _, 12, a[9]), $ = l($, P, O, I, w, 17, a[10]), I = l(I, $, P, O, k, 22, a[11]), O = l(O, I, $, P, x, 7, a[12]), P = l(P, O, I, $, E, 12, a[13]), $ = l($, P, O, I, S, 17, a[14]), I = l(I, $, P, O, z, 22, a[15]), O = c(O, I, $, P, u, 5, a[16]), P = c(P, O, I, $, v, 9, a[17]), $ = c($, P, O, I, k, 14, a[18]), I = c(I, $, P, O, s, 20, a[19]), O = c(O, I, $, P, g, 5, a[20]), P = c(P, O, I, $, w, 9, a[21]), $ = c($, P, O, I, z, 14, a[22]), I = c(I, $, P, O, m, 20, a[23]), O = c(O, I, $, P, _, 5, a[24]), P = c(P, O, I, $, S, 9, a[25]), $ = c($, P, O, I, h, 14, a[26]), I = c(I, $, P, O, b, 20, a[27]), O = c(O, I, $, P, E, 5, a[28]), P = c(P, O, I, $, p, 9, a[29]), $ = c($, P, O, I, y, 14, a[30]), I = c(I, $, P, O, x, 20, a[31]), O = d(O, I, $, P, g, 4, a[32]), P = d(P, O, I, $, b, 11, a[33]), $ = d($, P, O, I, k, 16, a[34]), I = d(I, $, P, O, S, 23, a[35]), O = d(O, I, $, P, u, 4, a[36]), P = d(P, O, I, $, m, 11, a[37]), $ = d($, P, O, I, y, 16, a[38]), I = d(I, $, P, O, w, 23, a[39]), O = d(O, I, $, P, E, 4, a[40]), P = d(P, O, I, $, s, 11, a[41]), $ = d($, P, O, I, h, 16, a[42]), I = d(I, $, P, O, v, 23, a[43]), O = d(O, I, $, P, _, 4, a[44]), P = d(P, O, I, $, x, 11, a[45]), $ = d($, P, O, I, z, 16, a[46]), I = d(I, $, P, O, p, 23, a[47]), O = f(O, I, $, P, s, 6, a[48]), P = f(P, O, I, $, y, 10, a[49]), $ = f($, P, O, I, S, 15, a[50]), I = f(I, $, P, O, g, 21, a[51]), O = f(O, I, $, P, x, 6, a[52]), P = f(P, O, I, $, h, 10, a[53]), $ = f($, P, O, I, w, 15, a[54]), I = f(I, $, P, O, u, 21, a[55]), O = f(O, I, $, P, b, 6, a[56]), P = f(P, O, I, $, z, 10, a[57]), $ = f($, P, O, I, v, 15, a[58]), I = f(I, $, P, O, E, 21, a[59]), O = f(O, I, $, P, m, 6, a[60]), P = f(P, O, I, $, k, 10, a[61]), $ = f($, P, O, I, p, 15, a[62]), I = f(I, $, P, O, _, 21, a[63]), o[0] = o[0] + O | 0, o[1] = o[1] + I | 0, o[2] = o[2] + $ | 0, o[3] = o[3] + P | 0;
+                        var o = this._hash.words, s = e[t + 0], u = e[t + 1], f = e[t + 2], h = e[t + 3], m = e[t + 4], g = e[t + 5], v = e[t + 6], y = e[t + 7], b = e[t + 8], _ = e[t + 9], w = e[t + 10], k = e[t + 11], x = e[t + 12], S = e[t + 13], E = e[t + 14], z = e[t + 15], O = o[0], I = o[1], $ = o[2], P = o[3];
+                        O = l(O, I, $, P, s, 7, a[0]), P = l(P, O, I, $, u, 12, a[1]), $ = l($, P, O, I, f, 17, a[2]), I = l(I, $, P, O, h, 22, a[3]), O = l(O, I, $, P, m, 7, a[4]), P = l(P, O, I, $, g, 12, a[5]), $ = l($, P, O, I, v, 17, a[6]), I = l(I, $, P, O, y, 22, a[7]), O = l(O, I, $, P, b, 7, a[8]), P = l(P, O, I, $, _, 12, a[9]), $ = l($, P, O, I, w, 17, a[10]), I = l(I, $, P, O, k, 22, a[11]), O = l(O, I, $, P, x, 7, a[12]), P = l(P, O, I, $, S, 12, a[13]), $ = l($, P, O, I, E, 17, a[14]), I = l(I, $, P, O, z, 22, a[15]), O = c(O, I, $, P, u, 5, a[16]), P = c(P, O, I, $, v, 9, a[17]), $ = c($, P, O, I, k, 14, a[18]), I = c(I, $, P, O, s, 20, a[19]), O = c(O, I, $, P, g, 5, a[20]), P = c(P, O, I, $, w, 9, a[21]), $ = c($, P, O, I, z, 14, a[22]), I = c(I, $, P, O, m, 20, a[23]), O = c(O, I, $, P, _, 5, a[24]), P = c(P, O, I, $, E, 9, a[25]), $ = c($, P, O, I, h, 14, a[26]), I = c(I, $, P, O, b, 20, a[27]), O = c(O, I, $, P, S, 5, a[28]), P = c(P, O, I, $, f, 9, a[29]), $ = c($, P, O, I, y, 14, a[30]), I = c(I, $, P, O, x, 20, a[31]), O = d(O, I, $, P, g, 4, a[32]), P = d(P, O, I, $, b, 11, a[33]), $ = d($, P, O, I, k, 16, a[34]), I = d(I, $, P, O, E, 23, a[35]), O = d(O, I, $, P, u, 4, a[36]), P = d(P, O, I, $, m, 11, a[37]), $ = d($, P, O, I, y, 16, a[38]), I = d(I, $, P, O, w, 23, a[39]), O = d(O, I, $, P, S, 4, a[40]), P = d(P, O, I, $, s, 11, a[41]), $ = d($, P, O, I, h, 16, a[42]), I = d(I, $, P, O, v, 23, a[43]), O = d(O, I, $, P, _, 4, a[44]), P = d(P, O, I, $, x, 11, a[45]), $ = d($, P, O, I, z, 16, a[46]), I = d(I, $, P, O, f, 23, a[47]), O = p(O, I, $, P, s, 6, a[48]), P = p(P, O, I, $, y, 10, a[49]), $ = p($, P, O, I, E, 15, a[50]), I = p(I, $, P, O, g, 21, a[51]), O = p(O, I, $, P, x, 6, a[52]), P = p(P, O, I, $, h, 10, a[53]), $ = p($, P, O, I, w, 15, a[54]), I = p(I, $, P, O, u, 21, a[55]), O = p(O, I, $, P, b, 6, a[56]), P = p(P, O, I, $, z, 10, a[57]), $ = p($, P, O, I, v, 15, a[58]), I = p(I, $, P, O, S, 21, a[59]), O = p(O, I, $, P, m, 6, a[60]), P = p(P, O, I, $, k, 10, a[61]), $ = p($, P, O, I, f, 15, a[62]), I = p(I, $, P, O, _, 21, a[63]), o[0] = o[0] + O | 0, o[1] = o[1] + I | 0, o[2] = o[2] + $ | 0, o[3] = o[3] + P | 0;
                     },
                     _doFinalize: function() {
                         var e = this._data, n = e.words, r = 8 * this._nDataBytes, i = 8 * e.sigBytes;
@@ -726,7 +726,7 @@ var __webpack_modules__ = {
                     var a = e + (t ^ n ^ r) + i + s;
                     return (a << o | a >>> 32 - o) + t;
                 }
-                function f(e, t, n, r, i, o, s) {
+                function p(e, t, n, r, i, o, s) {
                     var a = e + (n ^ (t | ~r)) + i + s;
                     return (a << o | a >>> 32 - o) + t;
                 }
@@ -787,12 +787,12 @@ var __webpack_modules__ = {
             }
             throw Error("invalid varint encoding");
         }
-        function f(e, t) {
+        function p(e, t) {
             return (e[t - 4] | e[t - 3] << 8 | e[t - 2] << 16 | e[t - 1] << 24) >>> 0;
         }
-        function p() {
+        function f() {
             if (this.pos + 8 > this.len) throw a(this, 8);
-            return new o(f(this.buf, this.pos += 4), f(this.buf, this.pos += 4));
+            return new o(p(this.buf, this.pos += 4), p(this.buf, this.pos += 4));
         }
         u.create = c(), u.prototype._slice = i.Array.prototype.subarray || i.Array.prototype.slice, u.prototype.uint32 = function() {
             var e = 4294967295;
@@ -810,10 +810,10 @@ var __webpack_modules__ = {
             return 0 !== this.uint32();
         }, u.prototype.fixed32 = function() {
             if (this.pos + 4 > this.len) throw a(this, 4);
-            return f(this.buf, this.pos += 4);
+            return p(this.buf, this.pos += 4);
         }, u.prototype.sfixed32 = function() {
             if (this.pos + 4 > this.len) throw a(this, 4);
-            return 0 | f(this.buf, this.pos += 4);
+            return 0 | p(this.buf, this.pos += 4);
         }, u.prototype.float = function() {
             if (this.pos + 4 > this.len) throw a(this, 4);
             var e = i.float.readFloatLE(this.buf, this.pos);
@@ -876,10 +876,10 @@ var __webpack_modules__ = {
                     return d.call(this).zzDecode()[t](!1);
                 },
                 fixed64: function() {
-                    return p.call(this)[t](!0);
+                    return f.call(this)[t](!0);
                 },
                 sfixed64: function() {
-                    return p.call(this)[t](!1);
+                    return f.call(this)[t](!1);
                 }
             });
         };
@@ -1102,7 +1102,7 @@ var __webpack_modules__ = {
         function d() {
             this.len = 0, this.head = new u(l, 0, 0), this.tail = this.head, this.states = null;
         }
-        var f = function() {
+        var p = function() {
             return i.Buffer ? function() {
                 return (d.create = function() {
                     return new r();
@@ -1111,7 +1111,7 @@ var __webpack_modules__ = {
                 return new d();
             };
         };
-        function p(e, t, n) {
+        function f(e, t, n) {
             t[n] = 255 & e;
         }
         function h(e, t, n) {
@@ -1129,7 +1129,7 @@ var __webpack_modules__ = {
         function v(e, t, n) {
             t[n] = 255 & e, t[n + 1] = e >>> 8 & 255, t[n + 2] = e >>> 16 & 255, t[n + 3] = e >>> 24;
         }
-        d.create = f(), d.alloc = function(e) {
+        d.create = p(), d.alloc = function(e) {
             return new i.Array(e);
         }, i.Array !== Array && (d.alloc = i.pool(d.alloc, i.Array.prototype.subarray)), d.prototype._push = function(e, t, n) {
             return this.tail = this.tail.next = new u(e, t, n), this.len += t, this;
@@ -1146,7 +1146,7 @@ var __webpack_modules__ = {
             var t = o.from(e).zzEncode();
             return this._push(g, t.length(), t);
         }, d.prototype.bool = function(e) {
-            return this._push(p, 1, +!!e);
+            return this._push(f, 1, +!!e);
         }, d.prototype.fixed32 = function(e) {
             return this._push(v, 4, e >>> 0);
         }, d.prototype.sfixed32 = d.prototype.fixed32, d.prototype.fixed64 = function(e) {
@@ -1164,7 +1164,7 @@ var __webpack_modules__ = {
         };
         d.prototype.bytes = function(e) {
             var t = e.length >>> 0;
-            if (!t) return this._push(p, 1, 0);
+            if (!t) return this._push(f, 1, 0);
             if (i.isString(e)) {
                 var n = d.alloc(t = s.length(e));
                 s.decode(e, n, 0), e = n;
@@ -1172,7 +1172,7 @@ var __webpack_modules__ = {
             return this.uint32(t)._push(y, t, e);
         }, d.prototype.string = function(e) {
             var t = a.length(e);
-            return t ? this.uint32(t)._push(a.write, t, e) : this._push(p, 1, 0);
+            return t ? this.uint32(t)._push(a.write, t, e) : this._push(f, 1, 0);
         }, d.prototype.fork = function() {
             return this.states = new c(this), this.head = this.tail = new u(l, 0, 0), this.len = 0, this;
         }, d.prototype.reset = function() {
@@ -1184,7 +1184,7 @@ var __webpack_modules__ = {
             for(var e = this.head.next, t = this.constructor.alloc(this.len), n = 0; e;)e.fn(e.val, t, n), n += e.len, e = e.next;
             return t;
         }, d._configure = function(e) {
-            r = e, d.create = f(), r._configure();
+            r = e, d.create = p(), r._configure();
         };
     },
     491: function(e, t, n) {
@@ -1271,7 +1271,7 @@ var __webpack_modules__ = {
         function d(e) {
             return (e || '').toString().replace(o, '');
         }
-        var f = [
+        var p = [
             [
                 '#',
                 'hash'
@@ -1312,16 +1312,16 @@ var __webpack_modules__ = {
                 1,
                 1
             ]
-        ], p = {
+        ], f = {
             hash: 1,
             query: 1
         };
         function h(e) {
             var t, r, i = (t = 'undefined' != typeof window ? window : void 0 !== n.g ? n.g : 'undefined' != typeof self ? self : {}).location || {}, o = {}, s = typeof (e = e || i);
             if ('blob:' === e.protocol) o = new y(unescape(e.pathname), {});
-            else if ('string' === s) for(r in o = new y(e, {}), p)delete o[r];
+            else if ('string' === s) for(r in o = new y(e, {}), f)delete o[r];
             else if ('object' === s) {
-                for(r in e)r in p || (o[r] = e[r]);
+                for(r in e)r in f || (o[r] = e[r]);
                 void 0 === o.slashes && (o.slashes = a.test(e.href));
             }
             return o;
@@ -1346,7 +1346,7 @@ var __webpack_modules__ = {
         }
         function y(e, t, n) {
             if (e = (e = d(e)).replace(s, ''), !(this instanceof y)) return new y(e, t, n);
-            var o, a, u, l, p, b, _ = f.slice(), w = typeof t, k = this, x = 0;
+            var o, a, u, l, f, b, _ = p.slice(), w = typeof t, k = this, x = 0;
             for('object' !== w && 'string' !== w && (n = t, t = null), n && 'function' != typeof n && (n = i.parse), o = !(a = g(e || '', t = h(t))).protocol && !a.slashes, k.slashes = a.slashes || o && t.slashes, k.protocol = a.protocol || t.protocol || '', e = a.rest, ('file:' === a.protocol && (2 !== a.slashesCount || c.test(e)) || !a.slashes && (a.protocol || a.slashesCount < 2 || !m(k.protocol))) && (_[3] = [
                 /(.*)/,
                 'pathname'
@@ -1355,9 +1355,9 @@ var __webpack_modules__ = {
                     e = l(e, k);
                     continue;
                 }
-                u = l[0], b = l[1], u != u ? k[b] = e : 'string' == typeof u ? ~(p = '@' === u ? e.lastIndexOf(u) : e.indexOf(u)) && ('number' == typeof l[2] ? (k[b] = e.slice(0, p), e = e.slice(p + l[2])) : (k[b] = e.slice(p), e = e.slice(0, p))) : (p = u.exec(e)) && (k[b] = p[1], e = e.slice(0, p.index)), k[b] = k[b] || o && l[3] && t[b] || '', l[4] && (k[b] = k[b].toLowerCase());
+                u = l[0], b = l[1], u != u ? k[b] = e : 'string' == typeof u ? ~(f = '@' === u ? e.lastIndexOf(u) : e.indexOf(u)) && ('number' == typeof l[2] ? (k[b] = e.slice(0, f), e = e.slice(f + l[2])) : (k[b] = e.slice(f), e = e.slice(0, f))) : (f = u.exec(e)) && (k[b] = f[1], e = e.slice(0, f.index)), k[b] = k[b] || o && l[3] && t[b] || '', l[4] && (k[b] = k[b].toLowerCase());
             }
-            n && (k.query = n(k.query)), o && t.slashes && '/' !== k.pathname.charAt(0) && ('' !== k.pathname || '' !== t.pathname) && (k.pathname = v(k.pathname, t.pathname)), '/' !== k.pathname.charAt(0) && m(k.protocol) && (k.pathname = '/' + k.pathname), r(k.port, k.protocol) || (k.host = k.hostname, k.port = ''), k.username = k.password = '', k.auth && (~(p = k.auth.indexOf(':')) ? (k.username = k.auth.slice(0, p), k.username = encodeURIComponent(decodeURIComponent(k.username)), k.password = k.auth.slice(p + 1), k.password = encodeURIComponent(decodeURIComponent(k.password))) : k.username = encodeURIComponent(decodeURIComponent(k.auth)), k.auth = k.password ? k.username + ':' + k.password : k.username), k.origin = 'file:' !== k.protocol && m(k.protocol) && k.host ? k.protocol + '//' + k.host : 'null', k.href = k.toString();
+            n && (k.query = n(k.query)), o && t.slashes && '/' !== k.pathname.charAt(0) && ('' !== k.pathname || '' !== t.pathname) && (k.pathname = v(k.pathname, t.pathname)), '/' !== k.pathname.charAt(0) && m(k.protocol) && (k.pathname = '/' + k.pathname), r(k.port, k.protocol) || (k.host = k.hostname, k.port = ''), k.username = k.password = '', k.auth && (~(f = k.auth.indexOf(':')) ? (k.username = k.auth.slice(0, f), k.username = encodeURIComponent(decodeURIComponent(k.username)), k.password = k.auth.slice(f + 1), k.password = encodeURIComponent(decodeURIComponent(k.password))) : k.username = encodeURIComponent(decodeURIComponent(k.auth)), k.auth = k.password ? k.username + ':' + k.password : k.username), k.origin = 'file:' !== k.protocol && m(k.protocol) && k.host ? k.protocol + '//' + k.host : 'null', k.href = k.toString();
         }
         y.prototype = {
             set: function(e, t, n) {
@@ -1393,8 +1393,8 @@ var __webpack_modules__ = {
                         var a = t.indexOf(':');
                         ~a ? (o.username = t.slice(0, a), o.username = encodeURIComponent(decodeURIComponent(o.username)), o.password = t.slice(a + 1), o.password = encodeURIComponent(decodeURIComponent(o.password))) : o.username = encodeURIComponent(decodeURIComponent(t));
                 }
-                for(var l = 0; l < f.length; l++){
-                    var c = f[l];
+                for(var l = 0; l < p.length; l++){
+                    var c = p[l];
                     c[4] && (o[c[1]] = o[c[1]].toLowerCase());
                 }
                 return o.auth = o.password ? o.username + ':' + o.password : o.username, o.origin = 'file:' !== o.protocol && m(o.protocol) && o.host ? o.protocol + '//' + o.host : 'null', o.href = o.toString(), o;
@@ -1448,13 +1448,12 @@ function __webpack_require__(e) {
 })(), (()=>{
     __webpack_require__.nmd = (e)=>(e.paths = [], e.children || (e.children = []), e);
 })();
-const DOUBAN_API_KEY = "0ac44ae016490db2204ce0a042db2916", PROVIDER_NAMES = {
+const PROVIDER_NAMES = {
     tencent: "\u817E\u8BAF\u89C6\u9891",
     iqiyi: "\u7231\u5947\u827A",
     youku: "\u4F18\u9177\u89C6\u9891",
     bilibili: "\u54D4\u54E9\u54D4\u54E9"
 };
-var url_parse = __webpack_require__(337), url_parse_default = __webpack_require__.n(url_parse);
 function $constructor(e, t, n) {
     function r(n, r) {
         var i;
@@ -1493,20 +1492,15 @@ class $ZodAsyncError extends Error {
         super("Encountered Promise during synchronous parse. Use .parseAsync() instead.");
     }
 }
-class $ZodEncodeError extends Error {
-    constructor(e){
-        super(`Encountered unidirectional transform during encode: ${e}`), this.name = "ZodEncodeError";
-    }
-}
 const globalConfig = {};
 function core_config(e) {
     return e && Object.assign(globalConfig, e), globalConfig;
 }
-const cuid = /^[cC][^\s-]{8,}$/, cuid2 = /^[0-9a-z]+$/, ulid = /^[0-9A-HJKMNP-TV-Za-hjkmnp-tv-z]{26}$/, xid = /^[0-9a-vA-V]{20}$/, ksuid = /^[A-Za-z0-9]{27}$/, nanoid = /^[a-zA-Z0-9_-]{21}$/, regexes_duration = /^P(?:(\d+W)|(?!.*W)(?=\d|T\d)(\d+Y)?(\d+M)?(\d+D)?(T(?=\d)(\d+H)?(\d+M)?(\d+([.,]\d+)?S)?)?)$/, guid = /^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$/, uuid = (e)=>e ? RegExp(`^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-${e}[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})$`) : /^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/, email = /^(?!\.)(?!.*\.\.)([A-Za-z0-9_'+\-\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\-]*\.)+[A-Za-z]{2,}$/, _emoji = "^(\\p{Extended_Pictographic}|\\p{Emoji_Component})+$";
+const cuid = /^[cC][^\s-]{8,}$/, cuid2 = /^[0-9a-z]+$/, ulid = /^[0-9A-HJKMNP-TV-Za-hjkmnp-tv-z]{26}$/, xid = /^[0-9a-vA-V]{20}$/, ksuid = /^[A-Za-z0-9]{27}$/, nanoid = /^[a-zA-Z0-9_-]{21}$/, regexes_duration = /^P(?:(\d+W)|(?!.*W)(?=\d|T\d)(\d+Y)?(\d+M)?(\d+D)?(T(?=\d)(\d+H)?(\d+M)?(\d+([.,]\d+)?S)?)?)$/, guid = /^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$/, uuid = (e)=>e ? RegExp(`^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-${e}[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})$`) : /^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000)$/, email = /^(?!\.)(?!.*\.\.)([A-Za-z0-9_'+\-\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\-]*\.)+[A-Za-z]{2,}$/, _emoji = "^(\\p{Extended_Pictographic}|\\p{Emoji_Component})+$";
 function emoji() {
     return RegExp(_emoji, "u");
 }
-const ipv4 = /^(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])$/, ipv6 = /^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|::|([0-9a-fA-F]{1,4})?::([0-9a-fA-F]{1,4}:?){0,6})$/, cidrv4 = /^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\/([0-9]|[1-2][0-9]|3[0-2])$/, cidrv6 = /^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|::|([0-9a-fA-F]{1,4})?::([0-9a-fA-F]{1,4}:?){0,6})\/(12[0-8]|1[01][0-9]|[1-9]?[0-9])$/, regexes_base64 = /^$|^(?:[0-9a-zA-Z+/]{4})*(?:(?:[0-9a-zA-Z+/]{2}==)|(?:[0-9a-zA-Z+/]{3}=))?$/, regexes_base64url = /^[A-Za-z0-9_-]*$/, hostname = /^(?=.{1,253}\.?$)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[-0-9a-zA-Z]{0,61}[0-9a-zA-Z])?)*\.?$/, e164 = /^\+(?:[0-9]){6,14}[0-9]$/, dateSource = "(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))", regexes_date = RegExp(`^${dateSource}$`);
+const ipv4 = /^(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])$/, ipv6 = /^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|::|([0-9a-fA-F]{1,4})?::([0-9a-fA-F]{1,4}:?){0,6})$/, cidrv4 = /^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\/([0-9]|[1-2][0-9]|3[0-2])$/, cidrv6 = /^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|::|([0-9a-fA-F]{1,4})?::([0-9a-fA-F]{1,4}:?){0,6})\/(12[0-8]|1[01][0-9]|[1-9]?[0-9])$/, regexes_base64 = /^$|^(?:[0-9a-zA-Z+/]{4})*(?:(?:[0-9a-zA-Z+/]{2}==)|(?:[0-9a-zA-Z+/]{3}=))?$/, base64url = /^[A-Za-z0-9_-]*$/, hostname = /^(?=.{1,253}\.?$)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[-0-9a-zA-Z]{0,61}[0-9a-zA-Z])?)*\.?$/, e164 = /^\+(?:[0-9]){6,14}[0-9]$/, dateSource = "(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))", regexes_date = RegExp(`^${dateSource}$`);
 function timeSource(e) {
     let t = "(?:[01]\\d|2[0-3]):[0-5]\\d";
     return "number" == typeof e.precision ? -1 === e.precision ? `${t}` : 0 === e.precision ? `${t}:[0-5]\\d` : `${t}:[0-5]\\d\\.\\d{${e.precision}}` : `${t}(?::[0-5]\\d(?:\\.\\d+)?)?`;
@@ -1707,9 +1701,7 @@ function omit(e, t) {
 }
 function extend(e, t) {
     if (!isPlainObject(t)) throw Error("Invalid input to extend: expected a plain object");
-    let n = e._zod.def.checks;
-    if (n && n.length > 0) throw Error("Object schemas containing refinements cannot be extended. Use `.safeExtend()` instead.");
-    let r = mergeDefs(e._zod.def, {
+    let n = mergeDefs(e._zod.def, {
         get shape () {
             let n = {
                 ...e._zod.def.shape,
@@ -1719,21 +1711,6 @@ function extend(e, t) {
         },
         checks: []
     });
-    return clone(e, r);
-}
-function safeExtend(e, t) {
-    if (!isPlainObject(t)) throw Error("Invalid input to safeExtend: expected a plain object");
-    let n = {
-        ...e._zod.def,
-        get shape () {
-            let n = {
-                ...e._zod.def.shape,
-                ...t
-            };
-            return assignProp(this, "shape", n), n;
-        },
-        checks: e._zod.def.checks
-    };
     return clone(e, n);
 }
 function merge(e, t) {
@@ -1799,7 +1776,6 @@ function required(e, t, n) {
     return clone(t, r);
 }
 function aborted(e, t = 0) {
-    if (!0 === e.aborted) return !0;
     for(let n = t; n < e.issues.length; n++)if (e.issues[n]?.continue !== !0) return !0;
     return !1;
 }
@@ -2256,38 +2232,10 @@ const _parse = (e)=>(t, n, r, i)=>{
             success: !0,
             data: o.value
         };
-    }, safeParseAsync = _safeParseAsync($ZodRealError), _encode = (e)=>(t, n, r)=>{
-        let i = r ? Object.assign(r, {
-            direction: "backward"
-        }) : {
-            direction: "backward"
-        };
-        return _parse(e)(t, n, i);
-    }, _decode = (e)=>(t, n, r)=>_parse(e)(t, n, r), _encodeAsync = (e)=>async (t, n, r)=>{
-        let i = r ? Object.assign(r, {
-            direction: "backward"
-        }) : {
-            direction: "backward"
-        };
-        return _parseAsync(e)(t, n, i);
-    }, _decodeAsync = (e)=>async (t, n, r)=>_parseAsync(e)(t, n, r), _safeEncode = (e)=>(t, n, r)=>{
-        let i = r ? Object.assign(r, {
-            direction: "backward"
-        }) : {
-            direction: "backward"
-        };
-        return _safeParse(e)(t, n, i);
-    }, _safeDecode = (e)=>(t, n, r)=>_safeParse(e)(t, n, r), _safeEncodeAsync = (e)=>async (t, n, r)=>{
-        let i = r ? Object.assign(r, {
-            direction: "backward"
-        }) : {
-            direction: "backward"
-        };
-        return _safeParseAsync(e)(t, n, i);
-    }, _safeDecodeAsync = (e)=>async (t, n, r)=>_safeParseAsync(e)(t, n, r), versions_version = {
+    }, safeParseAsync = _safeParseAsync($ZodRealError), versions_version = {
     major: 4,
-    minor: 1,
-    patch: 5
+    minor: 0,
+    patch: 17
 }, $ZodType = $constructor("$ZodType", (e, t)=>{
     var n;
     e ?? (e = {}), e._zod.def = t, e._zod.bag = e._zod.bag || {}, e._zod.version = versions_version;
@@ -2316,33 +2264,14 @@ const _parse = (e)=>(t, n, r, i)=>{
                 }
             }
             return r ? r.then(()=>e) : e;
-        }, n = (n, i, o)=>{
-            if (aborted(n)) return n.aborted = !0, n;
-            let s = t(i, r, o);
-            if (s instanceof Promise) {
-                if (!1 === o.async) throw new $ZodAsyncError();
-                return s.then((t)=>e._zod.parse(t, o));
-            }
-            return e._zod.parse(s, o);
         };
-        e._zod.run = (i, o)=>{
-            if (o.skipChecks) return e._zod.parse(i, o);
-            if ("backward" === o.direction) {
-                let t = e._zod.parse({
-                    value: i.value,
-                    issues: []
-                }, {
-                    ...o,
-                    skipChecks: !0
-                });
-                return t instanceof Promise ? t.then((e)=>n(e, i, o)) : n(t, i, o);
+        e._zod.run = (n, i)=>{
+            let o = e._zod.parse(n, i);
+            if (o instanceof Promise) {
+                if (!1 === i.async) throw new $ZodAsyncError();
+                return o.then((e)=>t(e, r, i));
             }
-            let s = e._zod.parse(i, o);
-            if (s instanceof Promise) {
-                if (!1 === o.async) throw new $ZodAsyncError();
-                return s.then((e)=>t(e, r, o));
-            }
-            return t(s, r, o);
+            return t(o, r, i);
         };
     }
     e["~standard"] = {
@@ -2519,12 +2448,12 @@ const $ZodBase64 = $constructor("$ZodBase64", (e, t)=>{
     };
 });
 function isValidBase64URL(e) {
-    if (!regexes_base64url.test(e)) return !1;
+    if (!base64url.test(e)) return !1;
     let t = e.replace(/[-_]/g, (e)=>"-" === e ? "+" : "/");
     return isValidBase64(t.padEnd(4 * Math.ceil(t.length / 4), "="));
 }
 const $ZodBase64URL = $constructor("$ZodBase64URL", (e, t)=>{
-    t.pattern ?? (t.pattern = regexes_base64url), $ZodStringFormat.init(e, t), e._zod.onattach.push((e)=>{
+    t.pattern ?? (t.pattern = base64url), $ZodStringFormat.init(e, t), e._zod.onattach.push((e)=>{
         e._zod.bag.contentEncoding = "base64url";
     }), e._zod.check = (n)=>{
         isValidBase64URL(n.value) || n.issues.push({
@@ -2631,43 +2560,21 @@ const $ZodArray = $constructor("$ZodArray", (e, t)=>{
 function handlePropertyResult(e, t, n, r) {
     e.issues.length && t.issues.push(...prefixIssues(n, e.issues)), void 0 === e.value ? n in r && (t.value[n] = void 0) : t.value[n] = e.value;
 }
-function normalizeDef(e) {
-    let t = Object.keys(e.shape);
-    for (let n of t)if (!e.shape[n]._zod.traits.has("$ZodType")) throw Error(`Invalid element at key "${n}": expected a Zod schema`);
-    let n = optionalKeys(e.shape);
-    return {
-        ...e,
-        keys: t,
-        keySet: new Set(t),
-        numKeys: t.length,
-        optionalKeys: new Set(n)
-    };
-}
-function handleCatchall(e, t, n, r, i, o) {
-    let s = [], a = i.keySet, u = i.catchall._zod, l = u.def.type;
-    for (let i of Object.keys(t)){
-        if (a.has(i)) continue;
-        if ("never" === l) {
-            s.push(i);
-            continue;
-        }
-        let o = u.run({
-            value: t[i],
-            issues: []
-        }, r);
-        o instanceof Promise ? e.push(o.then((e)=>handlePropertyResult(e, n, i, t))) : handlePropertyResult(o, n, i, t);
-    }
-    return (s.length && n.issues.push({
-        code: "unrecognized_keys",
-        keys: s,
-        input: t,
-        inst: o
-    }), e.length) ? Promise.all(e).then(()=>n) : n;
-}
 const $ZodObject = $constructor("$ZodObject", (e, t)=>{
-    let n;
+    let n, r;
     $ZodType.init(e, t);
-    let r = util_cached(()=>normalizeDef(t));
+    let i = util_cached(()=>{
+        let e = Object.keys(t.shape);
+        for (let n of e)if (!t.shape[n]._zod.traits.has("$ZodType")) throw Error(`Invalid element at key "${n}": expected a Zod schema`);
+        let n = optionalKeys(t.shape);
+        return {
+            shape: t.shape,
+            keys: e,
+            keySet: new Set(e),
+            numKeys: e.length,
+            optionalKeys: new Set(n)
+        };
+    });
     defineLazy(e._zod, "propValues", ()=>{
         let e = t.shape, n = {};
         for(let t in e){
@@ -2676,74 +2583,83 @@ const $ZodObject = $constructor("$ZodObject", (e, t)=>{
         }
         return n;
     });
-    let i = util_isObject, o = t.catchall;
-    e._zod.parse = (t, s)=>{
-        n ?? (n = r.value);
-        let a = t.value;
-        if (!i(a)) return t.issues.push({
-            expected: "object",
-            code: "invalid_type",
-            input: a,
-            inst: e
-        }), t;
-        t.value = {};
-        let u = [], l = n.shape;
-        for (let e of n.keys){
-            let n = l[e]._zod.run({
-                value: a[e],
-                issues: []
-            }, s);
-            n instanceof Promise ? u.push(n.then((n)=>handlePropertyResult(n, t, e, a))) : handlePropertyResult(n, t, e, a);
-        }
-        return o ? handleCatchall(u, a, t, s, r.value, e) : u.length ? Promise.all(u).then(()=>t) : t;
-    };
-}), $ZodObjectJIT = $constructor("$ZodObjectJIT", (e, t)=>{
-    let n, r;
-    $ZodObject.init(e, t);
-    let i = e._zod.parse, o = util_cached(()=>normalizeDef(t)), s = (e)=>{
+    let o = (e)=>{
         let t = new Doc([
             "shape",
             "payload",
             "ctx"
-        ]), n = o.value, r = (e)=>{
+        ]), n = i.value, r = (e)=>{
             let t = esc(e);
             return `shape[${t}]._zod.run({ value: input[${t}], issues: [] }, ctx)`;
         };
         t.write("const input = payload.value;");
-        let i = Object.create(null), s = 0;
-        for (let e of n.keys)i[e] = `key_${s++}`;
+        let o = Object.create(null), s = 0;
+        for (let e of n.keys)o[e] = `key_${s++}`;
         for (let e of (t.write("const newResult = {}"), n.keys)){
-            let n = i[e], o = esc(e);
+            let n = o[e], i = esc(e);
             t.write(`const ${n} = ${r(e)};`), t.write(`
         if (${n}.issues.length) {
           payload.issues = payload.issues.concat(${n}.issues.map(iss => ({
             ...iss,
-            path: iss.path ? [${o}, ...iss.path] : [${o}]
+            path: iss.path ? [${i}, ...iss.path] : [${i}]
           })));
         }
         
         if (${n}.value === undefined) {
-          if (${o} in input) {
-            newResult[${o}] = undefined;
+          if (${i} in input) {
+            newResult[${i}] = undefined;
           }
         } else {
-          newResult[${o}] = ${n}.value;
+          newResult[${i}] = ${n}.value;
         }
       `);
         }
         t.write("payload.value = newResult;"), t.write("return payload;");
         let a = t.compile();
         return (t, n)=>a(e, t, n);
-    }, a = util_isObject, u = !globalConfig.jitless, l = util_allowsEval, c = u && l.value, d = t.catchall;
-    e._zod.parse = (l, f)=>{
-        r ?? (r = o.value);
-        let p = l.value;
-        return a(p) ? u && c && f?.async === !1 && !0 !== f.jitless ? (n || (n = s(t.shape)), l = n(l, f), d) ? handleCatchall([], p, l, f, r, e) : l : i(l, f) : (l.issues.push({
+    }, s = util_isObject, a = !globalConfig.jitless, u = util_allowsEval, l = a && u.value, c = t.catchall;
+    e._zod.parse = (u, d)=>{
+        r ?? (r = i.value);
+        let p = u.value;
+        if (!s(p)) return u.issues.push({
             expected: "object",
             code: "invalid_type",
             input: p,
             inst: e
-        }), l);
+        }), u;
+        let f = [];
+        if (a && l && d?.async === !1 && !0 !== d.jitless) n || (n = o(t.shape)), u = n(u, d);
+        else {
+            u.value = {};
+            let e = r.shape;
+            for (let t of r.keys){
+                let n = e[t]._zod.run({
+                    value: p[t],
+                    issues: []
+                }, d);
+                n instanceof Promise ? f.push(n.then((e)=>handlePropertyResult(e, u, t, p))) : handlePropertyResult(n, u, t, p);
+            }
+        }
+        if (!c) return f.length ? Promise.all(f).then(()=>u) : u;
+        let h = [], m = r.keySet, g = c._zod, v = g.def.type;
+        for (let e of Object.keys(p)){
+            if (m.has(e)) continue;
+            if ("never" === v) {
+                h.push(e);
+                continue;
+            }
+            let t = g.run({
+                value: p[e],
+                issues: []
+            }, d);
+            t instanceof Promise ? f.push(t.then((t)=>handlePropertyResult(t, u, e, p))) : handlePropertyResult(t, u, e, p);
+        }
+        return (h.length && u.issues.push({
+            code: "unrecognized_keys",
+            keys: h,
+            input: p,
+            inst: e
+        }), f.length) ? Promise.all(f).then(()=>u) : u;
     };
 });
 function handleUnionResults(e, t, n, r) {
@@ -2938,12 +2854,11 @@ const $ZodRecord = $constructor("$ZodRecord", (e, t)=>{
         }), n;
     };
 }), $ZodTransform = $constructor("$ZodTransform", (e, t)=>{
-    $ZodType.init(e, t), e._zod.parse = (n, r)=>{
-        if ("backward" === r.direction) throw new $ZodEncodeError(e.constructor.name);
-        let i = t.transform(n.value, n);
-        if (r.async) return (i instanceof Promise ? i : Promise.resolve(i)).then((e)=>(n.value = e, n));
-        if (i instanceof Promise) throw new $ZodAsyncError();
-        return n.value = i, n;
+    $ZodType.init(e, t), e._zod.parse = (e, n)=>{
+        let r = t.transform(e.value, e);
+        if (n.async) return (r instanceof Promise ? r : Promise.resolve(r)).then((t)=>(e.value = t, e));
+        if (r instanceof Promise) throw new $ZodAsyncError();
+        return e.value = r, e;
     };
 });
 function handleOptionalResult(e, t) {
@@ -2976,7 +2891,6 @@ const $ZodOptional = $constructor("$ZodOptional", (e, t)=>{
         ]) : void 0), e._zod.parse = (e, n)=>null === e.value ? e : t.innerType._zod.run(e, n);
 }), $ZodDefault = $constructor("$ZodDefault", (e, t)=>{
     $ZodType.init(e, t), e._zod.optin = "optional", defineLazy(e._zod, "values", ()=>t.innerType._zod.values), e._zod.parse = (e, n)=>{
-        if ("backward" === n.direction) return t.innerType._zod.run(e, n);
         if (void 0 === e.value) return e.value = t.defaultValue, e;
         let r = t.innerType._zod.run(e, n);
         return r instanceof Promise ? r.then((e)=>handleDefaultResult(e, t)) : handleDefaultResult(r, t);
@@ -2986,7 +2900,7 @@ function handleDefaultResult(e, t) {
     return void 0 === e.value && (e.value = t.defaultValue), e;
 }
 const $ZodPrefault = $constructor("$ZodPrefault", (e, t)=>{
-    $ZodType.init(e, t), e._zod.optin = "optional", defineLazy(e._zod, "values", ()=>t.innerType._zod.values), e._zod.parse = (e, n)=>("backward" === n.direction || void 0 === e.value && (e.value = t.defaultValue), t.innerType._zod.run(e, n));
+    $ZodType.init(e, t), e._zod.optin = "optional", defineLazy(e._zod, "values", ()=>t.innerType._zod.values), e._zod.parse = (e, n)=>(void 0 === e.value && (e.value = t.defaultValue), t.innerType._zod.run(e, n));
 }), $ZodNonOptional = $constructor("$ZodNonOptional", (e, t)=>{
     $ZodType.init(e, t), defineLazy(e._zod, "values", ()=>{
         let e = t.innerType._zod.values;
@@ -3008,7 +2922,6 @@ function handleNonOptionalResult(e, t) {
 }
 const $ZodCatch = $constructor("$ZodCatch", (e, t)=>{
     $ZodType.init(e, t), defineLazy(e._zod, "optin", ()=>t.innerType._zod.optin), defineLazy(e._zod, "optout", ()=>t.innerType._zod.optout), defineLazy(e._zod, "values", ()=>t.innerType._zod.values), e._zod.parse = (e, n)=>{
-        if ("backward" === n.direction) return t.innerType._zod.run(e, n);
         let r = t.innerType._zod.run(e, n);
         return r instanceof Promise ? r.then((r)=>(e.value = r.value, r.issues.length && (e.value = t.catchValue({
                 ...e,
@@ -3026,23 +2939,18 @@ const $ZodCatch = $constructor("$ZodCatch", (e, t)=>{
     };
 }), $ZodPipe = $constructor("$ZodPipe", (e, t)=>{
     $ZodType.init(e, t), defineLazy(e._zod, "values", ()=>t.in._zod.values), defineLazy(e._zod, "optin", ()=>t.in._zod.optin), defineLazy(e._zod, "optout", ()=>t.out._zod.optout), defineLazy(e._zod, "propValues", ()=>t.in._zod.propValues), e._zod.parse = (e, n)=>{
-        if ("backward" === n.direction) {
-            let r = t.out._zod.run(e, n);
-            return r instanceof Promise ? r.then((e)=>handlePipeResult(e, t.in, n)) : handlePipeResult(r, t.in, n);
-        }
         let r = t.in._zod.run(e, n);
-        return r instanceof Promise ? r.then((e)=>handlePipeResult(e, t.out, n)) : handlePipeResult(r, t.out, n);
+        return r instanceof Promise ? r.then((e)=>handlePipeResult(e, t, n)) : handlePipeResult(r, t, n);
     };
 });
 function handlePipeResult(e, t, n) {
-    return e.issues.length ? (e.aborted = !0, e) : t._zod.run({
+    return e.issues.length ? e : t.out._zod.run({
         value: e.value,
         issues: e.issues
     }, n);
 }
 const $ZodReadonly = $constructor("$ZodReadonly", (e, t)=>{
     $ZodType.init(e, t), defineLazy(e._zod, "propValues", ()=>t.innerType._zod.propValues), defineLazy(e._zod, "values", ()=>t.innerType._zod.values), defineLazy(e._zod, "optin", ()=>t.innerType._zod.optin), defineLazy(e._zod, "optout", ()=>t.innerType._zod.optout), e._zod.parse = (e, n)=>{
-        if ("backward" === n.direction) return t.innerType._zod.run(e, n);
         let r = t.innerType._zod.run(e, n);
         return r instanceof Promise ? r.then(handleReadonlyResult) : handleReadonlyResult(r);
     };
@@ -3604,7 +3512,7 @@ const classic_errors_initializer = (e, t)=>{
 $constructor("ZodError", classic_errors_initializer);
 const ZodRealError = $constructor("ZodError", classic_errors_initializer, {
     Parent: Error
-}), classic_parse_parse = _parse(ZodRealError), classic_parse_parseAsync = _parseAsync(ZodRealError), parse_safeParse = _safeParse(ZodRealError), parse_safeParseAsync = _safeParseAsync(ZodRealError), parse_encode = _encode(ZodRealError), parse_decode = _decode(ZodRealError), parse_encodeAsync = _encodeAsync(ZodRealError), parse_decodeAsync = _decodeAsync(ZodRealError), parse_safeEncode = _safeEncode(ZodRealError), parse_safeDecode = _safeDecode(ZodRealError), parse_safeEncodeAsync = _safeEncodeAsync(ZodRealError), parse_safeDecodeAsync = _safeDecodeAsync(ZodRealError), ZodType = $constructor("ZodType", (e, t)=>($ZodType.init(e, t), e.def = t, e.type = t.type, Object.defineProperty(e, "_def", {
+}), parse_parse = _parse(ZodRealError), parse_parseAsync = _parseAsync(ZodRealError), parse_safeParse = _safeParse(ZodRealError), parse_safeParseAsync = _safeParseAsync(ZodRealError), ZodType = $constructor("ZodType", (e, t)=>($ZodType.init(e, t), e.def = t, Object.defineProperty(e, "_def", {
         value: t
     }), e.check = (...n)=>e.clone({
             ...t,
@@ -3620,11 +3528,11 @@ const ZodRealError = $constructor("ZodError", classic_errors_initializer, {
                         }
                     } : e)
             ]
-        }), e.clone = (t, n)=>clone(e, t, n), e.brand = ()=>e, e.register = (t, n)=>(t.add(e, n), e), e.parse = (t, n)=>classic_parse_parse(e, t, n, {
+        }), e.clone = (t, n)=>clone(e, t, n), e.brand = ()=>e, e.register = (t, n)=>(t.add(e, n), e), e.parse = (t, n)=>parse_parse(e, t, n, {
             callee: e.parse
-        }), e.safeParse = (t, n)=>parse_safeParse(e, t, n), e.parseAsync = async (t, n)=>classic_parse_parseAsync(e, t, n, {
+        }), e.safeParse = (t, n)=>parse_safeParse(e, t, n), e.parseAsync = async (t, n)=>parse_parseAsync(e, t, n, {
             callee: e.parseAsync
-        }), e.safeParseAsync = async (t, n)=>parse_safeParseAsync(e, t, n), e.spa = e.safeParseAsync, e.encode = (t, n)=>parse_encode(e, t, n), e.decode = (t, n)=>parse_decode(e, t, n), e.encodeAsync = async (t, n)=>parse_encodeAsync(e, t, n), e.decodeAsync = async (t, n)=>parse_decodeAsync(e, t, n), e.safeEncode = (t, n)=>parse_safeEncode(e, t, n), e.safeDecode = (t, n)=>parse_safeDecode(e, t, n), e.safeEncodeAsync = async (t, n)=>parse_safeEncodeAsync(e, t, n), e.safeDecodeAsync = async (t, n)=>parse_safeDecodeAsync(e, t, n), e.refine = (t, n)=>e.check(refine(t, n)), e.superRefine = (t)=>e.check(superRefine(t)), e.overwrite = (t)=>e.check(_overwrite(t)), e.optional = ()=>optional(e), e.nullable = ()=>nullable(e), e.nullish = ()=>optional(nullable(e)), e.nonoptional = (t)=>nonoptional(e, t), e.array = ()=>schemas_array(e), e.or = (t)=>union([
+        }), e.safeParseAsync = async (t, n)=>parse_safeParseAsync(e, t, n), e.spa = e.safeParseAsync, e.refine = (t, n)=>e.check(refine(t, n)), e.superRefine = (t)=>e.check(superRefine(t)), e.overwrite = (t)=>e.check(_overwrite(t)), e.optional = ()=>optional(e), e.nullable = ()=>nullable(e), e.nullish = ()=>optional(nullable(e)), e.nonoptional = (t)=>nonoptional(e, t), e.array = ()=>schemas_array(e), e.or = (t)=>union([
             e,
             t
         ]), e.and = (t)=>intersection(e, t), e.transform = (t)=>pipe(e, transform(t)), e.default = (t)=>schemas_default(e, t), e.prefault = (t)=>prefault(e, t), e.catch = (t)=>schemas_catch(e, t), e.pipe = (t)=>pipe(e, t), e.readonly = ()=>readonly(e), e.describe = (t)=>{
@@ -3728,7 +3636,7 @@ function schemas_array(e, t) {
     return _array(ZodArray, e, t);
 }
 const ZodObject = $constructor("ZodObject", (e, t)=>{
-    $ZodObjectJIT.init(e, t), ZodType.init(e, t), defineLazy(e, "shape", ()=>t.shape), e.keyof = ()=>schemas_enum(Object.keys(e._zod.def.shape)), e.catchall = (t)=>e.clone({
+    $ZodObject.init(e, t), ZodType.init(e, t), defineLazy(e, "shape", ()=>t.shape), e.keyof = ()=>schemas_enum(Object.keys(e._zod.def.shape)), e.catchall = (t)=>e.clone({
             ...e._zod.def,
             catchall: t
         }), e.passthrough = ()=>e.clone({
@@ -3743,7 +3651,7 @@ const ZodObject = $constructor("ZodObject", (e, t)=>{
         }), e.strip = ()=>e.clone({
             ...e._zod.def,
             catchall: void 0
-        }), e.extend = (t)=>extend(e, t), e.safeExtend = (t)=>safeExtend(e, t), e.merge = (t)=>merge(e, t), e.pick = (t)=>pick(e, t), e.omit = (t)=>omit(e, t), e.partial = (...t)=>partial(ZodOptional, e, t[0]), e.required = (...t)=>required(ZodNonOptional, e, t[0]);
+        }), e.extend = (t)=>extend(e, t), e.merge = (t)=>merge(e, t), e.pick = (t)=>pick(e, t), e.omit = (t)=>omit(e, t), e.partial = (...t)=>partial(ZodOptional, e, t[0]), e.required = (...t)=>required(ZodNonOptional, e, t[0]);
 });
 function schemas_object(e, t) {
     return new ZodObject({
@@ -3851,7 +3759,6 @@ function literal(e, t) {
 }
 const ZodTransform = $constructor("ZodTransform", (e, t)=>{
     $ZodTransform.init(e, t), ZodType.init(e, t), e._zod.parse = (n, r)=>{
-        if ("backward" === r.direction) throw new $ZodEncodeError(e.constructor.name);
         n.addIssue = (r)=>{
             if ("string" == typeof r) n.issues.push(util_issue(r, n.value, t));
             else {
@@ -3987,7 +3894,7 @@ function merge_merge(e, t) {
     }
     return e;
 }
-var enc_base64 = __webpack_require__(716), enc_base64_default = __webpack_require__.n(enc_base64);
+var url_parse = __webpack_require__(337), url_parse_default = __webpack_require__.n(url_parse), enc_base64 = __webpack_require__(716), enc_base64_default = __webpack_require__.n(enc_base64);
 function safeJsonParse(e) {
     try {
         if (!e) return null;
@@ -4002,7 +3909,7 @@ function safeJsonParseWithZod(e, t) {
     let { success: r, data: i, error: o } = t.safeParse(n);
     return r ? i : (console.warn(`Failed to parse JSON with Zod: ${e}`, o), null);
 }
-function utils_base64ToUint8Array(e) {
+function base64ToUint8Array(e) {
     let t = enc_base64_default().parse(e), n = new Uint8Array(t.sigBytes);
     for(let e = 0; e < t.sigBytes; e++){
         let r = e >>> 2, i = e % 4;
@@ -4155,13 +4062,13 @@ class Fetch {
             }, s), r = storage.getJson(n);
             if (r) return console.debug("fetch cache hit", n), Promise.resolve(r);
         }
-        let a = o ? void 0 : n, { timeout: u, schema: l, params: c, ...d } = s, f = t;
-        c && (f = `${t}?${url_parse.qs.stringify(c)}`), console.debug("\u2B06\uFE0F fetch", f, null != a ? a : "", d);
-        let p = o ? Widget.http.get(f, d) : Widget.http.post(f, a, d);
+        let a = o ? void 0 : n, { timeout: u, schema: l, params: c, ...d } = s, p = t;
+        c && (p = `${t}?${url_parse.qs.stringify(c)}`), console.debug("\u2B06\uFE0F fetch", p, null != a ? a : "", d);
+        let f = o ? Widget.http.get(p, d) : Widget.http.post(p, a, d);
         return u && u > 0 ? Promise.race([
-            p,
+            f,
             this.createTimeoutPromise(u)
-        ]) : p;
+        ]) : f;
     }
     getCacheKey(e, t) {
         var n;
@@ -4172,14 +4079,17 @@ class Fetch {
         fetch_define_property(this, "cookie", void 0), fetch_define_property(this, "headers", void 0), fetch_define_property(this, "handleResponse", void 0), this.cookie = e, this.headers = t, this.handleResponse = (e, t, n)=>{
             var r;
             if ((null == n || null == (r = n.successStatus) ? void 0 : r.length) && !n.successStatus.includes(e.statusCode)) throw new HttpStatusError(e.statusCode, n.successStatus, t, e);
+            let i = {
+                ...e
+            };
             if (null == n ? void 0 : n.schema) {
                 let r = n.schema.safeParse(e.data);
-                if (!r.success) throw new HttpSchemaError(t, e, r.error);
+                if (!r.success) throw new HttpSchemaError(t, i, r.error);
                 e.data = r.data;
             }
-            let i = e.headers["set-cookie"] || e.headers["Set-Cookie"];
-            if (i) {
-                let e = i.split(",").reduce((e, t)=>{
+            let o = e.headers["set-cookie"] || e.headers["Set-Cookie"];
+            if (o) {
+                let e = o.split(",").reduce((e, t)=>{
                     if (!t) return e;
                     let [n] = t.split(";"), [r, ...i] = n.split("=");
                     return r && i.length > 0 && (e[r.trim()] = i.join("=").trim()), e;
@@ -4187,8 +4097,8 @@ class Fetch {
                 this.setCookie(e);
             }
             if (null == n ? void 0 : n.cache) {
-                let r = this.getCacheKey(t, n);
-                storage.setJson(r, e, {
+                let e = this.getCacheKey(t, n);
+                storage.setJson(e, i, {
                     ttl: n.cache.ttl
                 });
             }
@@ -4196,16 +4106,17 @@ class Fetch {
         };
     }
 }
+const fetch_fetch = new Fetch();
 function coerce_number(e) {
     return _coercedNumber(ZodNumber, e);
 }
-const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequestSchema = schemas_object({
+const BASE_URL = "https://api.imdbapi.dev", imdb_fetch = new Fetch(), episodesRequestSchema = schemas_object({
     season: coerce_number().optional().default(1),
     pageSize: coerce_number().optional().default(20),
     pageToken: schemas_string().optional()
 }), getImdbEpisodes = async (e, t)=>{
     let { season: n, pageSize: r, pageToken: i } = episodesRequestSchema.parse(null != t ? t : {});
-    return (await fetch.get(`${BASE_URL}/titles/${e}/episodes`, {
+    return (await imdb_fetch.get(`${BASE_URL}/titles/${e}/episodes`, {
         params: {
             season: n,
             pageSize: r,
@@ -4234,7 +4145,7 @@ const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequest
             nextPageToken: schemas_string().optional()
         })
     })).data;
-}, getImdbSeasons = async (e)=>(await fetch.get(`${BASE_URL}/titles/${e}/seasons`, {
+}, getImdbSeasons = async (e)=>(await imdb_fetch.get(`${BASE_URL}/titles/${e}/seasons`, {
         cache: {
             cacheKey: [
                 "imdb:seasons",
@@ -4247,12 +4158,7 @@ const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequest
                 episodeCount: schemas_number().optional()
             }))
         })
-    })).data, getExternalIdsByTmdbId = async (e, t)=>{
-    let n = null, r = `tmdb:${e}:${t}:external_ids`, i = storage.getJson(r);
-    return i ? n = i : (n = await Widget.tmdb.get(`/${e}/${t}/external_ids`), storage.setJson(r, n, {
-        ttl: TTL_7_DAYS
-    })), n;
-}, douban_fetch = new Fetch(), doubanImdbResponseSchema = schemas_object({
+    })).data, DOUBAN_API_KEY = "0ac44ae016490db2204ce0a042db2916", doubanImdbResponseSchema = schemas_object({
     id: schemas_string(),
     rating: schemas_object({
         min: schemas_number(),
@@ -4281,7 +4187,7 @@ const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequest
         u = null != (s = null == r || null == (o = r.episodes.find((e)=>1 === e.episodeNumber)) ? void 0 : o.id) ? s : "";
     }
     u || (u = e), console.log("Get douban info by imdb id", u);
-    let l = await douban_fetch.post(`https://api.douban.com/v2/movie/imdb/${u}`, {
+    let l = await fetch_fetch.post(`https://api.douban.com/v2/movie/imdb/${u}`, {
         apikey: DOUBAN_API_KEY
     }, {
         headers: {
@@ -4300,6 +4206,11 @@ const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequest
         doubanId: c,
         originResponse: l.data
     } : null;
+}, getExternalIdsByTmdbId = async (e, t)=>{
+    let n = null, r = `tmdb:${e}:${t}:external_ids`, i = storage.getJson(r);
+    return i ? n = i : (n = await Widget.tmdb.get(`/${e}/${t}/external_ids`), storage.setJson(r, n, {
+        ttl: TTL_7_DAYS
+    })), n;
 }, getDoubanInfoByTmdbId = async (e, t, n)=>{
     let r = await getExternalIdsByTmdbId(e, t);
     return (console.log("Get external ids by tmdb id", r), r.imdb_id) ? getDoubanInfoByImdbId(r.imdb_id, n) : null;
@@ -4312,7 +4223,7 @@ const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequest
     }))
 }), getVideoPlatformInfoByDoubanId = async (e)=>{
     var t, n, r;
-    let i = await douban_fetch.get(`https://m.douban.com/rexxar/api/v2/movie/${e}?for_mobile=1`, {
+    let i = await fetch_fetch.get(`https://m.douban.com/rexxar/api/v2/movie/${e}?for_mobile=1`, {
         headers: {
             Referer: `https://m.douban.com/movie/subject/${e}/?dt_dapp=1`,
             "Content-Type": "application/json"
@@ -4369,6 +4280,23 @@ const BASE_URL = "https://api.imdbapi.dev", fetch = new Fetch(), episodesRequest
     }
     return o;
 };
+function compact(e) {
+    let t = [];
+    for(let n = 0; n < e.length; n++){
+        let r = e[n];
+        r && t.push(r);
+    }
+    return t;
+}
+const doubanSubjectItemSchema = schemas_object({
+    type_name: schemas_string(),
+    target_type: schemas_string(),
+    target_id: coerce_number(),
+    target: schemas_object({
+        title: schemas_string(),
+        has_linewatch: schemas_boolean().refine((e)=>e)
+    })
+});
 function keyBy(e, t) {
     let n = {};
     for(let r = 0; r < e.length; r++){
@@ -4395,14 +4323,6 @@ function sortBy(e, t) {
         'asc'
     ]);
 }
-function compact(e) {
-    let t = [];
-    for(let n = 0; n < e.length; n++){
-        let r = e[n];
-        r && t.push(r);
-    }
-    return t;
-}
 function base_define_property(e, t, n) {
     return t in e ? Object.defineProperty(e, t, {
         value: n,
@@ -4411,6 +4331,14 @@ function base_define_property(e, t, n) {
         writable: !0
     }) : e[t] = n, e;
 }
+schemas_object({
+    subjects: schemas_object({
+        items: schemas_array(unknown().transform((e)=>{
+            var t;
+            return null != (t = doubanSubjectItemSchema.safeParse(e).data) ? t : null;
+        })).transform((e)=>compact(e))
+    })
+});
 class BaseScraper {
     parseIdString(e) {
         var t, n;
@@ -4541,7 +4469,7 @@ class BilibiliScraper extends BaseScraper {
                 base64Data: !0
             });
             if (404 === r.statusCode || 304 === r.statusCode) return null;
-            let i = this.DmSegMobileReply.decode(utils_base64ToUint8Array(r.data));
+            let i = this.DmSegMobileReply.decode(base64ToUint8Array(r.data));
             return console.log(i), i.elems;
         } catch (r) {
             console.error(`\u{83B7}\u{53D6}\u{5206}\u{6BB5} ${n} \u{5931}\u{8D25} (aid=${e}, cid=${t}): ${r}`);
@@ -4963,9 +4891,9 @@ const parseXml = function(e) {
     } else {
         let s = readTagExp(e, o, this.options.removeNSPrefix), a = s.tagName, u = s.rawTagName, l = s.tagExp, c = s.attrExpPresent, d = s.closeIndex;
         this.options.transformTagName && (a = this.options.transformTagName(a)), n && r && '!xml' !== n.tagname && (r = this.saveTextToParentTag(r, n, i, !1));
-        let f = n;
-        f && -1 !== this.options.unpairedTags.indexOf(f.tagname) && (n = this.tagsNodeStack.pop(), i = i.substring(0, i.lastIndexOf("."))), a !== t.tagname && (i += i ? "." + a : a);
-        let p = o;
+        let p = n;
+        p && -1 !== this.options.unpairedTags.indexOf(p.tagname) && (n = this.tagsNodeStack.pop(), i = i.substring(0, i.lastIndexOf("."))), a !== t.tagname && (i += i ? "." + a : a);
+        let f = o;
         if (this.isItStopNode(this.options.stopNodes, i, a)) {
             let t = "";
             if (l.length > 0 && l.lastIndexOf("/") === l.length - 1) "/" === a[a.length - 1] ? (a = a.substr(0, a.length - 1), i = i.substr(0, i.length - 1), l = a) : l = l.substr(0, l.length - 1), o = s.closeIndex;
@@ -4976,15 +4904,15 @@ const parseXml = function(e) {
                 o = n.i, t = n.tagContent;
             }
             let r = new XmlNode(a);
-            a !== l && c && (r[":@"] = this.buildAttributesMap(l, i, a)), t && (t = this.parseTextData(t, a, i, !0, c, !0, !0)), i = i.substr(0, i.lastIndexOf(".")), r.add(this.options.textNodeName, t), this.addChild(n, r, i, p);
+            a !== l && c && (r[":@"] = this.buildAttributesMap(l, i, a)), t && (t = this.parseTextData(t, a, i, !0, c, !0, !0)), i = i.substr(0, i.lastIndexOf(".")), r.add(this.options.textNodeName, t), this.addChild(n, r, i, f);
         } else {
             if (l.length > 0 && l.lastIndexOf("/") === l.length - 1) {
                 "/" === a[a.length - 1] ? (a = a.substr(0, a.length - 1), i = i.substr(0, i.length - 1), l = a) : l = l.substr(0, l.length - 1), this.options.transformTagName && (a = this.options.transformTagName(a));
                 let e = new XmlNode(a);
-                a !== l && c && (e[":@"] = this.buildAttributesMap(l, i, a)), this.addChild(n, e, i, p), i = i.substr(0, i.lastIndexOf("."));
+                a !== l && c && (e[":@"] = this.buildAttributesMap(l, i, a)), this.addChild(n, e, i, f), i = i.substr(0, i.lastIndexOf("."));
             } else {
                 let e = new XmlNode(a);
-                this.tagsNodeStack.push(n), a !== l && c && (e[":@"] = this.buildAttributesMap(l, i, a)), this.addChild(n, e, i, p), n = e;
+                this.tagsNodeStack.push(n), a !== l && c && (e[":@"] = this.buildAttributesMap(l, i, a)), this.addChild(n, e, i, f), n = e;
             }
             r = "", o = d;
         }
@@ -5606,7 +5534,9 @@ const tencentIdSchema = schemas_object({
             "\u8D70\u5FC3",
             "\u89E3\u5FE7",
             "\u7EAF\u4EAB",
-            "\u8282\u70B9"
+            "\u8282\u70B9",
+            "\u91C7\u8BBF",
+            "\u82B1\u7D6E"
         ])if (e.includes(t)) return !1;
         return !0;
     }),
@@ -5617,8 +5547,14 @@ const tencentIdSchema = schemas_object({
             module_datas: schemas_array(schemas_object({
                 item_data_lists: schemas_object({
                     item_datas: schemas_array(schemas_object({
-                        item_params: unknown()
-                    }))
+                        item_params: unknown().transform((e)=>{
+                            var t;
+                            return null != (t = tencentEpisodeSchema.safeParse(e).data) ? t : null;
+                        })
+                    }).transform((e)=>{
+                        var t;
+                        return null != (t = e.item_params) ? t : null;
+                    })).transform((e)=>compact(e))
                 })
             }))
         }))
@@ -5701,7 +5637,7 @@ class TencentScraper extends BaseScraper {
         let n = this.parseIdString(e);
         if (!(null == n ? void 0 : n.vid)) return [];
         let r = await this.internalGetComments(n.vid, t);
-        return r && 0 !== r.length ? r.map((e)=>{
+        return (console.log("\u627E\u5230", r.length, "\u6761\u5F39\u5E55"), r && 0 !== r.length) ? r.map((e)=>{
             let t = 1, n = 16777215;
             if (e.content_style && (2 === e.content_style.position ? t = 5 : 3 === e.content_style.position && (t = 4), e.content_style.color)) try {
                 n = parseInt(e.content_style.color, 10);
@@ -5742,15 +5678,11 @@ class TencentScraper extends BaseScraper {
                     cacheKey: `tencent:episodes:${e}:${n}`
                 }
             })).data) ? i : [];
-            for (let e of (o.length >= tencent_pageSize ? (n += 1, r = url_parse.qs.stringify({
+            if (o.length >= tencent_pageSize ? (n += 1, r = url_parse.qs.stringify({
                 episode_begin: n * tencent_pageSize,
                 episode_end: (n + 1) * tencent_pageSize,
                 episode_step: tencent_pageSize
-            })) : r = "", o)){
-                let { success: n, data: r } = tencentEpisodeSchema.safeParse(e.item_params);
-                n && t.push(r);
-            }
-            if (!r) break;
+            })) : r = "", t.push(...o), !r) break;
         } catch (t) {
             console.error(`\u{83B7}\u{53D6}\u{5206}\u{96C6}\u{5217}\u{8868}\u{5931}\u{8D25} (cid=${e})`, t);
             break;
@@ -5795,7 +5727,7 @@ const youkuIdSchema = schemas_object({
     id: schemas_string(),
     show_id: schemas_string().optional(),
     title: schemas_string(),
-    seq: schemas_string().transform((e)=>parseInt(e)).optional(),
+    seq: coerce_number().optional(),
     duration: schemas_string(),
     category: schemas_string(),
     link: schemas_string()
@@ -5860,8 +5792,8 @@ class YoukuScraper extends BaseScraper {
             if (d) return [
                 n(d, u)
             ];
-            let f = Number(null != (i = null == o ? void 0 : o.total) ? i : 0), p = Math.max(1, Math.ceil(f / a)), h = Array.from({
-                length: p
+            let p = Number(null != (i = null == o ? void 0 : o.total) ? i : 0), f = Math.max(1, Math.ceil(p / a)), h = Array.from({
+                length: f
             }, (e, t)=>t + 1).filter((e)=>e !== l), m = [];
             for (let e of h){
                 await this.sleep(500);
@@ -6186,7 +6118,7 @@ class scrapers_Scraper {
         });
     }
 }
-const widgetVersion = "0.0.15";
+const widgetVersion = "0.0.16";
 WidgetMetadata = {
     id: "baranwang.danmu.universe",
     title: "\u901A\u7528\u5F39\u5E55",
@@ -6228,22 +6160,18 @@ WidgetMetadata = {
 };
 const src_scraper = new scrapers_Scraper();
 searchDanmu = async (e)=>{
-    var t;
-    storage.cleanup();
-    let { tmdbId: n, type: r, season: i, episode: o } = e;
-    if (!n) return {
-        animes: []
-    };
-    let s = await getDoubanInfoByTmdbId(r, n, i);
-    return {
-        animes: (await src_scraper.getDetailWithDoubanId(null != (t = null == s ? void 0 : s.doubanId) ? t : "", r, o)).map((e)=>{
+    let { tmdbId: t, type: n, season: r, episode: i } = e;
+    if (!t) return null;
+    let o = await getDoubanInfoByTmdbId(n, t, r);
+    return (null == o ? void 0 : o.doubanId) ? {
+        animes: (await src_scraper.getDetailWithDoubanId(o.doubanId, n, i)).map((e)=>{
             let t = `[${PROVIDER_NAMES[e.provider]}] `;
             return e.episodeTitle && (t += e.episodeTitle), {
                 animeId: e.episodeId,
                 animeTitle: t
             };
         })
-    };
+    } : null;
 }, getDetail = async (e)=>{
     var t;
     let { animeId: n, tmdbId: r, type: i, season: o, episode: s } = e;
