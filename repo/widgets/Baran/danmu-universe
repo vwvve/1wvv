@@ -2523,6 +2523,8 @@ const $ZodJWT = $constructor("$ZodJWT", (e, t)=>{
             inst: e
         }), n;
     };
+}), $ZodAny = $constructor("$ZodAny", (e, t)=>{
+    $ZodType.init(e, t), e._zod.parse = (e)=>e;
 }), $ZodUnknown = $constructor("$ZodUnknown", (e, t)=>{
     $ZodType.init(e, t), e._zod.parse = (e)=>e;
 }), $ZodNever = $constructor("$ZodNever", (e, t)=>{
@@ -3302,6 +3304,11 @@ function _boolean(e, t) {
         ...normalizeParams(t)
     });
 }
+function _any(e) {
+    return new e({
+        type: "any"
+    });
+}
 function _unknown(e) {
     return new e({
         type: "unknown"
@@ -3623,6 +3630,12 @@ const ZodBoolean = $constructor("ZodBoolean", (e, t)=>{
 });
 function schemas_boolean(e) {
     return _boolean(ZodBoolean, e);
+}
+const ZodAny = $constructor("ZodAny", (e, t)=>{
+    $ZodAny.init(e, t), ZodType.init(e, t);
+});
+function any() {
+    return _any(ZodAny);
 }
 const ZodUnknown = $constructor("ZodUnknown", (e, t)=>{
     $ZodUnknown.init(e, t), ZodType.init(e, t);
@@ -5486,24 +5499,32 @@ const iqiyiIdSchema = schemas_object({
         }
     })), safeParseVideo = (e)=>{
     let t = iqiyiEpisodeTabDataVideoSchema.safeParse(e);
-    return t.success ? t.data : (console.warn("\u7231\u5947\u827A: \u89E3\u6790\u5206\u96C6\u6570\u636E\u65F6\u53D1\u751F\u9519\u8BEF:", t.error.format(), e), null);
-}, iqiyiTvTabDataSchema = schemas_object({
-    data: schemas_array(schemas_object({
-        videos: schemas_object({
-            feature_paged: record(schemas_string(), schemas_array(unknown().transform((e)=>safeParseVideo(e)))).optional().transform((e)=>compact(Object.values(null != e ? e : {}).flat()))
-        }).optional()
-    }).transform((e)=>{
-        var t;
-        return null == (t = e.videos) ? void 0 : t.feature_paged;
-    })).transform((e)=>compact(e.flat()))
-}), iqiyiMovieTabDataSchema = schemas_object({
+    return t.success ? t.data : (console.warn("\u7231\u5947\u827A: \u89E3\u6790\u5206\u96C6\u6570\u636E\u65F6\u53D1\u751F\u9519\u8BEF:", prettifyError(t.error), e), null);
+}, iqiyiTvTabSchema = schemas_object({
+    bk_id: literal("selector_bk"),
+    bk_type: literal("album_episodes"),
     data: schemas_object({
-        videos: schemas_array(unknown().transform((e)=>safeParseVideo(e)))
-    }).transform((e)=>compact(e.videos))
-}), iqiyiEpisodeTabDataSchema = union([
-    iqiyiTvTabDataSchema,
-    iqiyiMovieTabDataSchema
-]), iqiyiV3ApiResponseSchema = schemas_object({
+        data: schemas_array(unknown().transform((e)=>schemas_object({
+                videos: schemas_object({
+                    feature_paged: record(any(), schemas_array(unknown().transform((e)=>safeParseVideo(e)))).optional().transform((e)=>compact(Object.values(null != e ? e : {}).flat()))
+                }).optional()
+            }).transform((e)=>{
+                var t;
+                return null == (t = e.videos) ? void 0 : t.feature_paged;
+            }).safeParse(e).data)).transform((e)=>compact(e.flat()))
+    })
+}), iqiyiMovieTabSchema = schemas_object({
+    bk_id: literal("film_feature_bk"),
+    bk_type: literal("video_list"),
+    data: schemas_object({
+        data: schemas_object({
+            videos: schemas_array(unknown().transform((e)=>safeParseVideo(e)))
+        }).transform((e)=>compact(e.videos))
+    })
+}), iqiyiEpisodeTabSchema = union([
+    iqiyiTvTabSchema,
+    iqiyiMovieTabSchema
+]).transform((e)=>e.data.data), iqiyiV3ApiResponseSchema = schemas_object({
     status_code: schemas_number(),
     data: schemas_object({
         base_data: schemas_object({
@@ -5635,10 +5656,10 @@ class IqiyiScraper extends BaseScraper {
                     url: e.play_url
                 }))) ? o : [];
             if (!c.length) {
-                let t = null == e || null == (u = e.data) || null == (a = u.template) || null == (s = a.tabs) ? void 0 : s.flatMap((e)=>e.blocks || []).find((e)=>"selector_bk" === e.bk_id && "album_episodes" === e.bk_type || "film_feature_bk" === e.bk_id && "video_list" === e.bk_type), { success: n, data: r, error: i } = iqiyiEpisodeTabDataSchema.safeParse(null == t ? void 0 : t.data);
-                if (!n) return console.warn(`\u{7231}\u{5947}\u{827A}: \u{89E3}\u{6790}\u{5206}\u{96C6}\u{6570}\u{636E}\u{65F6}\u{53D1}\u{751F}\u{9519}\u{8BEF}:`, prettifyError(i), t), [];
+                let t = null == e || null == (u = e.data) || null == (a = u.template) || null == (s = a.tabs) ? void 0 : s.flatMap((e)=>e.blocks || []).find((e)=>iqiyiEpisodeTabSchema.safeParse(e).success), { success: n, data: r, error: i } = iqiyiEpisodeTabSchema.safeParse(t);
+                if (!n) return console.warn(`\u{7231}\u{5947}\u{827A}: \u{89E3}\u{6790}\u{5206}\u{96C6}\u{5217}\u{8868}\u{6570}\u{636E}\u{65F6}\u{53D1}\u{751F}\u{9519}\u{8BEF}:`, prettifyError(i), t), [];
                 let o = this.getEpisodeBlacklistPattern(), f = 1;
-                for (let e of r.data){
+                for (let e of r){
                     if (17 === e.mark_type_show) continue;
                     let t = this.videoIdToEntityId(e.videoId);
                     t && (null != o && o.test(e.title) || (c.push({
@@ -6309,7 +6330,7 @@ class scrapers_Scraper {
         });
     }
 }
-const widgetVersion = "0.1.0";
+const widgetVersion = "0.1.1";
 WidgetMetadata = {
     id: "baranwang.danmu.universe",
     title: "\u901A\u7528\u5F39\u5E55",
