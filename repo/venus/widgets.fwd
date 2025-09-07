@@ -18,7 +18,7 @@
       "id": "baranwang.danmu.universe",
       "requiredVersion": "0.0.2",
       "title": "通用弹幕",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Baran/danmu-universe",
+      "url": "https://unpkg.com/@forward-widget/danmu-universe@0.4.0/dist/danmu-universe.js",
       "version": "0.0.15"
     }
   ]
