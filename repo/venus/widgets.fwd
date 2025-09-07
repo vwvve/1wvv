@@ -18,8 +18,26 @@
       "id": "baranwang.danmu.universe",
       "requiredVersion": "0.0.2",
       "title": "通用弹幕",
-      "url": "https://unpkg.com/@forward-widget/danmu-universe@0.4.0/dist/danmu-universe.js",
+      "url": "https://unpkg.com/@forward-widget/danmu-universe",
       "version": "0.0.15"
+    },
+    {
+      "author": "Baran",
+      "description": "获取 91Porn 视频",
+      "id": "91porn",
+      "requiredVersion": "0.0.1",
+      "title": "91Porn",
+      "url": "https://github.com/baranwang/forward-widget/releases/download/v0.9.4/91porn.js",
+      "version": "0.9.4"
+    },
+    {
+      "author": "Baran",
+      "description": "XVideos",
+      "id": "xvideos",
+      "requiredVersion": "0.0.1",
+      "title": "XVideos",
+      "url": "https://github.com/baranwang/forward-widget/releases/download/v0.9.4/xvideos.js",
+      "version": "0.9.4"
     }
   ]
 }
