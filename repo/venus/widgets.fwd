@@ -1,0 +1,25 @@
+{
+  "description": "自用",
+  "icon": "https://avatars.githubusercontent.com/u/225779571",
+  "title": "自用",
+  "widgets": [
+    {
+      "author": "𝓑𝓾𝓽𝓽𝓮𝓻𝓯𝓵𝔂",
+      "description": "获取 MissAV 推荐",
+      "id": "missav",
+      "requiredVersion": "0.0.2",
+      "title": "MissAV",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%F0%9D%93%91%F0%9D%93%BE%F0%9D%93%BD%F0%9D%93%BD%F0%9D%93%AE%F0%9D%93%BB%F0%9D%93%AF%F0%9D%93%B5%F0%9D%94%82/MissAV.js",
+      "version": "1.0.0"
+    },
+    {
+      "author": "Baran",
+      "description": "通用弹幕插件，支持腾讯、优酷、爱奇艺、哔哩哔哩等平台",
+      "id": "baranwang.danmu.universe",
+      "requiredVersion": "0.0.2",
+      "title": "通用弹幕",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Baran/danmu-universe",
+      "version": "0.0.15"
+    }
+  ]
+}
