@@ -272,6 +272,24 @@
       "title": "通用弹幕",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Baran/danmu-universe",
       "version": "0.0.15"
+    },
+    {
+      "author": "Baran",
+      "description": "获取 91Porn 视频",
+      "id": "91porn",
+      "requiredVersion": "0.0.1",
+      "title": "91Porn",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Baran/91porn",
+      "version": "0.10.1"
+    },
+    {
+      "author": "Baran",
+      "description": "XVideos",
+      "id": "xvideos",
+      "requiredVersion": "0.0.1",
+      "title": "XVideos",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Baran/xvideos",
+      "version": "0.10.1"
     }
   ]
 }
