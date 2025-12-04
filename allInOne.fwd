@@ -229,13 +229,13 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E6%97%A0%E5%90%8D/wuming.js"
     },
     {
-      "id": "cloud_cinema",
-      "title": "云端影院",
-      "description": "获取在线云端资源",
+      "id": "vod_sream",
+      "title": "VOD Stream",
+      "description": "获取聚合VOD影片资源",
       "requiredVersion": "0.0.1",
       "version": "1.0.0",
       "author": "两块",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/CloudCinema.js"
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/VodStream.js"
     },
     {
       "id": "ddys_vod",
@@ -263,6 +263,15 @@
       "version": "0.0.1",
       "author": "Discount Code：VEUS",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/61a5cbf0637b95a0d800994a51860fb2"
+    },
+    {
+      "id": "cloud_cinema",
+      "title": "云端影院",
+      "description": "☁️ YUNDUAN MOvies",
+      "requiredVersion": "0.0.1",
+      "version": "1.0.0",
+      "author": "Discount Code：VEUS",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Discount%20Code%EF%BC%9AVEUS/CloudCinema.js"
     },
     {
       "author": "𝓑𝓾𝓽𝓽𝓮𝓻𝓯𝓵𝔂",
