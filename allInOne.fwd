@@ -247,6 +247,15 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/ddys.js"
     },
     {
+      "id": "ystt.vod",
+      "title": "影视天堂",
+      "description": "影视天堂影片资源",
+      "requiredVersion": "0.0.1",
+      "version": "1.0.0",
+      "author": "两块",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/ystt.js"
+    },
+    {
       "id": "dytt_vod",
       "title": "电影天堂",
       "description": "获取在线电影、电视剧、动漫、综艺和短剧",
