@@ -229,15 +229,6 @@
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E6%97%A0%E5%90%8D/wuming.js"
     },
     {
-      "id": "vod_sream",
-      "title": "VOD Stream",
-      "description": "获取聚合VOD影片资源",
-      "requiredVersion": "0.0.1",
-      "version": "1.0.0",
-      "author": "两块",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/VodStream.js"
-    },
-    {
       "id": "ddys_vod",
       "title": "低端影视",
       "description": "获取在线电影、电视剧、动画",
@@ -245,15 +236,6 @@
       "version": "1.0.0",
       "author": "两块",
       "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/ddys.js"
-    },
-    {
-      "id": "ystt.vod",
-      "title": "影视天堂",
-      "description": "影视天堂影片资源",
-      "requiredVersion": "0.0.1",
-      "version": "1.0.0",
-      "author": "两块",
-      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/%E4%B8%A4%E5%9D%97/ystt.js"
     },
     {
       "id": "dytt_vod",
