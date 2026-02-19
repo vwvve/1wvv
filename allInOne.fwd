@@ -230,6 +230,15 @@
     },
     {
       "author": "Baran",
+      "description": "通用弹幕插件，支持腾讯、优酷、爱奇艺、哔哩哔哩等平台",
+      "id": "baranwang.danmu.universe",
+      "requiredVersion": "0.0.2",
+      "title": "通用弹幕",
+      "url": "https://raw.githubusercontent.com/vwvve/1wvv/refs/heads/main/repo/widgets/Baran/danmu-universe",
+      "version": "0.0.15"
+    },
+    {
+      "author": "Baran",
       "description": "获取 91Porn 视频",
       "id": "91porn",
       "requiredVersion": "0.0.1",
